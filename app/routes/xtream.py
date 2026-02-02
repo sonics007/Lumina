@@ -462,7 +462,7 @@ def player_api():
         
         series_map = {}
         for title, img, tags, rating, created, desc, src, mid in items:
-            match = re.match(r'^(.*?) - S(\d+)E(\d+)', title)
+            match = re.match(r'^(.*?)\s*[-–—]\s*S(\d+)E(\d+)', title)
             s_name = match.group(1) if match else title
             
             s_id = int(hashlib.md5(s_name.encode()).hexdigest(), 16) % 10000000
@@ -513,7 +513,7 @@ def player_api():
         
         logging.info(f"Debugging series info for SID={target_sid}. Checking {len(items)} items...")
         for item in items:
-            match = re.match(r'^(.*?) - S(\d+)E(\d+)', item.title)
+            match = re.match(r'^(.*?)\s*[-–—]\s*S(\d+)E(\d+)', item.title)
             s_name = match.group(1) if match else item.title
             
             calc_id = int(hashlib.md5(s_name.encode()).hexdigest(), 16) % 10000000

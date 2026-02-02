@@ -144,12 +144,20 @@ def watch():
         session = get_scraper_session()
         max_retries = 2
         r = None
+        
+        print(f"[PLAYBACK] Probing stream ({max_retries} retries): {real_stream}", flush=True)
+        
         for attempt in range(max_retries):
             try:
                 # Use stream=True to handle large files and not download everything at once
                 r = session.get(real_stream, headers=headers, timeout=30, stream=True, verify=False)
-                break
+                print(f"[PLAYBACK] Probe attempt {attempt+1}: Status {r.status_code}", flush=True)
+                if r.status_code < 400:
+                    break
+                else:
+                    print(f"[PLAYBACK] Probe failed with status {r.status_code}", flush=True)
             except Exception as e:
+                print(f"[PLAYBACK] Probe Error (attempt {attempt+1}): {e}", flush=True)
                 if attempt == max_retries - 1: return f"Fetch Error: {e}", 502
                 time.sleep(1)
         

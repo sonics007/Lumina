@@ -151,7 +151,8 @@ if [ $? -eq 0 ]; then
     echo -e "${GN} INSTALLATION COMPLETE! ${CL}"
     echo -e "Lumina Dashboard: ${BL}http://${IP}:5001${CL}"
     echo -e "Container ID:     ${BL}$CT_ID${CL}"
-    echo -e "Root Password:    ${BL}$PASSWORD${CL}"
+    echo -e "SSH Login:        ${BL}root${CL}"
+    echo -e "SSH Password:     ${BL}$PASSWORD${CL}"
     echo -e "${GN}=================================================${CL}"
 else
     msg_error "Lumina Installation Failed inside container."

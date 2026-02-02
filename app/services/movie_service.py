@@ -35,7 +35,8 @@ class MovieService:
                 movie = Movie(
                     url=data.get('url'),
                     title=data.get('title', 'Unknown'),
-                    source=data.get('source', 'manual')
+                    source=data.get('source', 'manual'),
+                    content_type=data.get('content_type', 'movie')
                 )
                 db.session.add(movie)
                 logging.info(f"Creating new movie: {movie.title}")
@@ -46,6 +47,7 @@ class MovieService:
             if data.get('image'): movie.image = data.get('image')
             if data.get('description'): movie.description = data.get('description')
             if data.get('tags'): movie.tags = data.get('tags')
+            if data.get('content_type'): movie.content_type = data.get('content_type')
             
             # Musíme flushnúť, aby sme mali movie.id
             db.session.flush()

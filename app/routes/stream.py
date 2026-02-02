@@ -145,10 +145,9 @@ def watch():
     # 3. Proxying
     # 3. Proxying
     # 3. Proxying
+    # 3. Proxying
     try:
-        # Use standard requests for playback stability (curl_cffi can hang on stream=True in some envs)
-        import requests as std_requests
-        session = std_requests.Session()
+        session = get_scraper_session()
         
         # Standard path (Probe first)
         max_retries = 2
@@ -280,9 +279,7 @@ def segment():
     headers = {'User-Agent': DEFAULT_UA, 'Referer': ref}
     
     try:
-        # Use standard requests
-        import requests as std_requests
-        session = std_requests.Session()
+        session = get_scraper_session()
         r = session.get(target, headers=headers, stream=True, timeout=30, verify=False)
         
         ct = r.headers.get('Content-Type', '').lower()

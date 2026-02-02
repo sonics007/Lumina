@@ -75,7 +75,7 @@ def watch():
     headers = {'User-Agent': DEFAULT_UA}
     
     # Check for direct file extensions or Xtream patterns BEFORE calling extractor
-    is_direct = source_url.lower().endswith(('.mp4', '.mkv', '.avi', '.mov', '.ts', '.m3u8'))
+    is_direct = source_url.lower().endswith(('.mp4', '.mkv', '.avi', '.mov', '.ts', '.m3u8', '.txt'))
     is_xtream = '/movie/' in source_url or '/series/' in source_url or '/live/' in source_url
     is_bahu = 'bahu.tv' in source_url.lower()
     
@@ -159,7 +159,12 @@ def watch():
         for attempt in range(max_retries):
             try:
                 # Use stream=True to handle large files and not download everything at once
-                r = session.get(real_stream, headers=headers, timeout=30, stream=True, verify=False)
+                # BUT DISABLE for playlists (.m3u8/.txt) to prevent hanging/buffering issues on small files
+                do_stream = True
+                if real_stream and ('.m3u8' in real_stream or '.txt' in real_stream or '.urlset' in real_stream):
+                    do_stream = False
+                
+                r = session.get(real_stream, headers=headers, timeout=30, stream=do_stream, verify=False)
                 print(f"[PLAYBACK] Probe attempt {attempt+1}: Status {r.status_code}", flush=True)
                 if r.status_code < 400:
                     break

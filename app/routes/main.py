@@ -527,12 +527,23 @@ def save_analyzed_movie():
             Stream.query.filter_by(movie_id=movie.id).delete()
         else:
             # Create
+            # Determine tags
+            tags = request.form.get('tags')
+            if not tags:
+                # Auto-tag based on source or content
+                # User specifically requested 'xxxv' group (interpreted as XXX category) for Uiiu
+                if 'uiiu' in (source or '') or 'uiiu' in url:
+                    tags = "XXX, Movies"
+                else:
+                    tags = "Movies"
+
             movie = Movie(
                 title=title,
                 url=url,
                 image=image,
                 description=desc,
-                source=source
+                source=source,
+                tags=tags
             )
             db.session.add(movie)
             db.session.flush() # Get ID

@@ -667,9 +667,6 @@ def movie_stream_vod(username, password, stream_id, ext=None):
     else:
         target_url = best_stream.url
        
-    else:
-        target_url = best_stream.url
-       
     # --- PROXY REDIRECT for Providers (HGLink, StreamTape, etc.) ---
     # Redirect to internal /watch proxy which handles extraction, headers, and M3U8 rewriting
     NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
@@ -681,9 +678,6 @@ def movie_stream_vod(username, password, stream_id, ext=None):
         logging.info(f"Redirecting provider URL to internal proxy: {target_url}")
         return redirect(f"{proxy_base}/watch?url={quote(target_url)}")
     # ---------------------------------------------------
-
-    try:
-        # User requested DIRECT REDIRECT ("do nothing with link")
 
     try:
         # User requested DIRECT REDIRECT ("do nothing with link")

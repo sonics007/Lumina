@@ -669,12 +669,18 @@ def movie_stream_vod(username, password, stream_id, ext=None):
        
     # --- Generic Resolver (HGLink, StreamTape, etc.) ---
     try:
-        from ..services import stream_resolver
+        from ..services import extractor
         # Only try resolving if not localhost/internal
         if target_url and 'http' in target_url and not '127.0.0.1' in target_url:
-            resolved = stream_resolver.resolve_url(target_url)
-            if resolved:
-                target_url = resolved
+            # Check if url looks like a provider that needs extraction
+            NEEDS_RESOLVE = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
+            if any(x in target_url for x in NEEDS_RESOLVE):
+                resolved_url, headers = extractor.get_stream_url(target_url)
+                if resolved_url:
+                    logging.info(f"Resolved provider URL to: {resolved_url}")
+                    target_url = resolved_url
+                    # Note: If headers are critical (referer), 302 redirect might not work 
+                    # for all players. But direct raw streams usually work.
     except Exception as e:
         logging.error(f"Generic Resolve Error: {e}")
     # ---------------------------------------------------

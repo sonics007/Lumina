@@ -402,8 +402,12 @@ def bahu_run_completeness_check():
     """Run completeness check script"""
     import subprocess
     try:
-        check_script = os.path.join(BAHU_DIR, 'check_bahu_completeness.py')
-        subprocess.Popen([sys.executable, check_script], cwd=BAHU_DIR)
+        # Script is in root dir, sibling to bahu dir
+        root_dir = os.path.dirname(BAHU_DIR)
+        check_script = os.path.join(root_dir, 'check_bahu_completeness.py')
+        
+        # Run in root dir so imports work correctly
+        subprocess.Popen([sys.executable, check_script], cwd=root_dir)
         
         return jsonify({
             'success': True,

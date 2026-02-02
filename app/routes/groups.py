@@ -41,12 +41,9 @@ def manage():
                 display_source = 'Bahu'
 
             items = []
-            if context == 'movie':
-                # VOD logic: whole string is category
-                items = [t_str.strip()]
-            else:
-                 # Series/Live logic: split by comma
-                 items = [x.strip() for x in t_str.split(',')]
+            items = []
+            # Logic for all types: split by comma
+            items = [x.strip() for x in t_str.split(',')]
                  
             valid_items = []
             for item in items:

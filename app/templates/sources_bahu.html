@@ -69,6 +69,9 @@
                 <button class="btn btn-warning" onclick="runScraper()">
                     <i class="fas fa-sync"></i> Run Scraper
                 </button>
+                <button class="btn btn-warning" onclick="runCheck()" style="background-color: #d97706;">
+                    <i class="fas fa-clipboard-check"></i> Check Integrity
+                </button>
             </div>
 
             <!-- Movies Categories -->
@@ -201,6 +204,18 @@
             <div id="scraperResults" style="margin-top: 20px; display: none; text-align: center;">
                 <h4 style="color: #4ade80; margin-bottom: 10px;">Scraping Complete!</h4>
                 <button class="btn btn-primary" onclick="closeScraperModal()">Close & Refresh</button>
+            </div>
+        </div>
+    </div>
+    <!-- Log Modal -->
+    <div id="logModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 800px; width: 95%;">
+            <h3><i class="fas fa-clipboard-list"></i> check_bahu_completeness.py Output</h3>
+            <pre id="logContent"
+                style="background:#0f172a; padding:15px; border-radius:6px; height:500px; overflow:auto; font-family:monospace; font-size:0.85em; color:#e2e8f0; border:1px solid #334155; white-space: pre-wrap;"></pre>
+            <div style="margin-top:15px; text-align:right; display:flex; justify-content:space-between;">
+                <button class="btn btn-primary" onclick="loadLog()"><i class="fas fa-sync"></i> Refresh Log</button>
+                <button class="btn btn-secondary" onclick="closeLogModal()">Close</button>
             </div>
         </div>
     </div>
@@ -521,8 +536,54 @@
         location.reload();
     }
 
-    function updateProgress(percent, text) { }
     function showImportResults(imported, skipped) { }
     function showToast(msg, type) { console.log(msg); }
+
+    // --- INTEGRITY CHECK ---
+    function runCheck() {
+        if (!confirm('Run integrity check? This will compare local files, database, and web counts.')) return;
+
+        // Show modal immediately
+        showLogModal();
+        document.getElementById('logContent').textContent = 'Starting check process...\nPlease wait a moment and click Refresh Log.';
+
+        fetch('/sources/bahu-run-completeness-check', { method: 'POST' })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    // Start auto-refreshing log for a few seconds
+                    let checks = 0;
+                    const interval = setInterval(() => {
+                        loadLog();
+                        checks++;
+                        if (checks > 10) clearInterval(interval); // Stop auto-refresh after 20s
+                    }, 2000);
+                } else {
+                    document.getElementById('logContent').textContent = 'Error starting check: ' + data.message;
+                }
+            })
+            .catch(e => {
+                document.getElementById('logContent').textContent = 'Request failed: ' + e;
+            });
+    }
+
+    function showLogModal() {
+        document.getElementById('logModal').style.display = 'flex';
+    }
+
+    function closeLogModal() {
+        document.getElementById('logModal').style.display = 'none';
+    }
+
+    function loadLog() {
+        fetch('/sources/bahu-completeness-log')
+            .then(r => r.json())
+            .then(data => {
+                const el = document.getElementById('logContent');
+                el.textContent = data.log;
+                el.scrollTop = el.scrollHeight; // Auto scroll to bottom
+            })
+            .catch(e => console.error(e));
+    }
 </script>
 {% endblock %}

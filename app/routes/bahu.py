@@ -383,3 +383,30 @@ def bahu_scraper_status():
             pass
     return jsonify({"status": "Idle", "total_found": 0, "total_added": 0})
 
+@bp.route('/bahu-run-completeness-check', methods=['POST'])
+def bahu_run_completeness_check():
+    """Run completeness check script"""
+    import subprocess
+    try:
+        check_script = os.path.join(BAHU_DIR, 'check_bahu_completeness.py')
+        subprocess.Popen([sys.executable, check_script], cwd=BAHU_DIR)
+        
+        return jsonify({
+            'success': True,
+            'message': 'Completeness check started. Check log below.'
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+@bp.route('/bahu-completeness-log')
+def bahu_completeness_log():
+    """Get last completeness check log"""
+    log_file = os.path.join(BAHU_DIR, 'completeness_last_check.txt')
+    if os.path.exists(log_file):
+        try:
+            with open(log_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            return jsonify({'log': content})
+        except Exception as e:
+            return jsonify({'log': f"Error reading log: {str(e)}"})
+    return jsonify({'log': "No log found. Run check first."})

@@ -1,5 +1,5 @@
 from flask import Flask, Response, redirect, request, render_template, url_for, flash
-import extractor
+from app.services import extractor
 import os
 import subprocess
 import requests

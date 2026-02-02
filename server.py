@@ -674,9 +674,7 @@ def segment():
                      if chunk: content_bytes += chunk
              else:
                  content_bytes = r.content
-                 
-             return Response(content_bytes, mimetype=r.headers.get('Content-Type', 'application/vnd.apple.mpegurl'))
-                 print(f"Error reading segment playlist: {e}")
+
              
              content = content_bytes.decode('utf-8', errors='ignore')
              base_url = r.url

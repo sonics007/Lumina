@@ -60,6 +60,16 @@ RAM="2048"
 read -p "Allocated RAM MB [$RAM]: " INPUT_RAM
 RAM=${INPUT_RAM:-$RAM}
 
+# Network Configuration
+read -p "Use DHCP? [y/N]: " USE_DHCP
+if [[ "$USE_DHCP" =~ ^[yY]$ ]]; then
+    NET_CONFIG="name=eth0,bridge=vmbr0,ip=dhcp"
+else
+    read -p "IP Address (CIDR, e.g. 192.168.1.100/24): " INPUT_IP
+    read -p "Gateway (e.g. 192.168.1.1): " INPUT_GW
+    NET_CONFIG="name=eth0,bridge=vmbr0,ip=$INPUT_IP,gw=$INPUT_GW"
+fi
+
 PASSWORD="lumina" 
 
 # Check storage
@@ -100,7 +110,7 @@ pct create $CT_ID $TEMPLATE_VOL \
     --cores $CORES \
     --memory $RAM \
     --swap 512 \
-    --net0 name=eth0,bridge=vmbr0,ip=dhcp \
+    --net0 $NET_CONFIG \
     --rootfs $STORAGE_TYPE:${DISK_SIZE} \
     --storage $STORAGE_TYPE \
     --password $PASSWORD \

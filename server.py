@@ -38,7 +38,7 @@ try:
 except ImportError:
     def scrape_single_movie(u): return {}
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='app/templates', static_folder='app/static')
 app.secret_key = 'super_secret_key_change_me' # Required for flashing
 
 # Logging setup

@@ -100,7 +100,29 @@ def check_web_totals():
         except Exception as e:
             print(f"  - {col['name'].ljust(15)}: Failed to scan ({str(e)[:50]})")
 
+# Helper to log to both stdout and file
+class Tee(object):
+    def __init__(self, name, mode):
+        self.file = open(name, mode, encoding='utf-8')
+        self.stdout = sys.stdout
+    def write(self, data):
+        self.file.write(data)
+        self.stdout.write(data)
+    def flush(self):
+        self.file.flush()
+        self.stdout.flush()
+    def __del__(self):
+        self.file.close()
+
 if __name__ == "__main__":
+    # Setup Logging
+    log_path = os.path.join(BAHU_DIR, 'completeness_last_check.txt')
+    sys.stdout = Tee(log_path, 'w')
+    
+    # Print Header with Time
+    from datetime import datetime
+    print(f"Check started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
     count_json_files()
     count_db_items()
     check_web_totals()

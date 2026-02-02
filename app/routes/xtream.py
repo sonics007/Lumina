@@ -667,6 +667,18 @@ def movie_stream_vod(username, password, stream_id, ext=None):
     else:
         target_url = best_stream.url
        
+    # --- Generic Resolver (HGLink, StreamTape, etc.) ---
+    try:
+        from ..services import stream_resolver
+        # Only try resolving if not localhost/internal
+        if target_url and 'http' in target_url and not '127.0.0.1' in target_url:
+            resolved = stream_resolver.resolve_url(target_url)
+            if resolved:
+                target_url = resolved
+    except Exception as e:
+        logging.error(f"Generic Resolve Error: {e}")
+    # ---------------------------------------------------
+
     try:
         # User requested DIRECT REDIRECT ("do nothing with link")
         # Ensure scheme exists

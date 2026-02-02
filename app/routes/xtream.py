@@ -667,16 +667,30 @@ def movie_stream_vod(username, password, stream_id, ext=None):
     else:
         target_url = best_stream.url
        
-    # --- PROXY REDIRECT for Providers (HGLink, StreamTape, etc.) ---
-    # Redirect to internal /watch proxy which handles extraction, headers, and M3U8 rewriting
-    NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
+    # --- RESOLVE & DIRECT REDIRECT (Bypass Proxy due to server timeouts) ---
+    # Try to resolve the final video URL (m3u8/mp4) and redirect player directly to it.
+    # This avoids "Read timed out" on the server and reduces load.
+    NEEDS_RESOLVE = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
     
-    # Check if needs proxy (and avoid circular loop if already proxied)
-    if target_url and any(x in target_url for x in NEEDS_PROXY) and 'http' in target_url and '/watch' not in target_url:
-        from urllib.parse import quote
-        proxy_base = request.host_url.rstrip('/')
-        logging.info(f"Redirecting provider URL to internal proxy: {target_url}")
-        return redirect(f"{proxy_base}/watch?url={quote(target_url)}")
+    if target_url and any(x in target_url for x in NEEDS_RESOLVE) and 'http' in target_url:
+        try:
+             from ..services import extractor
+             logging.info(f"Resolving provider URL: {target_url}")
+             resolved_url, headers = extractor.get_stream_url(target_url)
+             
+             if resolved_url:
+                 logging.info(f"Resolved to DIRECT LINK: {resolved_url}")
+                 target_url = resolved_url
+                 
+                 # Strip .mp4 if present to ensure player handles it correctly
+                 if target_url.endswith('.mp4') and '?' in target_url: 
+                     # Only strip if it's artificial, but here it might be real. Let's leave it.
+                     pass
+                     
+                 return redirect(target_url)
+                 
+        except Exception as e:
+             logging.error(f"Direct Resolution Error: {e}")
     # ---------------------------------------------------
 
     try:

@@ -437,21 +437,31 @@ def analyze_movie():
         og_image = soup.find('meta', property='og:image')
         if og_image: image = og_image.get('content')
         
-        # 2. Find Streams (Iframes)
+        # 2. Find Streams (Iframes & Links)
         streams = []
+        
+        # Helper to check provider
+        def detect_provider(link):
+            if not link: return "unknown"
+            link = link.lower()
+            if 'myvidplay' in link: return 'myvidplay'
+            if 'hglink' in link: return 'hglink'
+            if 'streamtape' in link: return 'streamtape'
+            if 'dood' in link: return 'doodstream'
+            if 'voe.sx' in link or 'voe.lx' in link: return 'voe'
+            if 'mixdrop' in link: return 'mixdrop'
+            if 'filemoon' in link: return 'filemoon'
+            if 'earnvid' in link: return 'earnvid'
+            return "unknown"
+
+        # Check Iframes
         iframes = soup.find_all('iframe')
         for iframe in iframes:
-            src = iframe.get('src')
+            src = iframe.get('src') or iframe.get('data-src')
             if not src: continue
             
-            # Label/Provider detection
-            provider = "unknown"
-            if 'myvidplay' in src: provider = 'myvidplay'
-            elif 'hglink' in src: provider = 'hglink'
-            elif 'streamtape' in src: provider = 'streamtape'
-            elif 'dood' in src: provider = 'doodstream'
-            elif 'voe.sx' in src: provider = 'voe'
-            elif 'mixdrop' in src: provider = 'mixdrop'
+            provider = detect_provider(src)
+            # Only add if known or looks like a stream? No, add all iframes for manual review but mark unknown
             
             streams.append({
                 'provider': provider,
@@ -460,6 +470,25 @@ def analyze_movie():
                 'label': 'Iframe',
                 'broken': False if provider != 'unknown' else True
             })
+
+        # Check Links (Buttons)
+        links = soup.find_all('a')
+        for a in links:
+            href = a.get('href')
+            if not href or href.startswith('#') or href.startswith('javascript'): continue
+            
+            provider = detect_provider(href)
+            if provider != "unknown":
+                # Ensure we don't add duplicates (if same url already found in iframe)
+                if any(s['url'] == href for s in streams): continue
+                
+                streams.append({
+                    'provider': provider,
+                    'url': href,
+                    'domain': href.split('/')[2] if '//' in href else 'unknown',
+                    'label': a.get_text(strip=True) or 'Link',
+                    'broken': False
+                })
             
         return jsonify({
             'title': title,

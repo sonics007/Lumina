@@ -41,6 +41,11 @@ pip install --upgrade pip -q
 pip install -r install/requirements.txt -q
 echo "Packages installed."
 
+# 3.1 Initialize Database
+echo "Initializing Database tables..."
+python3 -c "from server import app; from app.models import db; app.app_context().push(); db.create_all()"
+
+
 # 4. Setup Systemd Service
 echo "[4/4] Configuring Systemd Service..."
 SERVICE_TEMPLATE="install/lumina.service"

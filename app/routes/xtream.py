@@ -511,6 +511,7 @@ def player_api():
         series_info = None
         episodes = {}
         
+        logging.info(f"Debugging series info for SID={target_sid}. Checking {len(items)} items...")
         for item in items:
             match = re.match(r'^(.*?) - S(\d+)E(\d+)', item.title)
             s_name = match.group(1) if match else item.title
@@ -518,6 +519,7 @@ def player_api():
             calc_id = int(hashlib.md5(s_name.encode()).hexdigest(), 16) % 10000000
             
             if calc_id == target_sid:
+                logging.info(f"Match found! Title='{item.title}', RegexMatch={bool(match)}")
                 if not match: continue # Skip parent/placeholder items in episode list
                 
                 if not series_info:

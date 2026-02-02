@@ -72,14 +72,24 @@ def run_import_task(app_instance, data_items, content_type='movie', category_fil
                 IMPORT_STATUS['current'] = i + 1
                 IMPORT_STATUS['message'] = f"Processing: {title}"
                 
-                # Check if already exists
-                existing = Movie.query.filter_by(
-                    title=title,
-                    source='bahu.tv',
-                    content_type=content_type
-                ).first()
+                # Check if already exists by URL (most reliable unique key)
+                url = item_data.get('url', '')
+                existing = None
+                if url:
+                    existing = Movie.query.filter_by(url=url).first()
+                
+                # Fallback check
+                if not existing:
+                    # Match source format from import_bahu.py
+                    check_source = 'web:bahu:series' if content_type == 'series' else 'web:bahu:movie'
+                    existing = Movie.query.filter_by(
+                        title=title,
+                        source=check_source,
+                        content_type=content_type
+                    ).first()
                 
                 if existing:
+                    # Optional: Update metadata if needed
                     IMPORT_STATUS['skipped'] += 1
                     continue
                 
@@ -91,7 +101,7 @@ def run_import_task(app_instance, data_items, content_type='movie', category_fil
                     description=item_data.get('description', item_cat),
                     image=item_data.get('poster', ''),
                     url=item_data.get('url', ''),
-                    source='bahu.tv',
+                    source='web:bahu:series' if content_type == 'series' else 'web:bahu:movie',
                     tags=item_cat,
                     content_type=content_type,
                     language='hu',
@@ -104,12 +114,13 @@ def run_import_task(app_instance, data_items, content_type='movie', category_fil
                 # Update group count occasionally or at end? 
                 # Doing it per item ensures consistency but is slower. 
                 # Let's do it per item for now as sqlite is fast enough.
-                group = MovieGroup.query.filter_by(name=item_cat, source='bahu.tv').first()
+                group_source = 'web:bahu' # Consistent with importer
+                group = MovieGroup.query.filter_by(name=item_cat, source=group_source).first()
                 if not group:
                     group_name = f'Bahu.tv (Series) - {item_cat}' if content_type == 'series' else f'Bahu.tv - {item_cat}'
                     group = MovieGroup(
                         name=item_cat,
-                        source='bahu.tv',
+                        source=group_source,
                         description=group_name,
                         movie_count=0
                     )
@@ -141,8 +152,9 @@ def get_bahu_stats():
     series_categories = Counter([s.get('category', 'Unknown') for s in series])
     
     # Count imported movies
-    imported_movies_count = Movie.query.filter_by(source='bahu.tv', content_type='movie').count()
-    imported_series_count = Movie.query.filter_by(source='bahu.tv', content_type='series').count()
+    # Count imported movies (support both web:bahu and bahu.tv source formats)
+    imported_movies_count = Movie.query.filter(Movie.source.ilike('%bahu%'), Movie.content_type == 'movie').count()
+    imported_series_count = Movie.query.filter(Movie.source.ilike('%bahu%'), Movie.content_type == 'series').count()
     
     # Get last scrape time
     summary_file = os.path.join(BAHU_DIR, 'summary.txt')
@@ -173,7 +185,8 @@ def bahu_manage():
     categories = []
     for cat_name, count in sorted(stats['movie_categories'].items(), key=lambda x: x[1], reverse=True):
         # Count how many from this category are imported
-        imported = Movie.query.filter_by(source='bahu.tv', content_type='movie').filter(
+        # Count how many from this category are imported
+        imported = Movie.query.filter(Movie.source.ilike('%bahu%'), Movie.content_type == 'movie').filter(
             Movie.tags.like(f'%{cat_name}%')
         ).count()
         
@@ -187,7 +200,8 @@ def bahu_manage():
     series_categories = []
     for cat_name, count in sorted(stats['series_categories'].items(), key=lambda x: x[1], reverse=True):
         # Count how many from this category are imported
-        imported = Movie.query.filter_by(source='bahu.tv', content_type='series').filter(
+        # Count how many from this category are imported
+        imported = Movie.query.filter(Movie.source.ilike('%bahu%'), Movie.content_type == 'series').filter(
             Movie.tags.like(f'%{cat_name}%')
         ).count()
         

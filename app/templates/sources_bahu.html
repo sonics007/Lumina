@@ -10,37 +10,37 @@
 
             <!-- Stats -->
             <div class="stats-grid" style="margin-bottom: 30px;">
-                <div class="stat-card">
+                <div class="stat-card" title="Total movies found by scraper (stored in JSON)">
                     <i class="fas fa-film"></i>
                     <div>
                         <h3>{{ bahu_count }}</h3>
-                        <p>Movies in DB</p>
+                        <p>Movies Found</p>
                     </div>
                 </div>
                 <!-- Series Stats -->
-                <div class="stat-card">
+                <div class="stat-card" title="Total series found by scraper (stored in JSON)">
                     <i class="fas fa-tv"></i>
                     <div>
                         <h3>{{ bahu_series_count }}</h3>
-                        <p>Series in DB</p>
+                        <p>Series Found</p>
                     </div>
                 </div>
 
-                <div class="stat-card">
+                <div class="stat-card" title="Items genuinely imported into Lumina Database / Total Items">
                     <i class="fas fa-check-circle" style="color: var(--success);"></i>
                     <div>
                         <h3>{{ imported_count }} / {{ imported_series_count }}</h3>
-                        <p>Imp. Mov/Ser</p>
+                        <p>Imported DB</p>
                     </div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" title="Total unique categories for Movies / Series">
                     <i class="fas fa-tags"></i>
                     <div>
                         <h3>{{ categories_count }} / {{ series_categories_count }}</h3>
-                        <p>Cats. Mov/Ser</p>
+                        <p>Categories</p>
                     </div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" title="Time when the scraper last updated local data">
                     <i class="fas fa-clock"></i>
                     <div>
                         <h3>{{ last_scrape }}</h3>
@@ -51,25 +51,31 @@
 
             <!-- Actions -->
             <div class="action-buttons" style="margin-bottom: 30px;">
-                <button class="btn btn-primary" onclick="importAllMovies()">
+                <button class="btn btn-primary" onclick="importAllMovies()"
+                    title="Import all movies from JSON to Database">
                     <i class="fas fa-download"></i> Import All Movies
                 </button>
-                <button class="btn btn-primary" style="background-color: #8b5cf6;" onclick="importAllSeries()">
+                <button class="btn btn-primary" style="background-color: #8b5cf6;" onclick="importAllSeries()"
+                    title="Import all series from JSON to Database">
                     <i class="fas fa-download"></i> Import All Series
                 </button>
-                <button class="btn btn-secondary" onclick="importByCategory()">
+                <button class="btn btn-secondary" onclick="importByCategory()"
+                    title="Select specific categories below to import">
                     <i class="fas fa-filter"></i> Import by Category
                 </button>
-                <button class="btn btn-info" onclick="viewBahuPlaylist()">
+                <button class="btn btn-info" onclick="viewBahuPlaylist()" title="View direct M3U8 playlist for movies">
                     <i class="fas fa-play"></i> Movie Playlist
                 </button>
-                <button class="btn btn-info" style="background-color: #8b5cf6;" onclick="viewBahuSeriesPlaylist()">
+                <button class="btn btn-info" style="background-color: #8b5cf6;" onclick="viewBahuSeriesPlaylist()"
+                    title="View direct M3U8 playlist for series">
                     <i class="fas fa-play"></i> Series Playlist
                 </button>
-                <button class="btn btn-warning" onclick="runScraper()">
+                <button class="btn btn-warning" onclick="runScraper()"
+                    title="Start the web scraper to fetch new content from Bahu.tv">
                     <i class="fas fa-sync"></i> Run Scraper
                 </button>
-                <button class="btn btn-warning" onclick="runCheck()" style="background-color: #d97706;">
+                <button class="btn btn-warning" onclick="runCheck()" style="background-color: #d97706;"
+                    title="Compare web counts vs local files vs database">
                     <i class="fas fa-clipboard-check"></i> Check Integrity
                 </button>
             </div>

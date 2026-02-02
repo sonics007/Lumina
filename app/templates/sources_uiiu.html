@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="status-grid">
+
+        <!-- Scraper Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-spider"></i> UIIU Scraper</h3>
+            <div class="status-info">
+                <p><strong>Script:</strong> uiiu_data/scrape_uiiu.py</p>
+                <p><strong>Output:</strong> uiiu_data/data/uiiu_movies.json</p>
+                <p><strong>Last File Size:</strong> {{ scrape_size }}</p>
+                <p><strong>Last Scraping:</strong> {{ scrape_time }}</p>
+            </div>
+
+            <div style="margin: 15px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div>
+                    <label style="display:block; font-size: 11px; color: #bbb; margin-bottom: 4px;">Pages Limit</label>
+                    <input type="number" id="limit_pages" value="20" min="1" max="1000"
+                        style="width: 100%; box-sizing: border-box; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                </div>
+                <div>
+                    <label style="display:block; font-size: 11px; color: #bbb; margin-bottom: 4px;">Threads</label>
+                    <input type="number" id="max_workers" value="5" min="1" max="20"
+                        style="width: 100%; box-sizing: border-box; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                </div>
+            </div>
+
+            <!-- Provider Selection -->
+            <div style="margin: 15px 0; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 8px;">
+                <label
+                    style="display:block; font-size: 12px; color: #bbb; margin-bottom: 8px; font-weight: bold;">Select
+                    Providers to Include:</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                        <input type="checkbox" id="provider_mixdrop" checked style="cursor: pointer;">
+                        <span>MixDrop</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                        <input type="checkbox" id="provider_streamtape" checked style="cursor: pointer;">
+                        <span>StreamTape</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                        <input type="checkbox" id="provider_voe" checked style="cursor: pointer;">
+                        <span>Voe</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                        <input type="checkbox" id="provider_filemoon" checked style="cursor: pointer;">
+                        <span>FileMoon</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                        <input type="checkbox" id="provider_hglink" checked style="cursor: pointer;">
+                        <span>HGLink</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+                        <input type="checkbox" id="provider_earnvid" checked style="cursor: pointer;">
+                        <span>Earnvid</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="action-btn" onclick="runScript('uiiu_scrape', this)">
+                <i class="fas fa-play"></i> Start Scraping
+            </button>
+        </div>
+
+        <!-- Manual Add Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-plus-circle"></i> Manual Add</h3>
+            <div class="status-info">
+                <p>Add a single movie by URL.</p>
+                <p>Supports full metadata scrape.</p>
+            </div>
+            <a href="/add_movie" class="action-btn"
+                style="text-align:center; display:block; text-decoration:none; color: white;">
+                <i class="fas fa-plus"></i> Add Movie
+            </a>
+        </div>
+    </div>
+
+    <!-- Console -->
+    <div class="console-box">
+        <div class="console-header">
+            <span><i class="fas fa-terminal"></i> Task Output Log</span>
+            <button class="clear-btn" onclick="clearConsole()">Clear</button>
+        </div>
+        <div class="console-content" id="console-output">
+            Waiting for action...
+        </div>
+    </div>
+</div>
+
+<style>
+    .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    .status-card {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .status-card h3 {
+        margin-top: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+
+    .status-info p {
+        margin: 8px 0;
+        font-size: 0.85rem;
+        color: #bbb;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+    .action-btn:hover {
+        background: var(--secondary-color);
+    }
+
+    .action-btn:disabled {
+        background: #444;
+        cursor: not-allowed;
+    }
+
+    .console-box {
+        margin: 0 20px;
+        background: #1e1e1e;
+        border-radius: 12px;
+        border: 1px solid #333;
+        overflow: hidden;
+    }
+
+    .console-header {
+        background: #252526;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+    }
+
+    .console-content {
+        height: 300px;
+        overflow-y: auto;
+        padding: 15px;
+        font-family: monospace;
+        color: #d4d4d4;
+        white-space: pre-wrap;
+    }
+
+    .clear-btn {
+        background: transparent;
+        border: 1px solid #555;
+        color: #aaa;
+        padding: 4px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .clear-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+</style>
+
+<script>
+    function runScript(type, btn) {
+        const output = document.getElementById('console-output');
+        const timestamp = new Date().toLocaleTimeString();
+        output.innerHTML += `\n[${timestamp}] > Starting task: ${type}...\n`;
+        output.scrollTop = output.scrollHeight;
+
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Starting...';
+
+        const payload = {};
+        if (type === 'uiiu_scrape') {
+            payload.limit_pages = document.getElementById('limit_pages').value;
+            payload.max_workers = document.getElementById('max_workers').value;
+
+            // Collect selected providers
+            const providers = [];
+            if (document.getElementById('provider_mixdrop').checked) providers.push('mixdrop');
+            if (document.getElementById('provider_streamtape').checked) providers.push('streamtape');
+            if (document.getElementById('provider_voe').checked) providers.push('voe');
+            if (document.getElementById('provider_filemoon').checked) providers.push('filemoon');
+            if (document.getElementById('provider_hglink').checked) providers.push('hglink');
+            if (document.getElementById('provider_earnvid').checked) providers.push('earnvid');
+            payload.providers = providers;
+        }
+
+        fetch(`/api/run_script/${type}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+            .then(r => r.json())
+            .then(data => {
+                const msg = data.message || 'Process started.';
+                output.innerHTML += `[${timestamp}] > ${msg}\n[${timestamp}] > Running in external window.\n`;
+
+                // Show toast
+                if (typeof showToast === 'function') showToast('Process started', 'success');
+            })
+            .catch(e => {
+                output.innerHTML += `[${timestamp}] > Error: ${e}\n`;
+                if (typeof showToast === 'function') showToast('Error', 'error');
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+    }
+    function clearConsole() { document.getElementById('console-output').innerHTML = '// Console Ready'; }
+</script>
+{% endblock %}

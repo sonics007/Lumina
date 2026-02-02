@@ -1,0 +1,485 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Macro for Table (Must be defined before use) -->
+{% macro group_table(groups, type) %}
+<div class="table-container">
+    <table class="groups-table">
+        <thead>
+            <tr>
+                <th style="width: 50px;"></th>
+                <th style="width: 70px;">Visible</th>
+                <th>Original Name</th>
+                <th>Source(s)</th>
+                <th>Display Name (Rename)</th>
+            </tr>
+        </thead>
+        <tbody id="list-{{ type }}">
+            {% for group in groups %}
+            <tr class="group-row" data-original="{{ group.original_name }}">
+                <td class="drag-handle">
+                    <i class="fas fa-grip-lines"></i>
+                </td>
+                <td style="text-align: center; vertical-align: middle;">
+                    <label class="switch">
+                        <input type="checkbox" class="visibility-check" {% if group.enabled %}checked{% endif %}>
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td class="original-name">
+                    {{ group.original_name }}
+                </td>
+                <td>
+                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                        {% for src in group.sources %}
+                        <span class="source-badge">{{ src }}</span>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td>
+                    <input type="text" class="form-control display-name-input" value="{{ group.display_name }}">
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center; padding: 20px; color: #777;">No groups found for this
+                    category.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endmacro %}
+
+<div class="header">
+    <div class="page-title">
+        <i class="fas fa-layer-group"></i> Manage Groups
+        {% if username %}
+        <span style="font-size: 0.6em; color: var(--accent-color); margin-left: 10px;">
+            <i class="fas fa-user"></i> {{ username }}
+        </span>
+        {% endif %}
+    </div>
+    <div class="actions" style="display: flex; gap: 10px;">
+        {% if username %}
+        <a href="{{ url_for('groups.manage') }}" class="btn btn-secondary">
+            Global Defaults
+        </a>
+        {% endif %}
+        <button class="btn btn-primary" onclick="saveChanges()">
+            <i class="fas fa-save"></i> Save All Changes
+        </button>
+    </div>
+</div>
+
+<div class="card"
+    style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="tabs-header">
+        <button class="tab-btn active" onclick="switchTab('movie')">
+            <i class="fas fa-film"></i> Movies
+        </button>
+        <button class="tab-btn" onclick="switchTab('series')">
+            <i class="fas fa-tv"></i> Series
+        </button>
+        <button class="tab-btn" onclick="switchTab('live')">
+            <i class="fas fa-broadcast-tower"></i> Live TV
+        </button>
+    </div>
+</div>
+
+<div class="card" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+    <!-- Filter Controls -->
+    <div
+        style="padding: 15px; background: rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 20px; align-items: center;">
+        <div style="flex: 1; position: relative;">
+            <i class="fas fa-search"
+                style="position: absolute; left: 15px; top: 15px; color: #aaa; font-size: 16px;"></i>
+            <input type="text" id="searchInput" onkeyup="filterGroups()" placeholder="Search groups..."
+                class="search-input">
+        </div>
+        <div style="display: flex; gap: 5px;">
+            <button class="btn btn-secondary btn-sm" onclick="toggleAll(true)" title="Turn ON visible groups"
+                style="border: 1px solid var(--success); color: var(--success); background:rgba(0,0,0,0.2);">
+                <i class="fas fa-check-circle"></i> All On
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="toggleAll(false)" title="Turn OFF visible groups"
+                style="border: 1px solid #f44336; color: #f44336; background:rgba(0,0,0,0.2);">
+                <i class="fas fa-times-circle"></i> All Off
+            </button>
+        </div>
+    </div>
+
+    <!-- Source Toggles (Full Playlist Control) -->
+    <div style="padding: 15px; background: rgba(0,0,0,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div style="font-size: 11px; text-transform: uppercase; color: #666; margin-bottom: 8px; font-weight: 600;">
+            <i class="fas fa-power-off"></i> Toggle By Playlist
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            {% for source in sources %}
+            <div
+                style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 4px 8px; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 13px; font-weight: 500; color: #ddd;">{{ source }}</span>
+                <div style="display: flex; gap: 2px;">
+                    <button onclick="toggleSource('{{ source }}', true)"
+                        style="border: none; background: #2e7d32; color: white; border-radius: 3px; cursor: pointer; font-size: 10px; padding: 2px 6px;">ON</button>
+                    <button onclick="toggleSource('{{ source }}', false)"
+                        style="border: none; background: #c62828; color: white; border-radius: 3px; cursor: pointer; font-size: 10px; padding: 2px 6px;">OFF</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Tables -->
+    <div class="tab-content" id="tab-movie" style="display: block;">
+        {{ group_table(movie_groups, 'movie') }}
+    </div>
+    <div class="tab-content" id="tab-series" style="display: none;">
+        {{ group_table(series_groups, 'series') }}
+    </div>
+    <div class="tab-content" id="tab-live" style="display: none;">
+        {{ group_table(live_groups, 'live') }}
+    </div>
+
+    <div id="noResults" class="no-results">
+        No groups match your filter.
+    </div>
+</div>
+
+<!-- SortableJS -->
+<script src="{{ url_for('static', filename='js/Sortable.min.js') }}"></script>
+
+<script>
+    let currentTab = 'movie';
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof Sortable === 'undefined') {
+            console.error('SortableJS failed to load');
+            return;
+        }
+
+        // Initialize Sortable for all lists
+        ['list-movie', 'list-series', 'list-live'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                Sortable.create(el, {
+                    handle: '.drag-handle',
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    chosenClass: 'sortable-chosen',
+                    dragClass: 'sortable-drag'
+                });
+            }
+        });
+
+        filterGroups();
+    });
+
+    function switchTab(tab) {
+        currentTab = tab;
+
+        // Buttons
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        event.target.closest('.tab-btn').classList.add('active'); // Use closest to handle icon click
+
+        // Content
+        document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+        document.getElementById('tab-' + tab).style.display = 'block';
+
+        // Re-run filter (can be optimized)
+        filterGroups();
+    }
+
+    function filterGroups() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+
+        // Filter ALL rows in all tabs
+        const rows = document.querySelectorAll('.group-row');
+
+        rows.forEach(row => {
+            const original = row.getAttribute('data-original').toLowerCase();
+            const sourceText = row.querySelector('.source-badge') ? row.querySelector('td:nth-child(3)').innerText.toLowerCase() : "";
+            const display = row.querySelector('.display-name-input').value.toLowerCase();
+
+            if (original.includes(input) || display.includes(input) || sourceText.includes(input)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    function toggleAll(state) {
+        const tab = document.getElementById('tab-' + currentTab);
+        const rows = tab.querySelectorAll('.group-row');
+
+        rows.forEach(row => {
+            if (row.style.display !== 'none') {
+                const chk = row.querySelector('.visibility-check');
+                if (chk) chk.checked = state;
+            }
+        });
+    }
+
+    function toggleSource(sourceName, state) {
+        // Affects ALL tabs (movies, series, live)
+        ['list-movie', 'list-series', 'list-live'].forEach(id => {
+            const rows = document.querySelectorAll('#' + id + ' .group-row');
+            rows.forEach(row => {
+                const badges = row.querySelectorAll('.source-badge');
+                let match = false;
+                badges.forEach(b => {
+                    // Check exact match
+                    if (b.innerText === sourceName) match = true;
+                });
+
+                if (match) {
+                    const chk = row.querySelector('.visibility-check');
+                    if (chk) chk.checked = state;
+                }
+            });
+        });
+        if (typeof showToast === 'function') showToast('Updated visibility for ' + sourceName, 'info');
+    }
+
+    function saveChanges() {
+        const username = "{{ username if username else '' }}";
+        const data = {
+            username: username,
+            movie: [],
+            series: [],
+            live: []
+        };
+
+        ['movie', 'series', 'live'].forEach(type => {
+            const rows = document.querySelectorAll(`#list-${type} tr.group-row`);
+            let order = 1;
+
+            rows.forEach(row => {
+                data[type].push({
+                    original: row.getAttribute('data-original'),
+                    display: row.querySelector('.display-name-input').value,
+                    enabled: row.querySelector('.visibility-check').checked,
+                    order: order++
+                });
+            });
+        });
+
+        if (typeof showToast === 'function') showToast('Saving configuration...', 'info');
+
+        fetch('/groups/api/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(r => r.json())
+            .then(d => {
+                if (d.success) showToast('All changes saved!', 'success');
+                else showToast('Error: ' + d.error, 'error');
+            })
+            .catch(e => showToast('Connection error', 'error'));
+    }
+</script>
+
+<style>
+    /* Tabs */
+    .tabs-header {
+        display: flex;
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .tab-btn {
+        background: transparent;
+        border: none;
+        color: #888;
+        padding: 15px 25px;
+        /* Increased padding */
+        font-size: 17px;
+        /* Increased font */
+        font-weight: 600;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .tab-btn:hover {
+        color: #ddd;
+    }
+
+    .tab-btn.active {
+        color: white;
+        border-bottom-color: var(--accent-color);
+    }
+
+    .tab-btn i {
+        font-size: 16px;
+    }
+
+    /* Rest of Styles */
+    .search-input {
+        padding: 12px 12px 12px 40px;
+        /* Increased padding */
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 8px;
+        font-size: 16px;
+        /* Increased font */
+    }
+
+    .search-input:focus {
+        border-color: var(--accent-color);
+        outline: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Headers */
+    table th {
+        font-size: 14px;
+        color: #888;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 15px;
+        text-align: left;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .group-row {
+        transition: background 0.2s;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .group-row:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .drag-handle {
+        cursor: grab;
+        text-align: center;
+        color: #555;
+        transition: color 0.2s;
+        padding: 15px;
+        font-size: 18px;
+        /* Bigger Icon */
+    }
+
+    .group-row:hover .drag-handle {
+        color: var(--accent-color);
+    }
+
+    .original-name {
+        color: var(--text-secondary);
+        font-size: 15px;
+        /* Bigger font */
+        font-family: monospace;
+        padding: 15px;
+        font-weight: 500;
+    }
+
+    .source-badge {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        /* Bigger */
+        color: #ddd;
+        font-weight: 500;
+        display: inline-block;
+        margin-right: 4px;
+        margin-bottom: 2px;
+    }
+
+    .display-name-input {
+        width: 100%;
+        padding: 10px 14px;
+        /* Bigger padding */
+        background: transparent;
+        border: 1px solid transparent;
+        color: white;
+        font-size: 17px;
+        /* Much Bigger font */
+        border-radius: 6px;
+        font-weight: 600;
+    }
+
+    .display-name-input:focus {
+        background: rgba(0, 0, 0, 0.2);
+        border-color: var(--accent-color);
+    }
+
+    .sortable-ghost {
+        opacity: 0.2;
+        background: var(--accent-color);
+    }
+
+    .sortable-drag {
+        background: #1e1e2f;
+        opacity: 0.9;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .no-results {
+        display: none;
+        text-align: center;
+        padding: 40px;
+        color: #777;
+        font-size: 16px;
+    }
+
+    /* Switch */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 24px;
+        vertical-align: middle;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #555;
+        transition: .3s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .3s;
+        border-radius: 50%;
+    }
+
+    input:checked+.slider {
+        background-color: var(--success);
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(20px);
+    }
+</style>
+{% endblock %}

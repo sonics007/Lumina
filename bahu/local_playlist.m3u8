@@ -1,0 +1,1698 @@
+#EXTM3U
+#EXT-X-SESSION-DATA:DATA-ID="com.bahu.server",VALUE="2.0"
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1450.jpg" group-title="Vígjáték",A galaxis őrzői - ünnepi különkiadás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-galaxis-orzoi-unnepi-kulonkiadas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1455.jpg" group-title="Vígjáték",Szia Életem!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szia-eletem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1471.jpg" group-title="Vígjáték",Shazam! Az istenek haragja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/shazam-az-istenek-haragja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1473.jpg" group-title="Vígjáték",A Hangya és a Darázs: Kvantumánia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hangya-es-a-darazs-kvantumania
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1478.jpg" group-title="Vígjáték",Dungeons and Dragons: Betyárbecsület
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/dungeons-and-dragons-betyarbecsulet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1492.jpg" group-title="Vígjáték",Ürömapám
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/uromapam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1515.jpg" group-title="Vígjáték",Alibi.com 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alibi-com-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1519.jpg" group-title="Vígjáték",Ricky Stanicky
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ricky-stanicky
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_878.jpg" group-title="Történelmi",Kincsem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kincsem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1078.jpg" group-title="Történelmi",12 katona
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/12-katona
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1132.jpg" group-title="Történelmi",Brexit: Háborúban mindent szabad
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/brexit-haboruban-mindent-szabad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1200.jpg" group-title="Történelmi",Ellenségek legjobbika
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ellensegek-legjobbika
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1219.jpg" group-title="Történelmi",Sötét vizeken
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/sotet-vizeken
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1383.jpg" group-title="Történelmi",Az utolsó párbaj
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-utolso-parbaj
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1484.jpg" group-title="Történelmi",Hadik
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hadik
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1088.jpg" group-title="Sport",Creed II
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/creed-ii
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1193.jpg" group-title="Sport",Nincs akadály
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nincs-akadaly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1392.jpg" group-title="Sport",Richard király
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/richard-kiraly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1418.jpg" group-title="Sport",Mindent egy lapra
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mindent-egy-lapra
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1584.jpg" group-title="Sport",Happy - a flúgos golfos 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/happy-a-flugos-golfos-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_979.jpg" group-title="Sci-Fi",Fekete Párduc
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fekete-parduc
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_999.jpg" group-title="Sci-Fi",Rampage - Tombolás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/rampage-tombolas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1027.jpg" group-title="Sci-Fi",Ready Player One
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ready-player-one
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1031.jpg" group-title="Sci-Fi",A Titán
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-titan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1055.jpg" group-title="Sci-Fi",Amerika Kapitány: Az első bosszúálló
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/amerika-kapitany-az-elso-bosszuallo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1107.jpg" group-title="Sci-Fi",Üveg
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/uveg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1175.jpg" group-title="Sci-Fi",Gemini Man
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gemini-man
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1202.jpg" group-title="Sci-Fi",Terminátor: Sötét végzet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/terminator-sotet-vegzet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1271.jpg" group-title="Sci-Fi",Föld invázió
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fold-invazio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1324.jpg" group-title="Sci-Fi",A potyautas
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-potyautas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1329.jpg" group-title="Sci-Fi",2067 - Időhurok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/2067-idohurok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1336.jpg" group-title="Sci-Fi",Godzilla Kong ellen
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/godzilla-kong-ellen
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1339.jpg" group-title="Sci-Fi",The Tomorrow War
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/the-tomorrow-war
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1385.jpg" group-title="Sci-Fi",Venom 2 - Vérontó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/venom-2-veronto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1388.jpg" group-title="Sci-Fi",Ne nézz fel!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ne-nezz-fel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1395.jpg" group-title="Sci-Fi",Mátrix feltámadások
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/matrix-feltamadasok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1416.jpg" group-title="Sci-Fi",Moonfall
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/moonfall
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1440.jpg" group-title="Sci-Fi",Jurassic World: Világuralom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jurassic-world-vilaguralom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1488.jpg" group-title="Sci-Fi",Transformers: A fenevadak kora
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/transformers-a-fenevadak-kora
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1496.jpg" group-title="Sci-Fi",Kék Bogár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kek-bogar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1510.jpg" group-title="Sci-Fi",57 másodperc
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/57-masodperc
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1030.jpg" group-title="Romantikus",Átejtve
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/atejtve
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1075.jpg" group-title="Romantikus",Könyvklub - avagy az alkony ötven árnyalata
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/konyvklub-avagy-az-alkony-otven-arnyalata
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1096.jpg" group-title="Romantikus",Pizzarománc
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pizzaromanc
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1151.jpg" group-title="Romantikus",Zuhanás a szerelembe
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/zuhanas-a-szerelembe
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1171.jpg" group-title="Romantikus",Csekély esély
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csekely-esely
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1174.jpg" group-title="Romantikus",Downton Abbey
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/downton-abbey
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1180.jpg" group-title="Romantikus",Két lépés távolság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ket-lepes-tavolsag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1204.jpg" group-title="Romantikus",Ebgondolat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ebgondolat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1215.jpg" group-title="Romantikus",Szerelemre kattintva
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szerelemre-kattintva
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1227.jpg" group-title="Romantikus",Esküvő a topon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/eskuvo-a-topon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1244.jpg" group-title="Romantikus",Egy esős nap New Yorkban
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-esos-nap-new-yorkban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1251.jpg" group-title="Romantikus",Közel a horizonthoz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kozel-a-horizonthoz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1252.jpg" group-title="Romantikus",A fiúknak – Utóirat: Még mindig szeretlek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-fiuknak-utoirat-meg-mindig-szeretlek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1258.jpg" group-title="Romantikus",Plusz egy fő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/plusz-egy-fo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1273.jpg" group-title="Romantikus",Ha tudnád
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ha-tudnad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1287.jpg" group-title="Romantikus",Garantált szerelem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/garantalt-szerelem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1296.jpg" group-title="Romantikus",Pont az a dal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pont-az-a-dal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1298.jpg" group-title="Romantikus",Alkalmi randevú
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alkalmi-randevu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1311.jpg" group-title="Romantikus",Gyilkos vonások
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gyilkos-vonasok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1313.jpg" group-title="Romantikus",A titok: Merj álmodni
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-titok-merj-almodni
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1338.jpg" group-title="Romantikus",Papíron jónak tűnt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/papiron-jonak-tunt
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1343.jpg" group-title="Romantikus",Made in Italy
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/made-in-italy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1345.jpg" group-title="Romantikus",Gyógyír a szerelemre
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gyogyir-a-szerelemre
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1461.jpg" group-title="Romantikus",Beugró a Paradicsomba
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/beugro-a-paradicsomba
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1491.jpg" group-title="Romantikus",Barátnőt felveszünk
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/baratnot-felveszunk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1544.jpg" group-title="Romantikus",Vigyél a holdra
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vigyel-a-holdra
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1557.jpg" group-title="Romantikus",Monte Cristo grófja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/monte-cristo-grofja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_972.jpg" group-title="Misztikus",Éjszakai játék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ejszakai-jatek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_981.jpg" group-title="Misztikus",Vörös veréb
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/voros-vereb
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1008.jpg" group-title="Misztikus",A gyilkosság filozófiája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gyilkossag-filozofiaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1054.jpg" group-title="Misztikus",Keresés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kereses
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1127.jpg" group-title="Misztikus",Szupercella 2: Hades
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szupercella-2-hades
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1138.jpg" group-title="Misztikus",Vihar előtt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vihar-elott
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1149.jpg" group-title="Misztikus",Titkos megszállottság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/titkos-megszallottsag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1159.jpg" group-title="Misztikus",A Hold árnyékában
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hold-arnyekaban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1224.jpg" group-title="Misztikus",Hailey Dean megoldja: Gyilkosság receptre
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hailey-dean-megoldja-gyilkossag-receptre
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1295.jpg" group-title="Misztikus",A Manderley-ház asszonya
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-manderley-haz-asszonya
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1328.jpg" group-title="Misztikus",Fuss
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fuss
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1360.jpg" group-title="Misztikus",Új múlt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/uj-mult
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1424.jpg" group-title="Misztikus",A hó rabja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-ho-rabja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1551.jpg" group-title="Misztikus",Vészjelzés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/veszjelzes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1576.jpg" group-title="Misztikus",Fekete táska
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fekete-taska
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1247.jpg" group-title="Krimi",Queen & Slim
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/queen-slim
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1253.jpg" group-title="Krimi",21 híd
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/21-hid
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1259.jpg" group-title="Krimi",Úriemberek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/uriemberek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1303.jpg" group-title="Krimi",AVA
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ava
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1307.jpg" group-title="Krimi",A részleg
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-reszleg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1315.jpg" group-title="Krimi",Becsületes tolvaj
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/becsuletes-tolvaj
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1318.jpg" group-title="Krimi",Fontos vagy nekem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fontos-vagy-nekem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1334.jpg" group-title="Krimi",Ördög a részletekben
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ordog-a-reszletekben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1337.jpg" group-title="Krimi",Senki
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/senki
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1349.jpg" group-title="Krimi",Beckett
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/beckett
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1358.jpg" group-title="Krimi",Kate
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kate
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1364.jpg" group-title="Krimi",A bűnös
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-bunos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1369.jpg" group-title="Krimi",Szörnyella
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szornyella
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1370.jpg" group-title="Krimi",Halálos iramban 9
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-9
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1375.jpg" group-title="Krimi",Stillwater
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/stillwater
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1377.jpg" group-title="Krimi",Sokkal több mint testőr 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/sokkal-tobb-mint-testor-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1384.jpg" group-title="Krimi",Megbocsáthatatlan
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/megbocsathatatlan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1389.jpg" group-title="Krimi",Egy igazán dühös ember
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-igazan-duhos-ember
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1399.jpg" group-title="Krimi",A Gucci-ház
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gucci-haz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1414.jpg" group-title="Krimi",Halál a Níluson
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halal-a-niluson
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1448.jpg" group-title="Krimi",Enola Holmes 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/enola-holmes-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1458.jpg" group-title="Krimi",Nyugati nyaralás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nyugati-nyaralas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1462.jpg" group-title="Krimi",Vérapó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/verapo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1479.jpg" group-title="Krimi",Gyilkos memória
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gyilkos-memoria
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1489.jpg" group-title="Krimi",Halálos iramban 10
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-10
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1535.jpg" group-title="Krimi",Szunnyadó vérebek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szunnyado-verebek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1558.jpg" group-title="Kaland",Venom - Az utolsó menet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/venom-az-utolso-menet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_994.jpg" group-title="Horror",Hang nélkül
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hang-nelkul
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1014.jpg" group-title="Horror",Felelsz vagy mersz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/felelsz-vagy-mersz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1050.jpg" group-title="Horror",Az apáca
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-apaca
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1104.jpg" group-title="Horror",Végtelen útvesztő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vegtelen-utveszto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1158.jpg" group-title="Horror",Mami
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mami
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1170.jpg" group-title="Horror",Zombieland - A második lövés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/zombieland-a-masodik-loves
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1197.jpg" group-title="Horror",Prédák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/predak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1269.jpg" group-title="Horror",Árok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/arok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1333.jpg" group-title="Horror",A halottak hadserege
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-halottak-hadserege
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1341.jpg" group-title="Horror",Hang nélkül 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hang-nelkul-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1346.jpg" group-title="Horror",Démonok között 3 - Az ördög kényszerített
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/demonok-kozott-3-az-ordog-kenyszeritett
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1356.jpg" group-title="Horror",Gonosz csoda
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gonosz-csoda
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1363.jpg" group-title="Horror",Végtelen útvesztő 2 - Bajnokok csatája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vegtelen-utveszto-2-bajnokok-csataja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1366.jpg" group-title="Horror",Az utazás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-utazas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1372.jpg" group-title="Horror",Kampókéz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kampokez
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1373.jpg" group-title="Horror",Idő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ido
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1390.jpg" group-title="Horror",Spirál: Fűrész hagyatéka
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/spiral-furesz-hagyateka
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1397.jpg" group-title="Horror",A kaptár - Raccoon City visszavár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kaptar-raccoon-city-visszavar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1401.jpg" group-title="Horror",Utolsó éjszaka a Sohóban
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/utolso-ejszaka-a-sohoban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1445.jpg" group-title="Horror",Barbár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/barbar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1456.jpg" group-title="Horror",A menü
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-menu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1457.jpg" group-title="Horror",Halványkék szemek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halvanykek-szemek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1469.jpg" group-title="Horror",M3GAN
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/m3gan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1547.jpg" group-title="Horror",Hang nélkül: Első nap
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hang-nelkul-elso-nap
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1550.jpg" group-title="Horror",A csapda
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-csapda
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1554.jpg" group-title="Horror",Alien: Romulus
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alien-romulus
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1580.jpg" group-title="Horror",Végső állomás - Vérvonalak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vegso-allomas-vervonalak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_278.jpg" group-title="Háborús",Harag
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1142.jpg" group-title="Háborús",Egy háború margójára
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-haboru-margojara
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1257.jpg" group-title="Háborús",Ellenállás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ellenallas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1310.jpg" group-title="Háborús",A háború démonjai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-haboru-demonjai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1018.jpg" group-title="Fantázia",Nap nap után
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nap-nap-utan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1039.jpg" group-title="Fantázia",Solo: Egy Star Wars-történet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/solo-egy-star-wars-tortenet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1048.jpg" group-title="Fantázia",A valóság határán
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-valosag-hataran
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1099.jpg" group-title="Fantázia",Ragadozó városok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ragadozo-varosok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1137.jpg" group-title="Fantázia",Mi kell a férfinak?
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mi-kell-a-ferfinak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1156.jpg" group-title="Fantázia",Godzilla II – A szörnyek királya
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/godzilla-2--a-szornyek-kiralya
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1214.jpg" group-title="Fantázia",A világítótorony
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-vilagitotorony
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1232.jpg" group-title="Fantázia",Star Wars: Skywalker kora
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/star-wars-skywalker-kora
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1275.jpg" group-title="Fantázia",A vágyak szigete
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-vagyak-szigete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1279.jpg" group-title="Fantázia",A halhatatlan gárda
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-halhatatlan-garda
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1300.jpg" group-title="Fantázia",Hubie - a halloween hőse
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hubie-a-halloween-hose
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1302.jpg" group-title="Fantázia",Palm Springs
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/palm-springs
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1325.jpg" group-title="Fantázia",Monster Hunter - Szörnybirodalom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/monster-hunter-szornybirodalom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1331.jpg" group-title="Fantázia",Oxigén
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/oxigen
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1340.jpg" group-title="Fantázia",Mortal Kombat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mortal-kombat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1361.jpg" group-title="Fantázia",Kígyószem: G.I. Joe - A kezdetek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kigyoszem-g-i-joe-a-kezdetek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1382.jpg" group-title="Fantázia",A szerelem röviden
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-szerelem-roviden
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1393.jpg" group-title="Fantázia",Shang-Chi és a Tíz Gyűrű legendája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/shang-chi-es-a-tiz-gyuru-legendaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1396.jpg" group-title="Fantázia",Szellemirtók - Az örökség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szellemirtok-az-orokseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1411.jpg" group-title="Fantázia",Örökkévalók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/orokkevalok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1417.jpg" group-title="Fantázia",Legendás állatok és megfigyelésük - Dumbledore titkai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/legendas-allatok-es-megfigyelesuk-dumbledore-titkai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1421.jpg" group-title="Fantázia",Doctor Strange az őrület multiverzumában
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/doctor-strange-az-orulet-multiverzumaban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1433.jpg" group-title="Fantázia",Nappali műszak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nappali-muszak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1482.jpg" group-title="Fantázia",Renfield
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/renfield
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1485.jpg" group-title="Fantázia",Flash - A Villám
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/flash-a-villam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1495.jpg" group-title="Fantázia",Barbie
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/barbie
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1533.jpg" group-title="Fantázia",Szellemirtók - A borzongás birodalma
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szellemirtok-a-borzongas-birodalma
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1553.jpg" group-title="Fantázia",Beetlejuice Beetlejuice
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/beetlejuice-beetlejuice
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1559.jpg" group-title="Fantázia",A hullahó-akció
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hullaho-akcio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1569.jpg" group-title="Fantázia",Mickey 17
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mickey-17
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1430.jpg" group-title="Dráma",Elvis
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/elvis
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1431.jpg" group-title="Dráma",Rohammentő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/rohammento
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1432.jpg" group-title="Dráma",Spitfire - Égi csata
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/spitfire-egi-csata
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1434.jpg" group-title="Dráma",Szamaritánus
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szamaritanus
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1437.jpg" group-title="Dráma",Az Északi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-eszaki
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1438.jpg" group-title="Dráma",The Outfit
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/the-outfit
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1439.jpg" group-title="Dráma",Szöszi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szoszi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1441.jpg" group-title="Dráma",A játszma 2022
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-jatszma-2022
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1443.jpg" group-title="Dráma",Nyugaton a helyzet változatlan
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nyugaton-a-helyzet-valtozatlan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1446.jpg" group-title="Dráma",Ahol a folyami rákok énekelnek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ahol-a-folyami-rakok-enekelnek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1451.jpg" group-title="Dráma",Troll
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/troll
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1452.jpg" group-title="Dráma",Fenevad
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fenevad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1454.jpg" group-title="Dráma",Tőrbe ejtve - Az üveghagyma
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/torbe-ejtve-az-uveghagyma
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1459.jpg" group-title="Dráma",Ray Donovan
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ray-donovan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1465.jpg" group-title="Dráma",Luther: A lemenő nap
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/luther-a-lemeno-nap
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1467.jpg" group-title="Dráma",Babylon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/babylon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1472.jpg" group-title="Dráma",Creed III
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/creed-III
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1474.jpg" group-title="Dráma",65
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/65
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1476.jpg" group-title="Dráma",Air - Harc a legendáért
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/air-harc-a-legendaert
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1499.jpg" group-title="Dráma",Gran Turismo
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gran-turismo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1500.jpg" group-title="Dráma",Szeánsz Velencében
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szeansz-velenceben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1507.jpg" group-title="Dráma",Megfojtott virágok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/megfojtott-viragok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1508.jpg" group-title="Dráma",Távol a világtól
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tavol-a-vilagtol
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1518.jpg" group-title="Dráma",Az űrhajós
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-urhajos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1526.jpg" group-title="Dráma",Semmelweis
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/semmelweis
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1556.jpg" group-title="Dráma",Joker: Kétszemélyes téboly
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/joker-ketszemelyes-teboly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1581.jpg" group-title="Dráma",Mennydörgők*
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mennydorgok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1593.jpg" group-title="Dráma",Frankenstein
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/frankenstein
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1192.jpg" group-title="Dokumentum",A két pápa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-ket-papa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1201.jpg" group-title="Dokumentum",Pavarotti
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pavarotti
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1359.jpg" group-title="Dokumentum",Schumacher
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/schumacher
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1398.jpg" group-title="Dokumentum",A Tinder-csaló
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-tinder-csalo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1464.jpg" group-title="Dokumentum",A Wagner-csoport: Putyin titkos hadserege
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-wagner-csoport-putyin-titkos-hadserege
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1133.jpg" group-title="Családi",Egy kutya hazatér
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-kutya-hazater
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1134.jpg" group-title="Családi",Király ez a srác!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kiraly-ez-a-srac
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1148.jpg" group-title="Családi",Dumbó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/dumbo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1179.jpg" group-title="Családi",Aladdin 2019
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/aladdin-2019
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1184.jpg" group-title="Családi",Utódok 3
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/utodok-3
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1187.jpg" group-title="Családi",Velence vár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/velence-var
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1190.jpg" group-title="Családi",Családi vakáció - Irány Ibiza!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csaladi-vakacio-irany-ibiza
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1233.jpg" group-title="Családi",Dolittle
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/dolittle
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1236.jpg" group-title="Családi",Macskák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/macskak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1243.jpg" group-title="Családi",Ne játssz a tűzzel
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ne-jatssz-a-tuzzel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1263.jpg" group-title="Családi",A gokartkirály
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gokartkiraly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1270.jpg" group-title="Családi",Kémecském
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kemecskem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1276.jpg" group-title="Családi",A vadon hívó szava
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-vadon-hivo-szava
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1277.jpg" group-title="Családi",Táncra fel!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tancra-fel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1288.jpg" group-title="Családi",Lassie hazatér
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/lassie-hazater
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1294.jpg" group-title="Családi",Karácsonyi cserebere: Az új hasonmás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/karacsonyi-cserebere-az-uj-hasonmas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1299.jpg" group-title="Családi",Karácsonyi hadgyakorlat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/karacsonyi-hadgyakorlat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1319.jpg" group-title="Családi",Nagypapa hadművelet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nagypapa-hadmuvelet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1357.jpg" group-title="Családi",Hamupipőke 2021
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hamupipoke-2021
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1381.jpg" group-title="Családi",A fiú - akit Karácsonynak hívnak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-fiu-akit-karacsonynak-hivnak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1513.jpg" group-title="Családi",Wonka
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/wonka
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1582.jpg" group-title="Családi",Karate kölyök - Legendák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/karate-kolyok-legendak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1583.jpg" group-title="Családi",Lilo és Stitch - A csillagkutya
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/lilo-es-stitch-a-csillagkutya
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1110.jpg" group-title="Animáció",Ralph lezúzza a netet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ralph-lezuzza-a-netet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1161.jpg" group-title="Animáció",Manu a legsirályabb fecske
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/manu-a-legsiralyabb-fecske
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1173.jpg" group-title="Animáció",Toy Story 4
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/toy-story-4
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1188.jpg" group-title="Animáció",A hiányzó láncszem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hianyzo-lancszem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1195.jpg" group-title="Animáció",Az oroszlánkirály - 2019
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-oroszlankiraly---2019
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1196.jpg" group-title="Animáció",Playmobil: A Film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/playmobil-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1206.jpg" group-title="Animáció",Addams Family - A galád család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/addams-family-a-galad-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1208.jpg" group-title="Animáció",Csodapark
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csodapark
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1231.jpg" group-title="Animáció",Kópé
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kope
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1234.jpg" group-title="Animáció",Kémesítve
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kemesitve
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1272.jpg" group-title="Animáció",A Willoughby testvérek kalandjai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-willoughby-testverek-kalandjai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1286.jpg" group-title="Animáció",Mesék a dzsungelből - A film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mesek-a-dzsungelbol-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1291.jpg" group-title="Animáció",Előre
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/elore
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1293.jpg" group-title="Animáció",Scooby
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/scooby
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1312.jpg" group-title="Animáció",Tü-tü - Kori - Karácsony
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tu-tu-kori-karacsony
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1335.jpg" group-title="Animáció",Tom és Jerry
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tom-es-jerry
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1344.jpg" group-title="Animáció",Farkasbőrben
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/farkasborben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1348.jpg" group-title="Animáció",Az életteli Vivo
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-eletteli-vivo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1352.jpg" group-title="Animáció",Óriásláb - Családi bevetés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/oriaslab-csaladi-bevetes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1353.jpg" group-title="Animáció",Vaják: A Farkas rémálma
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vajak-a-farkas-remalma
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1386.jpg" group-title="Animáció",Addams Family 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/addams-family-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1402.jpg" group-title="Animáció",Énekelj! 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/enekelj-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1405.jpg" group-title="Animáció",Encanto
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/encanto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1409.jpg" group-title="Animáció",Vad Buck jégkorszaki kalandjai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vad-buck-jegkorszaki-kalandjai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1422.jpg" group-title="Animáció",Bob burgerfalodája - A film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bob-burgerfalodaja-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1426.jpg" group-title="Animáció",A rosszfiúk
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-rosszfiuk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1427.jpg" group-title="Animáció",Chip és Dale: A csipet csapat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/chip-es-dale-a-csipet-csapat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1444.jpg" group-title="Animáció",Minyonok: Gru színre lép
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/minyonok-gru-szinre-lep
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1463.jpg" group-title="Animáció",Csizmás - a kandúr: Az utolsó kívánság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csizmas-a-kandur-az-utolso-kivansag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1477.jpg" group-title="Animáció",Toldi - A mozifilm
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/toldi-a-mozifilm
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1487.jpg" group-title="Animáció",A Kaptár - A halál szigete
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kaptar-a-halal-szigete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1546.jpg" group-title="Animáció",Agymanók 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/agymanok-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1502.jpg" group-title="Akció",Az Alkotó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-alkoto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1503.jpg" group-title="Akció",A gyilkos
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gyilkos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1504.jpg" group-title="Akció",Megtorlás 2023
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/megtorlas-2023
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1506.jpg" group-title="Akció",Célt tévesztett élet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/celt-tevesztett-elet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1509.jpg" group-title="Akció",Rebel Moon 1. rész: A tűz gyermeke
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/rebel-moon-1-resz-a-tuz-gyermeke
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1512.jpg" group-title="Akció",Marvelek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/marvelek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1514.jpg" group-title="Akció",Aquaman és az elveszett királyság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/aquaman-es-az-elveszett-kiralysag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1516.jpg" group-title="Akció",Kacsalábon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kacsalabon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1520.jpg" group-title="Akció",A hercegnő és a sárkány
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hercegno-es-a-sarkany
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1521.jpg" group-title="Akció",Országúti diszkó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/orszaguti-diszko
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1522.jpg" group-title="Akció",Argylle: A szuperkém
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/argylle-a-szuperkem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1523.jpg" group-title="Akció",Feláldozh4tók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/felaldozh4tok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1525.jpg" group-title="Akció",Madame Web
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/madame-web
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1529.jpg" group-title="Akció",Rebel Moon: 2. rész - A sebejtő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/rebel-moon-2-resz-a-sebejto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1530.jpg" group-title="Akció",Kandahár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kandahar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1531.jpg" group-title="Akció",Godzilla x Kong: Az Új Birodalom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/godzilla-x-kong-az-uj-birodalom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1532.jpg" group-title="Akció",Kung Fu Panda 4
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kung-fu-panda-4
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1534.jpg" group-title="Akció",Atlas
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/atlas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1536.jpg" group-title="Akció",A kaszkadőr
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kaszkador
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1537.jpg" group-title="Akció",Furiosa: Történet a Mad Maxből
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/furiosa-tortenet-a-mad-maxbol
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1538.jpg" group-title="Akció",Beverly Hills-i zsaru: Axel Foley
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/beverly-hills-i-zsaru-axel-foley
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1539.jpg" group-title="Akció",A majmok bolygója: A birodalom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-majmok-bolygoja-a-birodalom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1540.jpg" group-title="Akció",Fortune hadművelet - A nagy átverés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fortune-hadmuvelet-a-nagy-atveres
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1541.jpg" group-title="Akció",Kémecském: Az örök város
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kemecskem-az-orok-varos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1545.jpg" group-title="Akció",A szervezet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-szervezet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1555.jpg" group-title="Akció",Borderlands
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/borderlands
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1560.jpg" group-title="Akció",Armor
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/armor
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1561.jpg" group-title="Akció",Gladiátor II
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gladiator-II
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1562.jpg" group-title="Akció",A méhész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-mehesz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1564.jpg" group-title="Akció",Újra akcióban
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ujra-akcioban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1566.jpg" group-title="Akció",Kraven - a vadász
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kraven-a-vadasz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1567.jpg" group-title="Akció",Elektronikus állam
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/elektronikus-allam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1572.jpg" group-title="Akció",Cleaner
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/cleaner
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1573.jpg" group-title="Akció",Pusztítás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pusztitas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1577.jpg" group-title="Akció",Novokain
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/novokain
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1585.jpg" group-title="Akció",Superman
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/superman
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1586.jpg" group-title="Akció",Mission: Impossible - A végső leszámolás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mission-impossible-a-vegso-leszamolas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1588.jpg" group-title="Akció",Jeges pokol: Bosszú
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jeges-pokol-bosszu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1589.jpg" group-title="Akció",Csupasz pisztoly
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csupasz-pisztoly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1590.jpg" group-title="Akció",A Fantasztikus 4-es: Első lépések
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-fantasztikus-4-es-elso-lepesek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_665.jpg" group-title="Golden Globe Sorozatok",Feketék Fehéren
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/feketek-feheren
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_623.jpg" group-title="Golden Globe Sorozatok",A tó tükre
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-to-tukre
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_598.jpg" group-title="Golden Globe Sorozatok",Mutassatok egy hőst
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/mutassatok-egy-host
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1416900612.jpg" group-title="Golden Globe Sorozatok",Hármastársak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/harmastarsak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1416484947.jpg" group-title="Golden Globe Sorozatok",A hatalom hálójában
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-hatalom-halojaban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1410774253.jpg" group-title="Golden Globe Sorozatok",Cathy! Bajban vagy!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/cathy-bajban-vagy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1408693021.jpg" group-title="Golden Globe Sorozatok",Megvilágosultam
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/megvilagosultam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1408343106.jpg" group-title="Golden Globe Sorozatok",A főnök
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-fonok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1404374047.jpg" group-title="Golden Globe Sorozatok",Ray Donovan
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ray-donovan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1400067996.jpg" group-title="Golden Globe Sorozatok",Nyomtalanul
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/nyomtalanul
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1393611933.jpg" group-title="Golden Globe Sorozatok",Sikersorozat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/sikersorozat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390827234.jpg" group-title="Golden Globe Sorozatok",Office
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/office
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388326392.jpg" group-title="Golden Globe Sorozatok",Futottak még...
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/futottak-meg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1387448676.jpg" group-title="Golden Globe Sorozatok",Luther
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/luther
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1386927981.jpg" group-title="Golden Globe Sorozatok",Gátlástalanok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/gatlastalanok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381925692.jpg" group-title="Golden Globe Sorozatok",Csajok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csajok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_541.jpg" group-title="Golden Globe Sorozatok",Űrbalekok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/urbalekok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1398179633.jpg" group-title="Golden Globe Sorozatok",Brooklyn 99 - Nem százas körzet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/brooklyn-99-nem-szazas-korzet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1389026655.jpg" group-title="Golden Globe Sorozatok",Miért éppen Alaszka?
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/miert-eppen-alaszka
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_759.jpg" group-title="Golden Globe Sorozatok",A viszony
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-viszony
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1417506142.jpg" group-title="Golden Globe Sorozatok",Ally McBeal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ally-mcbeal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1391534158.jpg" group-title="Golden Globe Sorozatok",Káoszháza
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kaoszhaza
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380457798.jpg" group-title="Golden Globe Sorozatok",Tövismadarak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tovismadarak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1375893279.jpg" group-title="Golden Globe Sorozatok",Sztárok leszünk!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/sztarok-leszunk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1382704496.jpg" group-title="Golden Globe Sorozatok",A stúdió
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-studio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367261233.jpg" group-title="IMDb Top Sorozatok",Ezel
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ezel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_877.jpg" group-title="IMDb Top Sorozatok",Star Wars: Obi-Wan Kenobi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/star-wars-obi-wan-kenobi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_740.jpg" group-title="IMDb Top Sorozatok",Hatalmas kis hazugságok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hatalmas-kis-hazugsagok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_706.jpg" group-title="IMDb Top Sorozatok",Mr. Robot
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/mr-robot
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_585.jpg" group-title="IMDb Top Sorozatok",A múlt árnyéka
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-mult-arnyeka
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1412421919.jpg" group-title="IMDb Top Sorozatok",Igenis - Miniszterelnök Úr!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/igenis-miniszterelnok-ur
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1410870413.jpg" group-title="IMDb Top Sorozatok",Kockafejek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kockafejek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1403001999.jpg" group-title="IMDb Top Sorozatok",Szilícium-völgy
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szilicium-volgy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1392478072.jpg" group-title="IMDb Top Sorozatok",Utolsó vérig
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/utolso-verig
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388326675.jpg" group-title="IMDb Top Sorozatok",Korra legendája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/korra-legendaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388326115.jpg" group-title="IMDb Top Sorozatok",Louie
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/louie
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388323066.jpg" group-title="IMDb Top Sorozatok",John Adams
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/john-adams
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1386687309.jpg" group-title="IMDb Top Sorozatok",Híradósok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hiradosok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1382944440.jpg" group-title="IMDb Top Sorozatok",Briliáns elmék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/brilians-elmek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370869119.jpg" group-title="IMDb Top Sorozatok",Spartacus: Vér és homok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/spartacus-ver-es-homok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381814863.jpg" group-title="IMDb Top Sorozatok",A palota ékköve
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-palota-ekkove
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380717933.jpg" group-title="IMDb Top Sorozatok",Hannibal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hannibal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380025170.jpg" group-title="IMDb Top Sorozatok",Gengszterkorzó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/gengszterkorzo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370849015.jpg" group-title="IMDb Top Sorozatok",A törvény embere
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-torveny-embere
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_923.jpg" group-title="IMDb Top Sorozatok",Fallout
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/fallout
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_873.jpg" group-title="IMDb Top Sorozatok",A besúgó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-besugo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_770.jpg" group-title="IMDb Top Sorozatok",Terror
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/terror
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_702.jpg" group-title="IMDb Top Sorozatok",A császárság kincse
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-csaszarsag-kincse
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1406114665.jpg" group-title="IMDb Top Sorozatok",Wentworth - a nők börtöne
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/wentworth-a-nok-bortone
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1405514798.jpg" group-title="IMDb Top Sorozatok",Az igazság ifjú ligája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-igazsag-ifju-ligaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388324594.jpg" group-title="IMDb Top Sorozatok",Archer
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/archer
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388323918.jpg" group-title="IMDb Top Sorozatok",Szégyentelenek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szegyentelenek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1387456636.jpg" group-title="IMDb Top Sorozatok",Kemény zsaruk
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kemeny-zsaruk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1383327174.jpg" group-title="IMDb Top Sorozatok",Downton Abbey
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/downton-abbey
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1383224964.jpg" group-title="IMDb Top Sorozatok",Sírhant művek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/sirhant-muvek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1382706357.jpg" group-title="IMDb Top Sorozatok",Deadwood
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/deadwood
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1382705928.jpg" group-title="IMDb Top Sorozatok",Félig üres
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/felig-ures
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380024506.jpg" group-title="IMDb Top Sorozatok",Ki vagy doki
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ki-vagy-doki
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370868859.jpg" group-title="IMDb Top Sorozatok",Csillagközi romboló
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csillagkozi-rombolo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_932.jpg" group-title="IMDb Top Sorozatok",Pingvin
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/pingvin
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_821.jpg" group-title="IMDb Top Sorozatok",Narcos
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/narcos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_765.jpg" group-title="IMDb Top Sorozatok",Rólunk szól
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/rolunk-szol
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_596.jpg" group-title="IMDb Top Sorozatok",A hivatal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-hivatal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1420222119.jpg" group-title="IMDb Top Sorozatok",Birmingham bandája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/birmingham-bandaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1410255515.jpg" group-title="IMDb Top Sorozatok",Waczak Szálló
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/waczak-szallo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1394214211.jpg" group-title="IMDb Top Sorozatok",Az elnök emberei
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-elnok-emberei
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390254043.jpg" group-title="IMDb Top Sorozatok",Csengetett - Mylord?
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csengetett-mylord
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388325738.jpg" group-title="IMDb Top Sorozatok",Felhőtlen Philadelphia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/felhotlen-philadelphia
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1379772283.jpg" group-title="IMDb Top Sorozatok",Róma
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/roma
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_949.jpg" group-title="IMDb Top Sorozatok",Daredevil: Újjászületés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/daredevil-ujjaszuletes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_881.jpg" group-title="IMDb Top Sorozatok",Trónok harca - Sárkányok háza
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tronok-harca-sarkanyok-haza
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_867.jpg" group-title="IMDb Top Sorozatok",Reacher
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/reacher
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_817.jpg" group-title="IMDb Top Sorozatok",Stranger Things
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/stranger-things
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_689.jpg" group-title="IMDb Top Sorozatok",Westworld
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/westworld
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_679.jpg" group-title="IMDb Top Sorozatok",Kártyavár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kartyavar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_561.jpg" group-title="IMDb Top Sorozatok",Túl a kerítésen
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tul-a-keritesen
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1395422171.jpg" group-title="IMDb Top Sorozatok",Az igazságosztó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-igazsagoszto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1393953318.jpg" group-title="IMDb Top Sorozatok",Twin Peaks
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/twin-peaks
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388323438.jpg" group-title="IMDb Top Sorozatok",Fekete tükör
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/fekete-tukor
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1382705653.jpg" group-title="IMDb Top Sorozatok",Az ítélet család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-itelet-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_830.jpg" group-title="IMDb Top Sorozatok",A kívülálló
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-kivulallo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_597.jpg" group-title="IMDb Top Sorozatok",Az Árnyak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-arnyak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1394880483.jpg" group-title="IMDb Top Sorozatok",A törvény nevében
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-torveny-neveben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1389027048.jpg" group-title="IMDb Top Sorozatok",Büszkeség és balitélet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/buszkeseg-es-balitelet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_903.jpg" group-title="IMDb Top Sorozatok",Ahsoka
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ahsoka
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1387448452.jpg" group-title="IMDb Top Sorozatok",Firefly - A szentjánosbogár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/firefly-a-szentjanosbogar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_918.jpg" group-title="IMDb Top Sorozatok",The Walking Dead: The Ones Who Live
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/the-walking-dead-the-ones-who-live
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_856.jpg" group-title="IMDb Top Sorozatok",Rick és Morty
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/rick-es-morty
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1398013748.jpg" group-title="IMDb Top Sorozatok",Avatar - Aang legendája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/avatar-aang-legendaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381143473.jpg" group-title="IMDb Top Sorozatok",Maffiózók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/maffiozok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1379771783.jpg" group-title="IMDb Top Sorozatok",Drót
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/drot
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_891.jpg" group-title="IMDb Top Sorozatok",The Last of Us
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/the-last-of-us
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_814.jpg" group-title="IMDb Top Sorozatok",Csernobil
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csernobil
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1383156973.jpg" group-title="IMDb Top Sorozatok",Elit alakulat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/elit-alakulat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1366917496.jpg" group-title="Legértékeltebb Sorozatok",Internátus
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/internatus
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1378465837.jpg" group-title="Legértékeltebb Sorozatok",Vad angyal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/vad-angyal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_699.jpg" group-title="Legértékeltebb Sorozatok",100
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/100
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_716.jpg" group-title="Legértékeltebb Sorozatok",Született szobalányok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szuletett-szobalanyok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381322112.jpg" group-title="Legértékeltebb Sorozatok",Kés Alatt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kes-alatt
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1418741238.jpg" group-title="Legértékeltebb Sorozatok",Transformers: Mentő Botok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/transformers-mento-botok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_654.jpg" group-title="Legértékeltebb Sorozatok",Fear the Walking Dead
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/fear-the-walking-dead
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1371546456.jpg" group-title="Legértékeltebb Sorozatok",Amerikai fater
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/amerikai-fater
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380198571.jpg" group-title="Legértékeltebb Sorozatok",A rejtély
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-rejtely
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_677.jpg" group-title="Legértékeltebb Sorozatok",A holnap legendái
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-holnap-legendai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1394880870.jpg" group-title="Legértékeltebb Sorozatok",Esküdt ellenségek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/eskudt-ellensegek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_517.jpg" group-title="Legértékeltebb Sorozatok",Empire
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/empire
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1393612520.jpg" group-title="Legértékeltebb Sorozatok",Farkasbőrben
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/farkasborben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1411114602.jpg" group-title="Legértékeltebb Sorozatok",Rejtélyek városkája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/rejtelyek-varoskaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1420549397.jpg" group-title="Legértékeltebb Sorozatok",Dokik
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dokik
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1377694318.jpg" group-title="Legértékeltebb Sorozatok",Egy rém rendes család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/egy-rem-rendes-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_634.jpg" group-title="Legértékeltebb Sorozatok",Flash - A Villám
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/flash-a-villam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390655045.jpg" group-title="Legértékeltebb Sorozatok",Heartland
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/heartland
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1376507713.jpg" group-title="Legértékeltebb Sorozatok",13-as raktár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/13-as-raktar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1411371183.jpg" group-title="Jelenleg Követett Sorozatok",A hidegsebész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-hidegsebesz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1416392836.jpg" group-title="Jelenleg Követett Sorozatok",Bűnös Chicago
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/bunos-chicago
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_896.jpg" group-title="Jelenleg Követett Sorozatok",A mandalóri
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-mandalori
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388327408.jpg" group-title="Jelenleg Követett Sorozatok",Lángoló Chicago
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/langolo-chicago
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1386150590.jpg" group-title="Jelenleg Követett Sorozatok",Rubí - az elbűvölő szörnyeteg
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/rubi-az-elbuvolo-szornyeteg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367260117.jpg" group-title="Jelenleg Követett Sorozatok",Sherlock
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/sherlock
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_636.jpg" group-title="Jelenleg Követett Sorozatok",The Night Manager
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/the-night-manager
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367938812.jpg" group-title="Jelenleg Követett Sorozatok",Dallas 2012
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dallas-2012
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_960.jpg" group-title="Jelenleg Követett Sorozatok",Alert
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/alert
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_945.jpg" group-title="Jelenleg Követett Sorozatok",The Walking Dead: Dead City
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/the-walking-dead-dead-city
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_777.jpg" group-title="Jelenleg Követett Sorozatok",A tanár
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-tanar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_829.jpg" group-title="Jelenleg Követett Sorozatok",Yellowstone
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/yellowstone
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_890.jpg" group-title="Jelenleg Követett Sorozatok",Gólkirályság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/golkiralysag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1392477735.jpg" group-title="Jelenleg Követett Sorozatok",Született detektívek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szuletett-detektivek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381154290.jpg" group-title="Jelenleg Követett Sorozatok",Hetedik érzék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hetedik-erzek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1404374704.jpg" group-title="Jelenleg Követett Sorozatok",Quinn doktornő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/quinn-doktorno
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_904.jpg" group-title="Jelenleg Követett Sorozatok",Éjjeli ügynök
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ejjeli-ugynok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390827978.jpg" group-title="Jelenleg Követett Sorozatok",Bostoni halottkémek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/bostoni-halottkemek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1377500292.jpg" group-title="Jelenleg Követett Sorozatok",Csacska Angyal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csacska-angyal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_961.jpg" group-title="Jelenleg Követett Sorozatok",Párizs ostroma
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/parizs-ostroma
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_784.jpg" group-title="Jelenleg Követett Sorozatok",A visszaeső
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-visszaeso
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_533.jpg" group-title="Jelenleg Követett Sorozatok",Generációk háborúja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/generaciok-haboruja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_736.jpg" group-title="Jelenleg Követett Sorozatok",Diane védelmében
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/diane-vedelmeben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1397231622.jpg" group-title="Jelenleg Követett Sorozatok",Testvérek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/testverek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1406114101.jpg" group-title="Jelenleg Követett Sorozatok",Árulkodó nyomok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/arulkodo-nyomok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1393612150.jpg" group-title="Jelenleg Követett Sorozatok",A médium
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-medium
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369334247.jpg" group-title="Jelenleg Követett Sorozatok",Chuck
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/chuck
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1420550328.jpg" group-title="Jelenleg Követett Sorozatok",Szívek doktora
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szivek-doktora
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1392476787.jpg" group-title="Jelenleg Követett Sorozatok",A Cleveland Show
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-cleveland-show
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1397231185.jpg" group-title="Jelenleg Követett Sorozatok",Már megint Malcolm
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/mar-megint-malcolm
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_516.jpg" group-title="Jelenleg Követett Sorozatok",Fargo
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/fargo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1393952644.jpg" group-title="Jelenleg Követett Sorozatok",Gyilkos számok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/gyilkos-szamok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_698.jpg" group-title="Jelenleg Követett Sorozatok",Gyilkos ügyek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/gyilkos-ugyek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1416485236.jpg" group-title="Jelenleg Követett Sorozatok",Gomorra
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/gomorra
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_776.jpg" group-title="Jelenleg Követett Sorozatok",Seal Team
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/seal-team
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_910.jpg" group-title="Jelenleg Követett Sorozatok",Special Ops: Lioness
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/special-ops-lioness
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_850.jpg" group-title="Jelenleg Követett Sorozatok",FBI
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/fbi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_878.jpg" group-title="Jelenleg Követett Sorozatok",A Fiúk
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-fiuk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370532921.jpg" group-title="Jelenleg Követett Sorozatok",Alias
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/alias
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_633.jpg" group-title="Jelenleg Követett Sorozatok",CSI - Cyber helyszínelők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csi-cyber-helyszinelok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1391533766.jpg" group-title="Jelenleg Követett Sorozatok",Boston Legal - Jogi játszmák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/boston-legal-jogi-jatszmak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380198946.jpg" group-title="Jelenleg Követett Sorozatok",Tudorok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tudorok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_844.jpg" group-title="Jelenleg Követett Sorozatok",Mancs Őrjárat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/mancs-orjarat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_861.jpg" group-title="Jelenleg Követett Sorozatok",Az újonc
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-ujonc
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1391534466.jpg" group-title="Jelenleg Követett Sorozatok",A semmi közepén
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-semmi-kozepen
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380700654.jpg" group-title="Jelenleg Követett Sorozatok",Holtsáv
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/holtsav
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_781.jpg" group-title="Jelenleg Követett Sorozatok",Az ifjú Sheldon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-ifju-sheldon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1395684559.jpg" group-title="Jelenleg Követett Sorozatok",Kisváros
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kisvaros
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_556.jpg" group-title="Jelenleg Követett Sorozatok",Apa csak egy van
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/apa-csak-egy-van
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_944.jpg" group-title="Jelenleg Követett Sorozatok",Az olajügynök
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-olajugynok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390827437.jpg" group-title="Jelenleg Követett Sorozatok",Városfejlesztési osztály
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/varosfejlesztesi-osztaly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_956.jpg" group-title="Jelenleg Követett Sorozatok",Dexter: Feltámadás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dexter-feltamadas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_934.jpg" group-title="Jelenleg Követett Sorozatok",Lángoló vidék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/langolo-videk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1398178815.jpg" group-title="Jelenleg Követett Sorozatok",Las Vegas
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/las-vegas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369661421.jpg" group-title="Jelenleg Követett Sorozatok",4400
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/4400
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370968145.jpg" group-title="Legnézettebb Sorozatok",Cobra 11
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/cobra-11
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_614.jpg" group-title="Legnézettebb Sorozatok",Aranyélet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/aranyelet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380543856.jpg" group-title="Legnézettebb Sorozatok",X-akták
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/x-aktak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_760.jpg" group-title="Legnézettebb Sorozatok",S.W.A.T. - Különleges egység
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/swat-kulonleges-egyseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_732.jpg" group-title="Legnézettebb Sorozatok",A szolgálólány meséje
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-szolgalolany-meseje
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_644.jpg" group-title="Legnézettebb Sorozatok",Rejtjelek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/rejtjelek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1375969236.jpg" group-title="Legnézettebb Sorozatok",A végső akarat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-vegso-akarat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381244250.jpg" group-title="Legnézettebb Sorozatok",Star Wars: A klónok háborúja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/star-wars-a-klonok-haboruja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369582836.jpg" group-title="Legnézettebb Sorozatok",CSI: New York-i helyszínelők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csi-new-york-i-helyszinelok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1396959698.jpg" group-title="Legnézettebb Sorozatok",A férjem védelmében
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-ferjem-vedelmeben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367858441.jpg" group-title="Legnézettebb Sorozatok",Dexter
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dexter
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1383327471.jpg" group-title="Legnézettebb Sorozatok",Szellemekkel suttogó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szellemekkel-suttogo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1397924318.jpg" group-title="Legnézettebb Sorozatok",Grand Hotel
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/grand-hotel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1375442283.jpg" group-title="Legnézettebb Sorozatok",Nancy ül a fűben
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/nancy-ul-a-fuben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370075469.jpg" group-title="Legnézettebb Sorozatok",Seherezádé
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/seherezade
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_800.jpg" group-title="Legnézettebb Sorozatok",Doktor Murphy
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/doktor-murphy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1387448022.jpg" group-title="Legnézettebb Sorozatok",Törtetők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tortetok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390653940.jpg" group-title="Legnézettebb Sorozatok",Bűbájos boszorkák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/bubajos-boszorkak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368819661.jpg" group-title="Legnézettebb Sorozatok",Hetedik mennyország
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hetedik-mennyorszag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380789927.jpg" group-title="Legnézettebb Sorozatok",Smallville
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/smallville
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1379488057.jpg" group-title="Legnézettebb Sorozatok",A királyi ház titkai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-kiralyi-haz-titkai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1411470799.jpg" group-title="Legnézettebb Sorozatok",Vészhelyzet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/veszhelyzet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368531796.jpg" group-title="Legnézettebb Sorozatok",Teresa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/teresa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368615950.jpg" group-title="Legnézettebb Sorozatok",A korona hercege
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-korona-hercege
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381815240.jpg" group-title="Legnézettebb Sorozatok",A bosszú álarca
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-bosszu-alarca
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367952504.jpg" group-title="Legnézettebb Sorozatok",24
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/24
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1379954576.jpg" group-title="Legnézettebb Sorozatok",Döglött akták
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/doglott-aktak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1396706022.jpg" group-title="Legnézettebb Sorozatok",Szerelem zálogba
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szerelem-zalogba
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381308864.jpg" group-title="Legnézettebb Sorozatok",Murdoch nyomozó rejtélyei
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/murdoch-nyomozo-rejtelyei
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369051118.jpg" group-title="Legnézettebb Sorozatok",Csillagkapu: Atlantisz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csillagkapu-atlantisz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381143841.jpg" group-title="Legnézettebb Sorozatok",Sherlock és Watson
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/sherlock-es-watson
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1376608743.jpg" group-title="Legnézettebb Sorozatok",Kaliforgia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kaliforgia
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1376920766.jpg" group-title="Legnézettebb Sorozatok",Inni és élni hagyni
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/inni-es-elni-hagyni
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380023960.jpg" group-title="Legnézettebb Sorozatok",A belső ellenség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-belso-ellenseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1378626815.jpg" group-title="Legnézettebb Sorozatok",Amerikai Horror Story
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/amerikai-horror-story
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368248811.jpg" group-title="Legnézettebb Sorozatok",Terápia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/terapia
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367172296.jpg" group-title="Legnézettebb Sorozatok",Grimm
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/grimm
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_655.jpg" group-title="Legnézettebb Sorozatok",Lucifer
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/lucifer
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_534.jpg" group-title="Legnézettebb Sorozatok",Fiorella
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/fiorella
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368460522.jpg" group-title="Legnézettebb Sorozatok",Tiltott szerelem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tiltott-szerelem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380457089.jpg" group-title="Legnézettebb Sorozatok",A zöld íjász
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-zold-ijasz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369728423.jpg" group-title="Legnézettebb Sorozatok",Csillagkapu
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csillagkapu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1366917512.jpg" group-title="Legnézettebb Sorozatok",Dallas
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dallas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1383829258.jpg" group-title="Legnézettebb Sorozatok",Flúgos nyomozó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/flugos-nyomozo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368381342.jpg" group-title="Legnézettebb Sorozatok",A Simpson család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-simpson-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1403002687.jpg" group-title="Legnézettebb Sorozatok",Hazug csajok társasága
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hazug-csajok-tarsasaga
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367259330.jpg" group-title="Legnézettebb Sorozatok",Egyszer volt - hol nem volt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/egyszer-volt-hol-nem-volt
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1381988685.jpg" group-title="Legnézettebb Sorozatok",CSI - A helyszínelők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csi-a-helyszinelok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1377499848.jpg" group-title="Legnézettebb Sorozatok",South Park
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/south-park
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1378545302.jpg" group-title="Legnézettebb Sorozatok",Eltűntek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/eltuntek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370776867.jpg" group-title="Legnézettebb Sorozatok",Hawaii Five-0
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/hawaii-five-0
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390257588.jpg" group-title="Legnézettebb Sorozatok",Agatha Christie: Poirot történetei
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/agatha-christie-poirot-tortenetei
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1385926085.jpg" group-title="Legnézettebb Sorozatok",Az örökség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/az-orokseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1386151525.jpg" group-title="Legnézettebb Sorozatok",Tuti Gimi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tuti-gimi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1416393295.jpg" group-title="Legnézettebb Sorozatok",Kuzey Güney - Tűz és víz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/kuzey-guney-tuz-es-viz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369891997.jpg" group-title="Legnézettebb Sorozatok",Váratlan utazás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/varatlan-utazas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1370771469.jpg" group-title="Legnézettebb Sorozatok",Castle
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/castle
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1388324221.jpg" group-title="Legnézettebb Sorozatok",Vikingek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/vikingek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_823.jpg" group-title="Legnézettebb Sorozatok",Mintaapák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/mintaapak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368107566.jpg" group-title="Legnézettebb Sorozatok",Dr. House
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dr-house
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1390827039.jpg" group-title="Legnézettebb Sorozatok",Violetta
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/violetta
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1391541637.jpg" group-title="Legnézettebb Sorozatok",Maricruz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/maricruz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367916387.jpg" group-title="Legnézettebb Sorozatok",A szökés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-szokes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1383829996.jpg" group-title="Legnézettebb Sorozatok",NCIS: Los Angeles
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ncis-los-angeles
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368890568.jpg" group-title="Legnézettebb Sorozatok",Így jártam anyátokkal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/igy-jartam-anyatokkal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1377499682.jpg" group-title="Legnézettebb Sorozatok",A mentalista
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-mentalista
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369150072.jpg" group-title="Legnézettebb Sorozatok",Odaát
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/odaat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1380199218.jpg" group-title="Legnézettebb Sorozatok",Modern család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/modern-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1400608041.jpg" group-title="Legnézettebb Sorozatok",Igazgyöngy
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/igazgyongy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368290587.jpg" group-title="Legnézettebb Sorozatok",A Pletykafészek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-pletykafeszek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1382944702.jpg" group-title="Legnézettebb Sorozatok",A vihar
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-vihar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1379312057.jpg" group-title="Legnézettebb Sorozatok",Bosszú
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/bosszu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368247870.jpg" group-title="Legnézettebb Sorozatok",Vámpírnaplók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/vampirnaplok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367946353.jpg" group-title="Legnézettebb Sorozatok",CSI - Miami Helyszínelők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/csi-miami-helyszinelok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368712449.jpg" group-title="Legnézettebb Sorozatok",Szex és New York
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szex-es-new-york
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1379409816.jpg" group-title="Legnézettebb Sorozatok",Éjjel-nappal Budapest
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ejjel-nappal-budapest
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368789425.jpg" group-title="Legnézettebb Sorozatok",Jóbarátok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/jobaratok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1392156512.jpg" group-title="Legnézettebb Sorozatok",The Walking Dead
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/the-walking-dead
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369055444.jpg" group-title="Legnézettebb Sorozatok",Szívek szállodája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szivek-szallodaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368112611.jpg" group-title="Legnézettebb Sorozatok",Family Guy
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/family-guy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367940238.jpg" group-title="Legnézettebb Sorozatok",Dr. Csont
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/dr-csont
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367151867.jpg" group-title="Legnézettebb Sorozatok",A Grace klinika
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/a-grace-klinika
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369585018.jpg" group-title="Legnézettebb Sorozatok",NCIS: Tengerészeti Helyszínelők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ncis-tengereszeti-helyszinelok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1369041547.jpg" group-title="Legnézettebb Sorozatok",Két pasi - meg egy kicsi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/ket-pasi-meg-egy-kicsi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368714276.jpg" group-title="Legnézettebb Sorozatok",Született Feleségek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szuletett-felesegek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368040034.jpg" group-title="Legnézettebb Sorozatok",Szulejmán
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szulejman
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1375198086.jpg" group-title="Legnézettebb Sorozatok",Trónok harca
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/tronok-harca
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1367583515.jpg" group-title="Legnézettebb Sorozatok",Agymenők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/agymenok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1368643433.jpg" group-title="Legnézettebb Sorozatok",Gyilkos elmék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/gyilkos-elmek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/serials/main/serial_1394214667.jpg" group-title="Legnézettebb Sorozatok",Szomszédok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/sorozat/szomszedok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1249.jpg" group-title="Oscar Nyertesek",Botrány
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/botrany
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1228.jpg" group-title="Oscar Nyertesek",Jojo Nyuszi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jojo-nyuszi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1217.jpg" group-title="Oscar Nyertesek",Kisasszonyok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kisasszonyok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_538.jpg" group-title="Oscar Nyertesek",007 Spectre - A Fantom visszatér
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/007-spectre-a-fantom-visszater
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_776.jpg" group-title="Oscar Nyertesek",Érkezés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/erkezes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_987.jpg" group-title="Oscar Nyertesek",JFK - A nyitott dosszié
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jfk-a-nyitott-dosszie
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_210.jpg" group-title="Oscar Nyertesek",007 - Skyfall
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/007-skyfall
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_959.jpg" group-title="Oscar Nyertesek",A legsötétebb óra
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-legsotetebb-ora
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_373.jpg" group-title="Oscar Nyertesek",Féktelenül
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fektelenul
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_113.jpg" group-title="Oscar Nyertesek",A nagy Gatsby
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-nagy-gatsby
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_89.jpg" group-title="Oscar Nyertesek",Lincoln
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/lincoln
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_314.jpg" group-title="Oscar Nyertesek",A kis szemtanú
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kis-szemtanu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_135.jpg" group-title="Oscar Nyertesek",Az Argo-akció
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-argo-akcio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_638.jpg" group-title="Oscar Nyertesek",A Bourne-ultimátum
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-bourne-ultimatum
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_352.jpg" group-title="Oscar Nyertesek",Mielőtt meghaltam
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mielott-meghaltam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_257.jpg" group-title="Oscar Nyertesek",Ütközések
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/utkozesek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_939.jpg" group-title="Oscar Nyertesek",A víz érintése
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-viz-erintese
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_397.jpg" group-title="Oscar Nyertesek",Traffic
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/traffic
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_303.jpg" group-title="Oscar Nyertesek",Birdman avagy (A mellőzés meglepő ereje)
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/birdman-avagy-a-mellozes-meglepo-ereje
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_255.jpg" group-title="Oscar Nyertesek",A némafilmes
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-nemafilmes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_256.jpg" group-title="Oscar Nyertesek",A bombák földjén
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-bombak-foldjen
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_118.jpg" group-title="Oscar Nyertesek",Gravitáció
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gravitacio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_271.jpg" group-title="Oscar Nyertesek",Szerelmes Shakespeare
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szerelmes-shakespeare
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_283.jpg" group-title="Oscar Nyertesek",Titanic
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/titanic
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1067.jpg" group-title="IMDb Top Filmek",Csillag születik
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csillag-szuletik
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1552.jpg" group-title="IMDb Top Filmek",Deadpool & Rozsomák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/deadpool-rozsomak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_528.jpg" group-title="IMDb Top Filmek",Mentőexpedíció
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mentoexpedicio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_262.jpg" group-title="IMDb Top Filmek",A király beszéde
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kiraly-beszede
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1486.jpg" group-title="IMDb Top Filmek",A galaxis őrzői: 3. rész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-galaxis-orzoi-3-resz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1481.jpg" group-title="IMDb Top Filmek",Tyler Rake: A kimenekítés 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tyler-rake-a-kimenekites-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_968.jpg" group-title="IMDb Top Filmek",Kszi - Simon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kszi-simon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1468.jpg" group-title="IMDb Top Filmek",Gyagyás gyilkosság 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gyagyas-gyilkossag-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_443.jpg" group-title="IMDb Top Filmek",Mad Max - A harag útja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mad-max-a-harag-utja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1447.jpg" group-title="IMDb Top Filmek",Minden - mindenhol - mindenkor
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/minden-mindenhol-mindenkor
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_419.jpg" group-title="IMDb Top Filmek",Némó nyomában
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nemo-nyomaban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_142.jpg" group-title="IMDb Top Filmek",A Grand Budapest Hotel
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-grand-budapest-hotel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_133.jpg" group-title="IMDb Top Filmek",12 év rabszolgaság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/12-ev-rabszolgasag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_69.jpg" group-title="IMDb Top Filmek",A Föld az űrből
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-fold-az-urbol
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_827.jpg" group-title="IMDb Top Filmek",Kaliforniai álom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kaliforniai-alom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_59.jpg" group-title="IMDb Top Filmek",Holtodiglan
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/holtodiglan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1073.jpg" group-title="IMDb Top Filmek",Bohém rapszódia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bohem-rapszodia
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_811.jpg" group-title="IMDb Top Filmek",Logan - Farkas
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/logan-farkas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_290.jpg" group-title="IMDb Top Filmek",Millió dolláros bébi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/millio-dollaros-bebi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_263.jpg" group-title="IMDb Top Filmek",Brian élete
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/brian-elete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_258.jpg" group-title="IMDb Top Filmek",Nem vénnek való vidék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nem-vennek-valo-videk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1255.jpg" group-title="IMDb Top Filmek",A bukás - Hitler utolsó napjai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-bukas-hitler-utolso-napjai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1453.jpg" group-title="IMDb Top Filmek",A sziget szellemei
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-sziget-szellemei
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_164.jpg" group-title="IMDb Top Filmek",Warrior - A végső menet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/warrior-a-vegso-menet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_917.jpg" group-title="IMDb Top Filmek",Paddington 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/paddington-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_382.jpg" group-title="IMDb Top Filmek",V mint vérbosszú
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/v-mint-verbosszu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_364.jpg" group-title="IMDb Top Filmek",A Ravasz - az Agy és két füstölgő puskacső
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-ravasz-az-agy-es-ket-fustolgo-puskacso
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1342.jpg" group-title="IMDb Top Filmek",Jóbarátok: Újra együtt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jobaratok-ujra-egyutt
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1323.jpg" group-title="IMDb Top Filmek",Zack Snyder: Az Igazság Ligája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/zack-snyder-az-igazsag-ligaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_804.jpg" group-title="IMDb Top Filmek",A fegyvertelen katona
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-fegyvertelen-katona
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_267.jpg" group-title="IMDb Top Filmek",Egy csodálatos elme
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-csodalatos-elme
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_259.jpg" group-title="IMDb Top Filmek",Nincs bocsánat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nincs-bocsanat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1262.jpg" group-title="IMDb Top Filmek",Engem is anya szült
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/engem-is-anya-szult
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_212.jpg" group-title="IMDb Top Filmek",Becstelen Brigantyk
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/becstelen-brigantyk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_920.jpg" group-title="IMDb Top Filmek",Három óriásplakát Ebbing határában
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harom-oriasplakat-ebbing-hataraban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1413.jpg" group-title="IMDb Top Filmek",Batman
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/batman
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_363.jpg" group-title="IMDb Top Filmek",Blöff
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bloff
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_177.jpg" group-title="IMDb Top Filmek",A sötét lovag - Felemelkedés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-sotet-lovag-felemelkedes
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_152.jpg" group-title="IMDb Top Filmek",Django elszabadul
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/django-elszabadul
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1166.jpg" group-title="IMDb Top Filmek",Klaus - A karácsony titkos története
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/klaus-a-karacsony-titkos-tortenete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1351.jpg" group-title="IMDb Top Filmek",A Lármás család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-larmas-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_313.jpg" group-title="IMDb Top Filmek",Volt egyszer egy Amerika
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/volt-egyszer-egy-amerika
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_272.jpg" group-title="IMDb Top Filmek",Amerikai szépség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/amerikai-szepseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_266.jpg" group-title="IMDb Top Filmek",A rettenthetetlen
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-rettenthetetlen
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_251.jpg" group-title="IMDb Top Filmek",Stephen King: Halálsoron
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/stephen-king-halalsoron
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1505.jpg" group-title="IMDb Top Filmek",Oppenheimer
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/oppenheimer
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_452.jpg" group-title="IMDb Top Filmek",Vissza a jövőbe
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vissza-a-jovobe
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_392.jpg" group-title="IMDb Top Filmek",Whiplash
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/whiplash
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_62.jpg" group-title="IMDb Top Filmek",Nyuszi és Őz
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nyuszi-es-oz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_289.jpg" group-title="IMDb Top Filmek",Gladiátor
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gladiator
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_260.jpg" group-title="IMDb Top Filmek",A Tégla
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-tegla
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_254.jpg" group-title="IMDb Top Filmek",Hetedik
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hetedik
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_274.jpg" group-title="IMDb Top Filmek",A bárányok hallgatnak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-baranyok-hallgatnak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1163.jpg" group-title="IMDb Top Filmek",Az ír
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-ir
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1408.jpg" group-title="IMDb Top Filmek",Pókember: Nincs hazaút
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pokember-nincs-hazaut
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_286.jpg" group-title="IMDb Top Filmek",A Gyűrűk Ura - A két torony
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gyuruk-ura-a-ket-torony
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1528.jpg" group-title="IMDb Top Filmek",Dűne: Második rész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/dune-masodik-resz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_814.jpg" group-title="IMDb Top Filmek",Eredet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/eredet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1490.jpg" group-title="IMDb Top Filmek",Pókember - A pókverzumon át
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pokember-a-pokverzumon-at
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_291.jpg" group-title="IMDb Top Filmek",Schindler listája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/schindler-listaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_287.jpg" group-title="IMDb Top Filmek",A Gyűrűk Ura - A király visszatér
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gyuruk-ura-a-kiraly-visszater
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_235.jpg" group-title="IMDb Top Filmek",A Keresztapa 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-keresztapa-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_234.jpg" group-title="IMDb Top Filmek",A Keresztapa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-keresztapa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_250.jpg" group-title="IMDb Top Filmek",A remény rabjai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-remeny-rabjai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_744.jpg" group-title="Legértékeltebb Filmek",Inferno
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/inferno
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1246.jpg" group-title="Legértékeltebb Filmek",1917
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/1917
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1004.jpg" group-title="Legértékeltebb Filmek",Szárnyas fejvadász 2049
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szarnyas-fejvadasz-2049
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1207.jpg" group-title="Legértékeltebb Filmek",A Wall Street pillangói
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-wall-street-pillangoi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1021.jpg" group-title="Legértékeltebb Filmek",Tűzgyűrű: Lázadás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tuzgyuru-lazadas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_803.jpg" group-title="Legértékeltebb Filmek",Assassin's Creed
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/assassins-creed
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1032.jpg" group-title="Legértékeltebb Filmek",Sötét elmék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/sotet-elmek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_940.jpg" group-title="Legértékeltebb Filmek",A Viszkis
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-viszkis
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_796.jpg" group-title="Legértékeltebb Filmek",Váratlan szépség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/varatlan-szepseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_105.jpg" group-title="Legértékeltebb Filmek",Az útvesztő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-utveszto
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1052.jpg" group-title="Legértékeltebb Filmek",Alfa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alfa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1321.jpg" group-title="Legértékeltebb Filmek",Raya és az utolsó sárkány
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/raya-es-az-utolso-sarkany
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1047.jpg" group-title="Legértékeltebb Filmek",Mission: Impossible - Utóhatás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mission-impossible-utohatas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_232.jpg" group-title="Legértékeltebb Filmek",Barátság extrákkal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/baratsag-extrakkal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_932.jpg" group-title="Legértékeltebb Filmek",Az Igazság Ligája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-igazsag-ligaja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_476.jpg" group-title="Legértékeltebb Filmek",Pixel
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pixel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1086.jpg" group-title="Legértékeltebb Filmek",Egy kis szívesség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-kis-szivesseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_417.jpg" group-title="Legértékeltebb Filmek",Volt
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/volt
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1172.jpg" group-title="Legértékeltebb Filmek",Angry Birds 2. - A film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/angry-birds-2-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1367.jpg" group-title="Legértékeltebb Filmek",Luca
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/luca
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1415.jpg" group-title="Legértékeltebb Filmek",Uncharted
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/uncharted
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_40.jpg" group-title="Legértékeltebb Filmek",A Lego kaland
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-lego-kaland
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1355.jpg" group-title="Legértékeltebb Filmek",Boss Level - Játszd újra
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/boss-level-jatszd-ujra
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1069.jpg" group-title="Legértékeltebb Filmek",A kém - aki dobott engem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kem-aki-dobott-engem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_909.jpg" group-title="Legértékeltebb Filmek",Űrvihar
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/urvihar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1316.jpg" group-title="Legértékeltebb Filmek",Greenland - Az utolsó menedék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/greenland-az-utolso-menedek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1176.jpg" group-title="Legértékeltebb Filmek",Az: Második fejezet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-masodik-fejezet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_273.jpg" group-title="Legértékeltebb Filmek",Avatar
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/avatar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_726.jpg" group-title="Legértékeltebb Filmek",Vissza hozzád
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vissza-hozzad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1261.jpg" group-title="Legértékeltebb Filmek",Jexi - Túl okos telefon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jexi-tul-okos-telefon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1103.jpg" group-title="Legértékeltebb Filmek",Zöld könyv - Útmutató az élethez
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/zold-konyv-utmutato-az-elethez
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1045.jpg" group-title="Legértékeltebb Filmek",A Védelmező 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-vedelmezo-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1216.jpg" group-title="Legértékeltebb Filmek",Élősködők
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/eloskodok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1154.jpg" group-title="Legértékeltebb Filmek",Pókember: Idegenben
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pokember-idegenben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1371.jpg" group-title="Legértékeltebb Filmek",Dűne
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/dune
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1002.jpg" group-title="Legértékeltebb Filmek",Thor: Ragnarök
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/thor-ragnarok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_441.jpg" group-title="Legértékeltebb Filmek",Adaline varázslatos élete
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/adaline-varazslatos-elete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1442.jpg" group-title="Legértékeltebb Filmek",A gyilkos járat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gyilkos-jarat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1038.jpg" group-title="Legértékeltebb Filmek",Mamma Mia! Sose hagyjuk abba
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mamma-mia-sose-hagyjuk-abba
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_566.jpg" group-title="Legértékeltebb Filmek",Az ételművész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-etelmuvesz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1209.jpg" group-title="Legértékeltebb Filmek",Az aszfalt királyai
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-aszfalt-kiralyai
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_205.jpg" group-title="Legértékeltebb Filmek",Halálos iramban 6
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-6
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_189.jpg" group-title="Legértékeltebb Filmek",Jack Reacher
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jack-reacher
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1435.jpg" group-title="Legértékeltebb Filmek",Top Gun: Maverick
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/top-gun-maverick
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1391.jpg" group-title="Jelenleg Követett Filmek",Bébi úr: Családi ügy
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bebi-ur-csaladi-ugy
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_815.jpg" group-title="Jelenleg Követett Filmek",Álmatlanság
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/almatlansag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1139.jpg" group-title="Jelenleg Követett Filmek",Shaft
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/shaft
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1524.jpg" group-title="Jelenleg Követett Filmek",John Wick: 4. felvonás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/john-wick-4-felvonas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1449.jpg" group-title="Jelenleg Követett Filmek",Black Adam
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/black-adam
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1280.jpg" group-title="Jelenleg Követett Filmek",A csókfülke 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-csokfulke-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1595.jpg" group-title="Jelenleg Követett Filmek",Egyik csata a másik után
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egyik-csata-a-masik-utan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1575.jpg" group-title="Jelenleg Követett Filmek",A melós
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-melos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_292.jpg" group-title="Jelenleg Követett Filmek",Az angol beteg
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-angol-beteg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1240.jpg" group-title="Jelenleg Követett Filmek",Latte és a titokzatos varázskő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/latte-es-a-titokzatos-varazsko
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1511.jpg" group-title="Jelenleg Követett Filmek",Napóleon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/napoleon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_930.jpg" group-title="Jelenleg Követett Filmek",Óriásláb fia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/oriaslab-fia
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_34.jpg" group-title="Jelenleg Követett Filmek",Így neveld a sárkányodat 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/igy-neveld-a-sarkanyodat-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1574.jpg" group-title="Jelenleg Követett Filmek",Egy Minecraft film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/egy-minecraft-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1210.jpg" group-title="Jelenleg Követett Filmek",Támadás a Fehér Ház ellen 3. - A védangyal bukása
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tamadas-a-feher-haz-ellen-3-a-vedangyal-bukasa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1301.jpg" group-title="Jelenleg Követett Filmek",SpongyaBob: Spongya szökésben
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/spongyabob-spongya-szokesben
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1057.jpg" group-title="Jelenleg Követett Filmek",Upgrade - Javított verzió
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/upgrade-javitott-verzio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_738.jpg" group-title="Jelenleg Követett Filmek",Öngyilkos osztag
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ongyilkos-osztag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_261.jpg" group-title="Jelenleg Követett Filmek",Gettómilliomos
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gettomilliomos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_253.jpg" group-title="Jelenleg Követett Filmek",Forrest Gump
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/forrest-gump
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1571.jpg" group-title="Jelenleg Követett Filmek",Konklávé
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/konklave
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_280.jpg" group-title="Jelenleg Követett Filmek",A Karib-tenger kalózai - Holtak kincse
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-karib-tenger-kalozai-holtak-kincse
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_207.jpg" group-title="Jelenleg Követett Filmek",Pi élete
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pi-elete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1483.jpg" group-title="Jelenleg Követett Filmek",Super Mario Bros: A film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/super-mario-bros-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_719.jpg" group-title="Jelenleg Követett Filmek",Rossz anyák
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/rossz-anyak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_204.jpg" group-title="Jelenleg Követett Filmek",Halálos iramban: Ötödik sebesség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-otodik-sebesseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1570.jpg" group-title="Jelenleg Követett Filmek",Amerika Kapitány: Szép új világ
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/amerika-kapitany-szep-uj-vilag
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1591.jpg" group-title="Jelenleg Követett Filmek",Mocskos játszma
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mocskos-jatszma
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1368.jpg" group-title="Jelenleg Követett Filmek",Mancs őrjárat: A film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mancs-orjarat-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1274.jpg" group-title="Jelenleg Követett Filmek",Tü-tü - Kori
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/tu-tu-kori
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1475.jpg" group-title="Jelenleg Követett Filmek",Anya
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/anya
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1501.jpg" group-title="Jelenleg Követett Filmek",A Védelmező 3
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-vedelmezo-3
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_396.jpg" group-title="Jelenleg Követett Filmek",Snowpiercer
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/snowpiercer
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1394.jpg" group-title="Jelenleg Követett Filmek",Hotel Transylvania - Transzformánia
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hotel-transylvania-transzformania
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1527.jpg" group-title="Jelenleg Követett Filmek",Konstrukció
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/konstrukcio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1412.jpg" group-title="Jelenleg Követett Filmek",Blacklight
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/blacklight
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_252.jpg" group-title="Jelenleg Követett Filmek",Életrevalók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/eletrevalok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1470.jpg" group-title="Jelenleg Követett Filmek",Avatar: A víz útja
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/avatar-a-viz-utja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1436.jpg" group-title="Jelenleg Követett Filmek",Thor: Szerelem és mennydörgés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/thor-szerelem-es-mennydorges
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1480.jpg" group-title="Jelenleg Követett Filmek",A pápa ördögűzője
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-papa-ordoguzoje
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1136.jpg" group-title="Jelenleg Követett Filmek",A Lego kaland 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-lego-kaland-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1406.jpg" group-title="Jelenleg Követett Filmek",Pirula panda
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pirula-panda
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_438.jpg" group-title="Jelenleg Követett Filmek",Amerikai mesterlövész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/amerikai-mesterlovesz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1549.jpg" group-title="Jelenleg Követett Filmek",Maga a pokol
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/maga-a-pokol
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1563.jpg" group-title="Jelenleg Követett Filmek",Vaiana 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vaiana-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1543.jpg" group-title="Jelenleg Követett Filmek",Twisters - Végzetes vihar
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/twisters-vegzetes-vihar
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_418.jpg" group-title="Jelenleg Követett Filmek",A hihetetlen család
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hihetetlen-csalad
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1579.jpg" group-title="Jelenleg Követett Filmek",A könyvelő 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-konyvelo-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1592.jpg" group-title="Jelenleg Követett Filmek",Senki 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/senki-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_767.jpg" group-title="Jelenleg Követett Filmek",Jack Reacher: Nincs visszaút
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jack-reacher-nincs-visszaut
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1167.jpg" group-title="Jelenleg Követett Filmek",Ad Astra - Út a csillagokba
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ad-astra-ut-a-csillagokba
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1517.jpg" group-title="Jelenleg Követett Filmek",Imádlak utálni
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/imadlak-utalni
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_504.jpg" group-title="Jelenleg Követett Filmek",Kész katasztrófa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kesz-katasztrofa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1542.jpg" group-title="Jelenleg Követett Filmek",Bad Boys - Mindent vagy többet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bad-boys-mindent-vagy-tobbet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1497.jpg" group-title="Jelenleg Követett Filmek",Az apáca 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-apaca-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1494.jpg" group-title="Jelenleg Követett Filmek",Meg 2 - Az árok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/meg-2-az-arok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1568.jpg" group-title="Jelenleg Követett Filmek",Alarum
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alarum
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1053.jpg" group-title="Jelenleg Követett Filmek",Predator - A ragadozó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/predator-a-ragadozo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_496.jpg" group-title="Jelenleg Követett Filmek",Sicario - A bérgyilkos
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/sicario-a-bergyilkos
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1460.jpg" group-title="Jelenleg Követett Filmek",Fekete Párduc: Vakanda - légy áldott!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/fekete-parduc-vakanda-legy-aldott
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1565.jpg" group-title="Jelenleg Követett Filmek",Futni mentem
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/futni-mentem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1597.jpg" group-title="Jelenleg Követett Filmek",Gengszterzsaruk: Pantera
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gengszterzsaruk-pantera
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1429.jpg" group-title="Jelenleg Követett Filmek",Préda
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/preda
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1594.jpg" group-title="Jelenleg Követett Filmek",Apás délután
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/apas-delutan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1548.jpg" group-title="Jelenleg Követett Filmek",Gru 4
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gru-4
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1596.jpg" group-title="Jelenleg Követett Filmek",Predator: Halálbolygó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/predator-halalbolygo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_279.jpg" group-title="Jelenleg Követett Filmek",A Karib-tenger kalózai - A Fekete Gyöngy átka
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-karib-tenger-kalozai-a-fekete-gyongy-atka
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1578.jpg" group-title="Jelenleg Követett Filmek",Az amatőr
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-amator
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1587.jpg" group-title="Jelenleg Követett Filmek",F1
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/f1
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_63.jpg" group-title="Legnézettebb Filmek",Turbó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/turbo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_423.jpg" group-title="Legnézettebb Filmek",Menedék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/menedek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_817.jpg" group-title="Legnézettebb Filmek",John Wick: 2. felvonás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/john-wick-2-felvonas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1165.jpg" group-title="Legnézettebb Filmek",Joker
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/joker
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_602.jpg" group-title="Legnézettebb Filmek",Nagyfater elszabadul
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nagyfater-elszabadul
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_725.jpg" group-title="Legnézettebb Filmek",Szenilla nyomában
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/szenilla-nyomaban
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_372.jpg" group-title="Legnézettebb Filmek",Herkules
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/herkules
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_175.jpg" group-title="Legnézettebb Filmek",A Wall Street farkasa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-wall-street-farkasa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_300.jpg" group-title="Legnézettebb Filmek",A hobbit - Váratlan utazás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hobbit-varatlan-utazas
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1017.jpg" group-title="Legnézettebb Filmek",Deadpool 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/deadpool-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1153.jpg" group-title="Legnézettebb Filmek",Miután
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/miutan
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_524.jpg" group-title="Legnézettebb Filmek",A kezdő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kezdo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_578.jpg" group-title="Legnézettebb Filmek",A visszatérő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-visszatero
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_929.jpg" group-title="Legnézettebb Filmek",Gyilkos nyomon
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gyilkos-nyomon
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_634.jpg" group-title="Legnézettebb Filmek",Nász-ajánlat
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/nasz-ajanlat
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1226.jpg" group-title="Legnézettebb Filmek",Bad Boys - Mindörökké rosszfiúk
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bad-boys-mindorokke-rosszfiuk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_565.jpg" group-title="Legnézettebb Filmek",Alvin és a mókusok - A mókás menet
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alvin-es-a-mokusok-a-mokas-menet
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1044.jpg" group-title="Legnézettebb Filmek",A hihetetlen család 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-hihetetlen-csalad-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_675.jpg" group-title="Legnézettebb Filmek",Amerika Kapitány: Polgárháború
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/amerika-kapitany-polgarhaboru
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_966.jpg" group-title="Legnézettebb Filmek",A szabadság ötven árnyalata
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-szabadsag-otven-arnyalata
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_866.jpg" group-title="Legnézettebb Filmek",Pókember - Hazatérés
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/pokember-hazateres
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_863.jpg" group-title="Legnézettebb Filmek",Verdák 3
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/verdak-3
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1125.jpg" group-title="Legnézettebb Filmek",Álommeló
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/alommelo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_491.jpg" group-title="Legnézettebb Filmek",Reszkessetek - betörők!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/reszkessetek-betorok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_701.jpg" group-title="Legnézettebb Filmek",Jégkorszak - A nagy bumm
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jegkorszak-a-nagy-bumm
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_391.jpg" group-title="Legnézettebb Filmek",Csillagok között
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/csillagok-kozott
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_618.jpg" group-title="Legnézettebb Filmek",Kung Fu Panda 3
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kung-fu-panda-3
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_32.jpg" group-title="Legnézettebb Filmek",A holnap határa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-holnap-hatara
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_851.jpg" group-title="Legnézettebb Filmek",Halálos iramban 8
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-8
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_693.jpg" group-title="Legnézettebb Filmek",Mielőtt megismertelek
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/mielott-megismertelek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_35.jpg" group-title="Legnézettebb Filmek",A galaxis őrzői
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-galaxis-orzoi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1164.jpg" group-title="Legnézettebb Filmek",Halálos iramban: Hobbs & Shaw
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-hobbs-shaw
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_285.jpg" group-title="Legnézettebb Filmek",A Gyűrűk Ura - A Gyűrű Szövetsége
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-gyuruk-ura-a-gyuru-szovetsege
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_309.jpg" group-title="Legnézettebb Filmek",John wick
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/john-wick
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_873.jpg" group-title="Legnézettebb Filmek",Wonder Woman
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/wonder-woman
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1037.jpg" group-title="Legnézettebb Filmek",Meg - Az őscápa
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/meg-az-oscapa
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1218.jpg" group-title="Legnézettebb Filmek",Jumanji: A következő szint
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jumanji-a-kovetkezo-szint
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_770.jpg" group-title="Legnézettebb Filmek",Doctor Strange
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/doctor-strange
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_302.jpg" group-title="Legnézettebb Filmek",Aladdin
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/aladdin
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1056.jpg" group-title="Legnézettebb Filmek",Venom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/venom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_275.jpg" group-title="Legnézettebb Filmek",Az oroszlánkirály
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/az-oroszlankiraly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1026.jpg" group-title="Legnézettebb Filmek",Jurassic World: Bukott birodalom
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jurassic-world-bukott-birodalom
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_583.jpg" group-title="Legnézettebb Filmek",Deadpool
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/deadpool
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_848.jpg" group-title="Legnézettebb Filmek",Hupikék törpikék - Az elveszett falu
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hupikek-torpikek-az-elveszett-falu
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_138.jpg" group-title="Legnézettebb Filmek",Kavarás
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kavaras
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_946.jpg" group-title="Legnézettebb Filmek",Ferdinánd
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/ferdinand
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_877.jpg" group-title="Legnézettebb Filmek",Baywatch
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/baywatch
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_679.jpg" group-title="Legnézettebb Filmek",Harry Potter és a Halál ereklyéi II. rész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-halal-ereklyei-ii-resz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_748.jpg" group-title="Legnézettebb Filmek",A könyvelő
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-konyvelo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_47.jpg" group-title="Legnézettebb Filmek",Croodék
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/croodek
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_782.jpg" group-title="Legnézettebb Filmek",Legendás állatok és megfigyelésük
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/legendas-allatok-es-megfigyelesuk
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_510.jpg" group-title="Legnézettebb Filmek",Agymanók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/agymanok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_678.jpg" group-title="Legnézettebb Filmek",Harry Potter és a Halál ereklyéi I. rész
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-halal-ereklyei-i-resz
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_470.jpg" group-title="Legnézettebb Filmek",A kém
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kem
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_180.jpg" group-title="Legnézettebb Filmek",Gru
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gru
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_174.jpg" group-title="Legnézettebb Filmek",Bosszúállók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bosszuallok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_680.jpg" group-title="Legnézettebb Filmek",Angry Birds - A film
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/angry-birds-a-film
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_249.jpg" group-title="Legnézettebb Filmek",Kellékfeleség
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/kellekfeleseg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_403.jpg" group-title="Legnézettebb Filmek",Halálos iramban 7
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/halalos-iramban-7
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_809.jpg" group-title="Legnézettebb Filmek",A sötét ötven árnyalata
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-sotet-otven-arnyalata
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_48.jpg" group-title="Legnézettebb Filmek",Hotel Transylvania - Ahol a szörnyek lazulnak
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hotel-transylvania-ahol-a-szornyek-lazulnak
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_797.jpg" group-title="Legnézettebb Filmek",Utazók
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/utazok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_938.jpg" group-title="Legnézettebb Filmek",Coco
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/coco
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_436.jpg" group-title="Legnézettebb Filmek",Bosszúállók: Ultron kora
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bosszuallok-ultron-kora
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_874.jpg" group-title="Legnézettebb Filmek",Gru 3
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gru-3
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_933.jpg" group-title="Legnézettebb Filmek",Jumanji: Vár a dzsungel
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jumanji-var-a-dzsungel
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1033.jpg" group-title="Legnézettebb Filmek",Hotel Transylvania 3: Szörnyen rémes vakáció
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hotel-transylvania-3-szornyen-remes-vakacio
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_805.jpg" group-title="Legnézettebb Filmek",Énekelj!
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/enekelj
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_674.jpg" group-title="Legnézettebb Filmek",Harry Potter és a félvér herceg
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-felver-herceg
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_673.jpg" group-title="Legnézettebb Filmek",Harry Potter és a Főnix Rendje
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-fonix-rendje
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_669.jpg" group-title="Legnézettebb Filmek",Harry Potter és a Tűz Serlege
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-tuz-serlege
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_508.jpg" group-title="Legnézettebb Filmek",Hotel Transylvania 2 - Ahol még mindig szörnyen jó
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/hotel-transylvania-2-ahol-meg-mindig-szornyen-jo
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_722.jpg" group-title="Legnézettebb Filmek",A kis kedvencek titkos élete
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-kis-kedvencek-titkos-elete
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_765.jpg" group-title="Legnézettebb Filmek",Trollok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/trollok
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1087.jpg" group-title="Legnézettebb Filmek",A Grincs
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-grincs
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1022.jpg" group-title="Legnézettebb Filmek",Bosszúállók: Végtelen háború
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bosszuallok-vegtelen-haboru
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_1211.jpg" group-title="Legnézettebb Filmek",Jégvarázs 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jegvarazs-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_444.jpg" group-title="Legnézettebb Filmek",Jurassic World
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jurassic-world
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_44.jpg" group-title="Legnézettebb Filmek",Gru 2
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/gru-2
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_668.jpg" group-title="Legnézettebb Filmek",Harry Potter és az azkabani fogoly
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-az-azkabani-fogoly
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_664.jpg" group-title="Legnézettebb Filmek",Harry Potter és a titkok kamrája
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-titkok-kamraja
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_368.jpg" group-title="Legnézettebb Filmek",A látszat csal
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-latszat-csal
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_359.jpg" group-title="Legnézettebb Filmek",40 és annyi
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/40-es-annyi
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_623.jpg" group-title="Legnézettebb Filmek",Zootropolis - Állati nagy balhé
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/zootropolis-allati-nagy-balhe
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_839.jpg" group-title="Legnézettebb Filmek",Bébi úr
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/bebi-ur
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_414.jpg" group-title="Legnézettebb Filmek",A szürke ötven árnyalata
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/a-szurke-otven-arnyalata
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_46.jpg" group-title="Legnézettebb Filmek",Jégvarázs
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/jegvarazs
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_663.jpg" group-title="Legnézettebb Filmek",Harry Potter és a bölcsek köve
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/harry-potter-es-a-bolcsek-kove
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_806.jpg" group-title="Legnézettebb Filmek",Vaiana
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/vaiana
+#EXTINF:-1 tvg-logo="https://www.bahu.tv/images/movies/main/movie_467.jpg" group-title="Legnézettebb Filmek",Minyonok
+http://127.0.0.1:5000/watch?url=https://www.bahu.tv/film/minyonok

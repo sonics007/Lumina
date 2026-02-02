@@ -1,0 +1,893 @@
+[
+  {
+    "title": "Minyonok",
+    "url": "https://www.bahu.tv/film/minyonok",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_467.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.651774"
+  },
+  {
+    "title": "Vaiana",
+    "url": "https://www.bahu.tv/film/vaiana",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_806.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.652184"
+  },
+  {
+    "title": "Jégvarázs",
+    "url": "https://www.bahu.tv/film/jegvarazs",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_46.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.652600"
+  },
+  {
+    "title": "Bébi úr",
+    "url": "https://www.bahu.tv/film/bebi-ur",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_839.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.653017"
+  },
+  {
+    "title": "Zootropolis - Állati nagy balhé",
+    "url": "https://www.bahu.tv/film/zootropolis-allati-nagy-balhe",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_623.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.653400"
+  },
+  {
+    "title": "Gru 2",
+    "url": "https://www.bahu.tv/film/gru-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_44.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.655380"
+  },
+  {
+    "title": "Jégvarázs 2",
+    "url": "https://www.bahu.tv/film/jegvarazs-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1211.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.656206"
+  },
+  {
+    "title": "A Grincs",
+    "url": "https://www.bahu.tv/film/a-grincs",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1087.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.656681"
+  },
+  {
+    "title": "Trollok",
+    "url": "https://www.bahu.tv/film/trollok",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_765.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.657102"
+  },
+  {
+    "title": "Hotel Transylvania 2 - Ahol még mindig szörnyen jó",
+    "url": "https://www.bahu.tv/film/hotel-transylvania-2-ahol-meg-mindig-szornyen-jo",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_508.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.657936"
+  },
+  {
+    "title": "A kis kedvencek titkos élete",
+    "url": "https://www.bahu.tv/film/a-kis-kedvencek-titkos-elete",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_722.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.659794"
+  },
+  {
+    "title": "Énekelj!",
+    "url": "https://www.bahu.tv/film/enekelj",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_805.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.660317"
+  },
+  {
+    "title": "Hotel Transylvania 3: Szörnyen rémes vakáció",
+    "url": "https://www.bahu.tv/film/hotel-transylvania-3-szornyen-remes-vakacio",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1033.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.660793"
+  },
+  {
+    "title": "Gru 3",
+    "url": "https://www.bahu.tv/film/gru-3",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_874.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.661223"
+  },
+  {
+    "title": "Coco",
+    "url": "https://www.bahu.tv/film/coco",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_938.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.661608"
+  },
+  {
+    "title": "Hotel Transylvania - Ahol a szörnyek lazulnak",
+    "url": "https://www.bahu.tv/film/hotel-transylvania-ahol-a-szornyek-lazulnak",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_48.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.664096"
+  },
+  {
+    "title": "Angry Birds - A film",
+    "url": "https://www.bahu.tv/film/angry-birds-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_680.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.665050"
+  },
+  {
+    "title": "Gru",
+    "url": "https://www.bahu.tv/film/gru",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_180.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.665635"
+  },
+  {
+    "title": "Agymanók",
+    "url": "https://www.bahu.tv/film/agymanok",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_510.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.985522"
+  },
+  {
+    "title": "Croodék",
+    "url": "https://www.bahu.tv/film/croodek",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_47.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.986080"
+  },
+  {
+    "title": "Ferdinánd",
+    "url": "https://www.bahu.tv/film/ferdinand",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_946.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.988034"
+  },
+  {
+    "title": "Hupikék törpikék - Az elveszett falu",
+    "url": "https://www.bahu.tv/film/hupikek-torpikek-az-elveszett-falu",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_848.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.988727"
+  },
+  {
+    "title": "Az oroszlánkirály",
+    "url": "https://www.bahu.tv/film/az-oroszlankiraly",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_275.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.989422"
+  },
+  {
+    "title": "Aladdin",
+    "url": "https://www.bahu.tv/film/aladdin",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_302.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.989938"
+  },
+  {
+    "title": "Kung Fu Panda 3",
+    "url": "https://www.bahu.tv/film/kung-fu-panda-3",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_618.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.990448"
+  },
+  {
+    "title": "Jégkorszak - A nagy bumm",
+    "url": "https://www.bahu.tv/film/jegkorszak-a-nagy-bumm",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_701.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.992544"
+  },
+  {
+    "title": "Verdák 3",
+    "url": "https://www.bahu.tv/film/verdak-3",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_863.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.993543"
+  },
+  {
+    "title": "A hihetetlen család 2",
+    "url": "https://www.bahu.tv/film/a-hihetetlen-csalad-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1044.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.994111"
+  },
+  {
+    "title": "Alvin és a mókusok - A mókás menet",
+    "url": "https://www.bahu.tv/film/alvin-es-a-mokusok-a-mokas-menet",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_565.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.994677"
+  },
+  {
+    "title": "Herkules",
+    "url": "https://www.bahu.tv/film/herkules",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_372.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.995241"
+  },
+  {
+    "title": "Szenilla nyomában",
+    "url": "https://www.bahu.tv/film/szenilla-nyomaban",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_725.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.998836"
+  },
+  {
+    "title": "Turbó",
+    "url": "https://www.bahu.tv/film/turbo",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_63.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:37.999641"
+  },
+  {
+    "title": "Volt",
+    "url": "https://www.bahu.tv/film/volt",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_417.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.000179"
+  },
+  {
+    "title": "Szilaj, a vad völgy paripája",
+    "url": "https://www.bahu.tv/film/szilaj-a-vad-volgy-paripaja",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_424.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.000655"
+  },
+  {
+    "title": "A hihetetlen család",
+    "url": "https://www.bahu.tv/film/a-hihetetlen-csalad",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_418.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.001164"
+  },
+  {
+    "title": "A Lego kaland",
+    "url": "https://www.bahu.tv/film/a-lego-kaland",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_40.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.004456"
+  },
+  {
+    "title": "Így neveld a sárkányodat 2",
+    "url": "https://www.bahu.tv/film/igy-neveld-a-sarkanyodat-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_34.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.419412"
+  },
+  {
+    "title": "Mancs őrjárat: A film",
+    "url": "https://www.bahu.tv/film/mancs-orjarat-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1368.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.419913"
+  },
+  {
+    "title": "Így neveld a sárkányodat 3",
+    "url": "https://www.bahu.tv/film/igy-neveld-a-sarkanyodat-3",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1105.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.420420"
+  },
+  {
+    "title": "Szörny egyetem",
+    "url": "https://www.bahu.tv/film/szorny-egyetem",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_45.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.420956"
+  },
+  {
+    "title": "Némó nyomában",
+    "url": "https://www.bahu.tv/film/nemo-nyomaban",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_419.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.424561"
+  },
+  {
+    "title": "Nyúl Péter",
+    "url": "https://www.bahu.tv/film/nyul-peter",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_996.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.425114"
+  },
+  {
+    "title": "Olaf karácsonyi kalandja",
+    "url": "https://www.bahu.tv/film/olaf-karacsonyi-kalandja",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_891.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.425697"
+  },
+  {
+    "title": "Dínó tesó",
+    "url": "https://www.bahu.tv/film/dino-teso",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_585.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.426222"
+  },
+  {
+    "title": "Angry Birds 2. - A film",
+    "url": "https://www.bahu.tv/film/angry-birds-2-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1172.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.426758"
+  },
+  {
+    "title": "Raya és az utolsó sárkány",
+    "url": "https://www.bahu.tv/film/raya-es-az-utolso-sarkany",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1321.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.438754"
+  },
+  {
+    "title": "A kincses bolygó",
+    "url": "https://www.bahu.tv/film/a-kincses-bolygo",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_420.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.504939"
+  },
+  {
+    "title": "Kémesítve",
+    "url": "https://www.bahu.tv/film/kemesitve",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1234.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.555902"
+  },
+  {
+    "title": "Ralph lezúzza a netet",
+    "url": "https://www.bahu.tv/film/ralph-lezuzza-a-netet",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1110.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.573435"
+  },
+  {
+    "title": "Encanto",
+    "url": "https://www.bahu.tv/film/encanto",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1405.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.585851"
+  },
+  {
+    "title": "SpongyaBob: Spongya szökésben",
+    "url": "https://www.bahu.tv/film/spongyabob-spongya-szokesben",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1301.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.597101"
+  },
+  {
+    "title": "Apróláb",
+    "url": "https://www.bahu.tv/film/aprolab",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1059.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.599859"
+  },
+  {
+    "title": "Addams Family - A galád család",
+    "url": "https://www.bahu.tv/film/addams-family-a-galad-csalad",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1206.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.601792"
+  },
+  {
+    "title": "Az oroszlánkirály - 2019",
+    "url": "https://www.bahu.tv/film/az-oroszlankiraly---2019",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1195.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:38.602861"
+  },
+  {
+    "title": "Luca",
+    "url": "https://www.bahu.tv/film/luca",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1367.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.022072"
+  },
+  {
+    "title": "Scooby",
+    "url": "https://www.bahu.tv/film/scooby",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1293.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.052325"
+  },
+  {
+    "title": "Óriásláb fia",
+    "url": "https://www.bahu.tv/film/oriaslab-fia",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_930.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.093513"
+  },
+  {
+    "title": "Pirula panda",
+    "url": "https://www.bahu.tv/film/pirula-panda",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1406.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.141617"
+  },
+  {
+    "title": "Super Mario Bros: A film",
+    "url": "https://www.bahu.tv/film/super-mario-bros-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1483.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.158471"
+  },
+  {
+    "title": "Paddington 2",
+    "url": "https://www.bahu.tv/film/paddington-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_917.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.160821"
+  },
+  {
+    "title": "Gru 4",
+    "url": "https://www.bahu.tv/film/gru-4",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1548.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.168918"
+  },
+  {
+    "title": "Csizmás, a kandúr: Az utolsó kívánság",
+    "url": "https://www.bahu.tv/film/csizmas-a-kandur-az-utolso-kivansag",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1463.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.170590"
+  },
+  {
+    "title": "Snoopy és Charlie Brown - A Peanuts film",
+    "url": "https://www.bahu.tv/film/snoopy-es-charlie-brown-a-peanuts-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_551.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.172927"
+  },
+  {
+    "title": "Hotel Transylvania - Transzformánia",
+    "url": "https://www.bahu.tv/film/hotel-transylvania-transzformania",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1394.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.174971"
+  },
+  {
+    "title": "Énekelj! 2",
+    "url": "https://www.bahu.tv/film/enekelj-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1402.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.176410"
+  },
+  {
+    "title": "Minyonok: Gru színre lép",
+    "url": "https://www.bahu.tv/film/minyonok-gru-szinre-lep",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1444.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.182808"
+  },
+  {
+    "title": "Toy Story 4",
+    "url": "https://www.bahu.tv/film/toy-story-4",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1173.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.183807"
+  },
+  {
+    "title": "Tom és Jerry",
+    "url": "https://www.bahu.tv/film/tom-es-jerry",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1335.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.184687"
+  },
+  {
+    "title": "Latte és a titokzatos varázskő",
+    "url": "https://www.bahu.tv/film/latte-es-a-titokzatos-varazsko",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1240.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.187916"
+  },
+  {
+    "title": "Bébi úr: Családi ügy",
+    "url": "https://www.bahu.tv/film/bebi-ur-csaladi-ugy",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1391.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.217716"
+  },
+  {
+    "title": "A rosszfiúk",
+    "url": "https://www.bahu.tv/film/a-rosszfiuk",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1426.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.254963"
+  },
+  {
+    "title": "A Lego kaland 2",
+    "url": "https://www.bahu.tv/film/a-lego-kaland-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1136.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.255579"
+  },
+  {
+    "title": "Csodapark",
+    "url": "https://www.bahu.tv/film/csodapark",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1208.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.485036"
+  },
+  {
+    "title": "Agymanók 2",
+    "url": "https://www.bahu.tv/film/agymanok-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1546.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.485670"
+  },
+  {
+    "title": "Vaiana 2",
+    "url": "https://www.bahu.tv/film/vaiana-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1563.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.486275"
+  },
+  {
+    "title": "Vad Buck jégkorszaki kalandjai",
+    "url": "https://www.bahu.tv/film/vad-buck-jegkorszaki-kalandjai",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1409.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.491197"
+  },
+  {
+    "title": "Előre",
+    "url": "https://www.bahu.tv/film/elore",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1291.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.492039"
+  },
+  {
+    "title": "Kacsalábon",
+    "url": "https://www.bahu.tv/film/kacsalabon",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1516.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.492601"
+  },
+  {
+    "title": "Manu a legsirályabb fecske",
+    "url": "https://www.bahu.tv/film/manu-a-legsiralyabb-fecske",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1161.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.493021"
+  },
+  {
+    "title": "Kung Fu Panda 4",
+    "url": "https://www.bahu.tv/film/kung-fu-panda-4",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1532.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.493454"
+  },
+  {
+    "title": "Playmobil: A Film",
+    "url": "https://www.bahu.tv/film/playmobil-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1196.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.497951"
+  },
+  {
+    "title": "Addams Family 2",
+    "url": "https://www.bahu.tv/film/addams-family-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1386.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.498727"
+  },
+  {
+    "title": "Kópé",
+    "url": "https://www.bahu.tv/film/kope",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1231.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.499238"
+  },
+  {
+    "title": "Farkasbőrben",
+    "url": "https://www.bahu.tv/film/farkasborben",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1344.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.499711"
+  },
+  {
+    "title": "Óriásláb - Családi bevetés",
+    "url": "https://www.bahu.tv/film/oriaslab-csaladi-bevetes",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1352.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.500209"
+  },
+  {
+    "title": "Klaus - A karácsony titkos története",
+    "url": "https://www.bahu.tv/film/klaus-a-karacsony-titkos-tortenete",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1166.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.504138"
+  },
+  {
+    "title": "Pókember - A pókverzumon át",
+    "url": "https://www.bahu.tv/film/pokember-a-pokverzumon-at",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1490.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.504994"
+  },
+  {
+    "title": "Mesék a dzsungelből - A film",
+    "url": "https://www.bahu.tv/film/mesek-a-dzsungelbol-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1286.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.505434"
+  },
+  {
+    "title": "A Willoughby testvérek kalandjai",
+    "url": "https://www.bahu.tv/film/a-willoughby-testverek-kalandjai",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1272.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.505820"
+  },
+  {
+    "title": "Nyuszi és Őz",
+    "url": "https://www.bahu.tv/film/nyuszi-es-oz",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_62.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T16:58:39.506274"
+  },
+  {
+    "title": "Toldi - A mozifilm",
+    "url": "https://www.bahu.tv/film/toldi-a-mozifilm",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1477.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.679809"
+  },
+  {
+    "title": "Chip és Dale: A csipet csapat",
+    "url": "https://www.bahu.tv/film/chip-es-dale-a-csipet-csapat",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1427.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.680590"
+  },
+  {
+    "title": "A hiányzó láncszem",
+    "url": "https://www.bahu.tv/film/a-hianyzo-lancszem",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1188.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.681293"
+  },
+  {
+    "title": "Az életteli Vivo",
+    "url": "https://www.bahu.tv/film/az-eletteli-vivo",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1348.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.682011"
+  },
+  {
+    "title": "A Lármás család",
+    "url": "https://www.bahu.tv/film/a-larmas-csalad",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1351.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.682703"
+  },
+  {
+    "title": "Tü-tü, Kori",
+    "url": "https://www.bahu.tv/film/tu-tu-kori",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1274.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.696281"
+  },
+  {
+    "title": "Bob burgerfalodája - A film",
+    "url": "https://www.bahu.tv/film/bob-burgerfalodaja-a-film",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1422.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.698334"
+  },
+  {
+    "title": "Tü-tü, Kori - Karácsony",
+    "url": "https://www.bahu.tv/film/tu-tu-kori-karacsony",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1312.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.699262"
+  },
+  {
+    "title": "Zootropolis 2",
+    "url": "https://www.bahu.tv/film/zootropolis-2",
+    "poster": "https://www.bahu.tv/images/movies/main/movie_1599.jpg",
+    "description": "",
+    "category": "Gyerekeknek Filmek",
+    "type": "movie",
+    "added_at": "2026-02-02T18:44:44.700440"
+  }
+]

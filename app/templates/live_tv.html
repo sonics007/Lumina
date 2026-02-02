@@ -1,0 +1,497 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if categories %}
+<div style="margin-bottom: 20px; padding: 0 5px;">
+    <div class="category-scroll">
+        <a href="/live" class="category-btn {{ 'active' if not current_tag else '' }}">All Channels</a>
+        {% for cat in categories %}
+        <a href="/live?tag={{ cat }}" class="category-btn {{ 'active' if current_tag == cat else '' }}">{{ cat }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="content-wrapper">
+    <div class="header-controls">
+        <h2><i class="fas fa-tv"></i> {{ title }}</h2>
+
+        <div class="controls-right">
+            <div class="view-toggle">
+                <button id="btn-grid" class="btn-toggle active" onclick="switchView('grid')" title="Grid View">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button id="btn-list" class="btn-toggle" onclick="switchView('list')" title="List View">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+
+            <form method="get" class="search-form">
+                {% if current_tag %}<input type="hidden" name="tag" value="{{ current_tag }}">{% endif %}
+                <input type="text" name="q" placeholder="Search..." value="{{ request.args.get('q', '') }}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    {% if movies %}
+
+    <!-- GRID VIEW -->
+    <div id="view-grid" class="live-grid">
+        {% for movie in movies %}
+        <div class="live-card">
+            <div class="live-card-image">
+                {% if movie.image %}
+                <img src="{{ movie.image }}" alt="{{ movie.title }}" loading="lazy">
+                {% else %}
+                <div class="no-image"><i class="fas fa-tv"></i></div>
+                {% endif %}
+
+                <div class="live-badges">
+                    {% if movie.tv_archive and movie.tv_archive == 1 %}
+                    <span class="badge badge-timeshift" title="Timeshift: {{ movie.tv_archive_duration }} days">
+                        <i class="fas fa-history"></i> {{ movie.tv_archive_duration }}d
+                    </span>
+                    {% endif %}
+                    {% if movie.epg_channel_id %}
+                    <span class="badge badge-epg" title="EPG ID: {{ movie.epg_channel_id }}">
+                        <i class="fas fa-calendar-alt"></i> EPG
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="live-card-content">
+                <h3>{{ movie.title }}</h3>
+                <div class="live-actions">
+                    <a href="/player/{{ movie.id }}" class="btn btn-play"><i class="fas fa-play"></i> Watch</a>
+                    <a href="/edit_movie/{{ movie.id }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="view-list" class="live-list" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th width="50"></th>
+                    <th>Channel Name</th>
+                    <th>Category</th>
+                    <th>EPG ID</th>
+                    <th>Timeshift</th>
+                    <th width="100">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movie in movies %}
+                <tr>
+                    <td>
+                        {% if movie.image %}
+                        <img src="{{ movie.image }}" width="30" height="30"
+                            style="border-radius: 4px; object-fit: cover;">
+                        {% else %}
+                        <div
+                            style="width:30px;height:30px;background:#333;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#555;">
+                            <i class="fas fa-tv" style="font-size: 12px;"></i>
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div style="font-weight: 500; color: white;">{{ movie.title }}</div>
+                    </td>
+                    <td>
+                        {% if movie.tags %}
+                        {% for tag in movie.tags.split(',') %}
+                        {% if tag.strip() and tag.strip() != 'Live TV' and loop.first %}
+                        <span class="tag-small">{{ tag.strip() }}</span>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if movie.epg_channel_id %}
+                        <span class="badge-text" title="{{ movie.epg_channel_id }}"><i class="fas fa-check"></i>
+                            Yes</span>
+                        {% else %}
+                        <span style="color: #444;">-</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if movie.tv_archive == 1 %}
+                        <span class="badge badge-timeshift" style="font-size: 10px; padding: 2px 6px;">{{
+                            movie.tv_archive_duration }}d</span>
+                        {% else %}
+                        <span style="color: #444;">-</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 5px;">
+                            <a href="/player/{{ movie.id }}" class="btn-icon btn-play" title="Watch"><i
+                                    class="fas fa-play"></i></a>
+                            <a href="/edit_movie/{{ movie.id }}" class="btn-icon btn-edit" title="Edit"><i
+                                    class="fas fa-edit"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if pagination.pages > 1 %}
+    <div class="pagination">
+        {% if pagination.has_prev %}
+        <a href="{{ url_for(request.endpoint, page=pagination.prev_num, q=request.args.get('q'), tag=current_tag) }}"
+            class="btn">
+            <i class="fas fa-chevron-left"></i> Previous
+        </a>
+        {% endif %}
+        <span class="page-info">Page {{ pagination.page }} of {{ pagination.pages }}</span>
+        {% if pagination.has_next %}
+        <a href="{{ url_for(request.endpoint, page=pagination.next_num, q=request.args.get('q'), tag=current_tag) }}"
+            class="btn">
+            Next <i class="fas fa-chevron-right"></i>
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% else %}
+    <div class="empty-state">
+        <i class="fas fa-tv" style="font-size: 64px; opacity: 0.3;"></i>
+        <p>No Live TV channels found.</p>
+        <a href="/live" class="btn btn-primary">Clear Filters</a>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    function switchView(view) {
+        const grid = document.getElementById('view-grid');
+        const list = document.getElementById('view-list');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnList = document.getElementById('btn-list');
+
+        if (view === 'grid') {
+            if (grid) grid.style.display = 'grid';
+            if (list) list.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnList.classList.remove('active');
+        } else {
+            if (grid) grid.style.display = 'none';
+            if (list) list.style.display = 'block';
+            btnGrid.classList.remove('active');
+            btnList.classList.add('active');
+        }
+        localStorage.setItem('live_tv_view', view);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const savedView = localStorage.getItem('live_tv_view') || 'grid';
+        switchView(savedView);
+    });
+</script>
+
+<style>
+    /* Header Controls */
+    .header-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .controls-right {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    /* Toggle */
+    .view-toggle {
+        display: flex;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        padding: 2px;
+    }
+
+    .btn-toggle {
+        background: transparent;
+        border: none;
+        color: #aaa;
+        padding: 6px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
+
+    .btn-toggle:hover {
+        color: white;
+    }
+
+    .btn-toggle.active {
+        background: var(--accent-color);
+        color: white;
+    }
+
+    /* Search */
+    .search-form {
+        display: flex;
+        gap: 5px;
+    }
+
+    .search-form input {
+        padding: 8px 12px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        color: white;
+    }
+
+    .search-form button {
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0 12px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    /* Category Scroll */
+    .category-scroll {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 10px 0;
+        scrollbar-width: thin;
+    }
+
+    .category-scroll::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .category-scroll::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 3px;
+    }
+
+    .category-btn {
+        padding: 6px 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 13px;
+        transition: all 0.2s;
+    }
+
+    .category-btn:hover {
+        background: var(--accent-color);
+        transform: translateY(-1px);
+    }
+
+    .category-btn.active {
+        background: var(--accent-color);
+        font-weight: bold;
+        border-color: var(--accent-color);
+    }
+
+    /* Grid View */
+    .live-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+    }
+
+    .live-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+
+    .live-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-color);
+    }
+
+    .live-card-image {
+        position: relative;
+        width: 100%;
+        height: 140px;
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    }
+
+    .live-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .no-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.2);
+    }
+
+    .live-badges {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-end;
+    }
+
+    .badge {
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        backdrop-filter: blur(4px);
+    }
+
+    .badge-timeshift {
+        background: rgba(52, 211, 153, 0.9);
+        color: white;
+    }
+
+    .badge-epg {
+        background: rgba(59, 130, 246, 0.9);
+        color: white;
+    }
+
+    .live-card-content {
+        padding: 12px;
+    }
+
+    .live-card-content h3 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .live-actions {
+        display: flex;
+        gap: 8px;
+    }
+
+    .btn-play {
+        flex: 1;
+        background: var(--accent-color);
+        color: white;
+        padding: 6px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+    .btn-secondary {
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    /* List View */
+    .live-list table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 4px;
+    }
+
+    .live-list tr {
+        background: rgba(255, 255, 255, 0.03);
+        transition: background 0.2s;
+    }
+
+    .live-list tr:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .live-list td {
+        padding: 8px 15px;
+        vertical-align: middle;
+        font-size: 13px;
+        color: #ddd;
+    }
+
+    .live-list td:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .live-list td:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .tag-small {
+        padding: 2px 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        font-size: 10px;
+        color: #aaa;
+    }
+
+    .btn-icon {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .btn-icon.btn-play {
+        background: var(--accent-color);
+    }
+
+    .btn-icon.btn-edit {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 40px;
+        color: #777;
+    }
+</style>
+{% endblock %}

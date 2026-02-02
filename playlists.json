@@ -1,0 +1,8 @@
+[
+    {
+        "id": "default",
+        "name": "Default Public Playlist",
+        "max_connections": 0,
+        "allowed_countries": ""
+    }
+]

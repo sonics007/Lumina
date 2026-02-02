@@ -1,0 +1,356 @@
+{
+  "scrape_date": "2026-01-19 20:51:43",
+  "total_sources": 43,
+  "supported_sources": 0,
+  "by_provider": {
+    "filmcdn": 15,
+    "hglink": 14,
+    "myvidplay": 14
+  },
+  "sources": [
+    {
+      "url": "https://s2.filmcdn.top/e/VnhFMzJyR1laSVU0V1A0L0JYbjNvZz09",
+      "title": "Machine Gunner",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/6155-machine-gunner.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/0m1gvo5g66i8",
+      "title": "Machine Gunner",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/6155-machine-gunner.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/w2i76b38ekvz",
+      "title": "Machine Gunner",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/6155-machine-gunner.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/RzZJZllWWmlSLytvQjNmZWJhWUNKQT09",
+      "title": "Body Heat",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/1778-body-heat.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/vsj7cqe8n5li",
+      "title": "Body Heat",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/1778-body-heat.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/65nqpw7q0w2cqk94dwsy8r6nzakxfud5",
+      "title": "Body Heat",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/1778-body-heat.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/Q0hKSitlQ1JuSUphdzdPWStFUXVDQT09",
+      "title": "Ghosted",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/6340-ghosted.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/jptyyfnown3o",
+      "title": "Ghosted",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/6340-ghosted.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/899l49up3aoc",
+      "title": "Ghosted",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/6340-ghosted.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/S1ZKaEF1UzZySzR1TDZBMVlMZlAxQT09",
+      "title": "Pirates 2: Stagnetti's Revenge",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/168-pirates-2-stagnettis-revenge.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/q1xhpojef4ug",
+      "title": "Pirates 2: Stagnetti's Revenge",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/168-pirates-2-stagnettis-revenge.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/wvtts7ys9dgz0af1tzqkk6batjrebg06",
+      "title": "Pirates 2: Stagnetti's Revenge",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/168-pirates-2-stagnettis-revenge.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/Z1k4UGpMSzBCa0FjQmh4bnF4dHM0UT09",
+      "title": "By Any Other Name",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/5700-by-any-other-name.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/2y1x2qtsdxmr",
+      "title": "By Any Other Name",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/5700-by-any-other-name.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/2u00837v8z8k",
+      "title": "By Any Other Name",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/5700-by-any-other-name.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/eGM4cStHcW9IVHRPT3JidnpwWEpjUT09",
+      "title": "Fly Girls",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/314-fly-girls.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/klkbe11f92us",
+      "title": "Fly Girls",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/314-fly-girls.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/q9qdsl0g9ax4km64yq8wjgcko0mmlyf8",
+      "title": "Fly Girls",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/314-fly-girls.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/f8sojfn8oap1",
+      "title": "Teachers",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/166-teachers.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/pdccryxdpj374wb4ybyvnrpsy2z4kc3j",
+      "title": "Teachers",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/166-teachers.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/SlljVFA0QjM4cm1CMEM5ZmIzRWp6Zz09",
+      "title": "Teachers",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/166-teachers.html",
+      "method": "iframe"
+    },
+    {
+      "url": "https://hglink.to/e/nq6fvzwfezis",
+      "title": "Pirates",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/167-pirates.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/krqbet4hfbxr9c3xn4n76lhgbexvjw94",
+      "title": "Pirates",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/167-pirates.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/K2dzanlyMGRZUGNBd2JROGowRHppQT09",
+      "title": "Pirates",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/167-pirates.html",
+      "method": "iframe"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/MlJDdWxYNVl1M0JlSHk2ZE9VUkpzZz09",
+      "title": "Dirty Cops",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/5722-dirty-cops.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/",
+      "title": "Dirty Cops",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/5722-dirty-cops.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/ksm4ssb31uec",
+      "title": "Dirty Cops",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/5722-dirty-cops.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/SnQzVHduZGdkbXpYZ29IVkQ5eTJ1QT09",
+      "title": "Project X",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/6130-project-x.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/vbe115wq7yj1",
+      "title": "Project X",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/6130-project-x.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/ke3jq39kn87e",
+      "title": "Project X",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/6130-project-x.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/NWdFeGx2cmZIZkVZdWFFTXBGVGRmdz09",
+      "title": "Dorcel Airlines: Indecent Flight Attendants",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/1294-dorcel-airlines-indecent-flight-attendants.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/glscnegvq5p4",
+      "title": "Dorcel Airlines: Indecent Flight Attendants",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/1294-dorcel-airlines-indecent-flight-attendants.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/bhr0o2hhmoyv7uwgs07j7361wceqk8ba",
+      "title": "Dorcel Airlines: Indecent Flight Attendants",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/1294-dorcel-airlines-indecent-flight-attendants.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/aTRoWHdwaXRvWGFpUURNZ2ZnaXpBQT09",
+      "title": "Single Minded",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/6474-single-minded.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/b1cb5a6pkhjb",
+      "title": "Single Minded",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/6474-single-minded.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/yswsj7iiabjf",
+      "title": "Single Minded",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/6474-single-minded.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/ekxUb2t5SHp2WDZGamhPU0c0Vy8wZz09",
+      "title": "A Father Unleashed",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/2999-a-father-unleashed.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/eb6s8zsno3s5",
+      "title": "A Father Unleashed",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/2999-a-father-unleashed.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/pqns70groc7s",
+      "title": "A Father Unleashed",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/2999-a-father-unleashed.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/VkQzM0xRb0dVV09GNFZqSmpCbWJHdz09",
+      "title": "Mom's Helping Hand",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/4382-moms-helping-hand.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://s2.filmcdn.top/e/VGk2VkdUWkZmalgwbnR2LytzY0RYUT09",
+      "title": "Captain Marvel XXX: An Axel Braun Parody",
+      "provider": "filmcdn",
+      "domain": "s2.filmcdn.top",
+      "movie_url": "https://film-adult.top/en/1437-captain-marvel-xxx-an-axel-braun-parody.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://hglink.to/e/rjdvt1h3ujkm",
+      "title": "Captain Marvel XXX: An Axel Braun Parody",
+      "provider": "hglink",
+      "domain": "hglink.to",
+      "movie_url": "https://film-adult.top/en/1437-captain-marvel-xxx-an-axel-braun-parody.html",
+      "method": "javascript"
+    },
+    {
+      "url": "https://myvidplay.com/e/fyh1mffysmuh3jn7dcf67e26zhcq95bp",
+      "title": "Captain Marvel XXX: An Axel Braun Parody",
+      "provider": "myvidplay",
+      "domain": "myvidplay.com",
+      "movie_url": "https://film-adult.top/en/1437-captain-marvel-xxx-an-axel-braun-parody.html",
+      "method": "javascript"
+    }
+  ]
+}

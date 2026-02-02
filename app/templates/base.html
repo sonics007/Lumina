@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Stream</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+
+<body>
+
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <i class="fas fa-bolt" style="color: var(--accent-color); text-shadow: 0 0 10px var(--accent-color);"></i>
+            <span style="font-family: 'Outfit', sans-serif; letter-spacing: 2px;">LUMINA</span>
+        </div>
+        <ul class="nav-links">
+            <!-- Dashboard -->
+            <li><a href="/" class="{{ 'active' if active_page == 'home' else '' }}">
+                    <i class="fas fa-home"></i> Dashboard
+                </a></li>
+
+            <!-- CONTENT LIBRARY -->
+            <li class="menu-header">📚 CONTENT LIBRARY</li>
+            <li><a href="/live" class="{{ 'active' if active_page == 'live' else '' }}">
+                    <i class="fas fa-tv"></i> Live TV
+                </a></li>
+            <li><a href="/movies" class="{{ 'active' if active_page == 'movies' else '' }}">
+                    <i class="fas fa-film"></i> Movies
+                </a></li>
+            <li><a href="/series" class="{{ 'active' if active_page == 'series' else '' }}">
+                    <i class="fas fa-clone"></i> Series
+                </a></li>
+            <li><a href="{{ url_for('groups.manage') }}" class="{{ 'active' if active_page == 'groups' else '' }}">
+                    <i class="fas fa-tags"></i> Groups & Categories
+                </a></li>
+            <li><a href="/new_movies" class="{{ 'active' if active_page == 'new_movies' else '' }}">
+                    <i class="fas fa-clock"></i> Recently Added
+                </a></li>
+            <li class="{{ 'active-dropdown' if active_page in ['add_movie', 'import_movies'] else '' }}">
+                <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                    <i class="fas fa-plus-circle"></i> Add Content
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="/add_movie" class="{{ 'active' if active_page == 'add_movie' else '' }}">
+                        <i class="fas fa-edit"></i> Add Manually
+                    </a>
+                    <a href="/import_movies" class="{{ 'active' if active_page == 'import_movies' else '' }}">
+                        <i class="fas fa-file-import"></i> Import Scraped
+                    </a>
+                </div>
+            </li>
+
+
+
+            <!-- XTREAM SERVER -->
+            <!-- USERS & CLIENTS -->
+            <li class="menu-header">👥 USERS & CLIENTS</li>
+            <li
+                class="{{ 'active-dropdown' if active_page in ['manage_playlists', 'clients', 'tivimate_clients', 'xtream'] else '' }}">
+                <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                    <i class="fas fa-users-cog"></i> User Management
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="/manage_playlists" class="{{ 'active' if active_page == 'manage_playlists' else '' }}">
+                        <i class="fas fa-link"></i> Manage Links & Users
+                    </a>
+                    <a href="/xtream" class="{{ 'active' if active_page == 'xtream' else '' }}">
+                        <i class="fas fa-network-wired"></i> Active Sessions
+                    </a>
+                    <a href="/clients" class="{{ 'active' if active_page == 'clients' else '' }}">
+                        <i class="fas fa-desktop"></i> Watch History
+                    </a>
+                    <a href="/tivimate_clients" class="{{ 'active' if active_page == 'tivimate_clients' else '' }}">
+                        <i class="fas fa-mobile-alt"></i> TiviMate Devices
+                    </a>
+                </div>
+            </li>
+
+            <!-- XTREAM TOOLS -->
+            <li class="menu-header">📡 XTREAM TOOLS</li>
+            <li><a href="/epg" class="{{ 'active' if active_page == 'epg' else '' }}">
+                    <i class="fas fa-calendar-alt"></i> EPG Manager
+                </a></li>
+
+            <!-- CONTENT SOURCES -->
+            <li class="menu-header">🌐 CONTENT SOURCES</li>
+            <li><a href="/xtream_sources" class="{{ 'active' if active_page == 'xtream_sources' else '' }}">
+                    <i class="fas fa-server"></i> Xtream Sources
+                </a></li>
+            <li><a href="/webs" class="{{ 'active' if active_page == 'webs' else '' }}">
+                    <i class="fas fa-globe"></i> Web Scrapers
+                </a></li>
+            <li><a href="/providers" class="{{ 'active' if active_page == 'providers' else '' }}">
+                    <i class="fas fa-chart-bar"></i> Providers Stats
+                </a></li>
+            <li><a href="/sources/bahu-manage" class="{{ 'active' if active_page == 'bahu_manage' else '' }}">
+                    <i class="fas fa-flag"></i> Bahu.tv (HU)
+                </a></li>
+
+            <!-- XXX CONTENT -->
+            <li class="menu-header" style="color: #ef4444;">🔞 XXX CONTENT</li>
+            <li class="{{ 'active-dropdown' if active_page in ['film_adult_manage', 'uiiu_manage'] else '' }}">
+                <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                    <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i> Adult Scrapers
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="/sources/film-adult-manage"
+                        class="{{ 'active' if active_page == 'film_adult_manage' else '' }}">
+                        <i class="fas fa-film"></i> Film-Adult.top
+                    </a>
+                    <a href="/sources/uiiu-manage" class="{{ 'active' if active_page == 'uiiu_manage' else '' }}">
+                        <i class="fas fa-video"></i> UIIU Movie
+                    </a>
+                </div>
+            </li>
+
+            <!-- SYSTEM -->
+            <li class="menu-header">SYSTEM</li>
+            <li><a href="/database" class="{{ 'active' if active_page == 'database' else '' }}">
+                    <i class="fas fa-database"></i> Database Overview
+                </a></li>
+            <li><a href="/settings" class="{{ 'active' if active_page == 'settings' else '' }}">
+                    <i class="fas fa-cog"></i> Settings
+                </a></li>
+
+
+
+            <li style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+                <a href="/logout" style="color: #ff6b6b;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <div class="header">
+            <div style="display: flex; align-items: center;">
+                <h1 class="page-title">{{ title }}</h1>
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar" style="flex: 1; max-width: 400px; margin: 0 20px;">
+                <form action="/playlist" method="get" style="display: flex;">
+                    <input type="text" name="q" placeholder="Search movies..." value="{{ request.args.get('q', '') }}"
+                        style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-right: none;">
+                    <button type="submit" class="btn btn-primary"
+                        style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="user-info">
+                <span>Status: <span style="color: var(--success)">Online</span></span>
+            </div>
+        </div>
+
+        <!-- News Ticker -->
+        {% if latest_movies %}
+        <div class="news-ticker-container">
+            <div class="news-ticker-content">
+                {% for movie in latest_movies %}
+                <div class="ticker-item">
+                    <span class="ticker-label">NEW</span>
+                    {% if movie.image %}
+                    <img src="{{ movie.image }}" alt="" onerror="this.style.display='none'">
+                    {% endif %}
+                    <span>{{ movie.title }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="if(event.target === this) closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img src="" alt="Full Preview" class="lightbox-img" id="lightbox-img">
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Sidebar Toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        }
+
+        function logout() {
+            window.location.href = "/logout";
+        }
+        // ...
+        // Dropdown Toggle
+        function toggleDropdown(btn) {
+            const li = btn.parentElement;
+            li.classList.toggle('active-dropdown');
+
+            // Rotate caret
+            const icon = btn.querySelector('.fa-caret-down');
+            if (li.classList.contains('active-dropdown')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Toast Notification
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+
+            toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
+
+            container.appendChild(toast);
+
+            // Trigger animation
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            // Remove after 5 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 500);
+            }, 5000);
+        }
+
+        // Lightbox Logic
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.style.display = 'flex';
+            // Small delay for fade in
+            setTimeout(() => {
+                lightbox.classList.add('active');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+                document.getElementById('lightbox-img').src = '';
+            }, 300);
+        }
+
+        // Auto-attach lightbox to all .movie-thumb images
+        document.addEventListener('DOMContentLoaded', () => {
+            const thumbs = document.querySelectorAll('.movie-thumb');
+            thumbs.forEach(thumb => {
+                thumb.onclick = () => openLightbox(thumb.src);
+            });
+        });
+
+        // Handle ESC key to close lightbox
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+
+</html>

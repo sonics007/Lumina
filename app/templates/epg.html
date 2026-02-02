@@ -1,0 +1,384 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- Header Section -->
+    <div class="card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 style="margin: 0; color: var(--accent-color);">
+                    <i class="fas fa-calendar-alt"></i> EPG Manager
+                </h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.7;">Electronic Program Guide for your IPTV channels</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-success" onclick="refreshEPG()">
+                    <i class="fas fa-sync"></i> Refresh EPG
+                </button>
+                <button class="btn btn-primary" onclick="showAddEPGModal()">
+                    <i class="fas fa-plus"></i> Add EPG Source
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EPG Status Card -->
+    <div class="card" style="margin-bottom: 20px;">
+        <h3 style="margin-top: 0;">
+            <i class="fas fa-info-circle"></i> EPG Status
+        </h3>
+        <div class="stats-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Active Sources</div>
+                <div style="font-size: 2em; font-weight: bold; color: var(--success);">{{ epg_sources|length }}</div>
+            </div>
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Total Programs</div>
+                <div style="font-size: 2em; font-weight: bold; color: var(--accent-color);">{{ total_programs }}</div>
+            </div>
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Last Update</div>
+                <div style="font-size: 1.2em; font-weight: bold; color: #f59e0b;">{{ last_update or 'Never' }}</div>
+            </div>
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid #8b5cf6;">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Coverage</div>
+                <div style="font-size: 1.2em; font-weight: bold; color: #8b5cf6;">{{ coverage_days }} days</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EPG URL for TiviMate -->
+    <div class="card"
+        style="margin-bottom: 20px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));">
+        <h3 style="margin-top: 0; color: var(--accent-color);">
+            <i class="fas fa-link"></i> EPG URL for TiviMate
+        </h3>
+        <div class="copy-field" style="margin-bottom: 15px;">
+            <input type="text" value="http://{{ request.host }}/epg.xml" readonly id="epg-url" style="flex: 1;">
+            <button onclick="copyToClipboard('epg-url')" class="btn btn-primary">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+        </div>
+        <div
+            style="padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+            <h4 style="margin: 0 0 10px 0;"><i class="fas fa-question-circle"></i> How to add EPG in TiviMate:</h4>
+            <ol style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                <li>Open TiviMate app</li>
+                <li>Go to <strong>Settings</strong> → <strong>EPG</strong></li>
+                <li>Click <strong>Add EPG Source</strong></li>
+                <li>Paste the URL above</li>
+                <li>Click <strong>OK</strong> and wait for sync</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- EPG Sources List -->
+    <div class="card">
+        <h3 style="margin-top: 0;">
+            <i class="fas fa-list"></i> EPG Sources
+        </h3>
+
+        {% if epg_sources %}
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-globe"></i> Source Name</th>
+                        <th><i class="fas fa-link"></i> URL</th>
+                        <th><i class="fas fa-clock"></i> Last Update</th>
+                        <th><i class="fas fa-chart-line"></i> Status</th>
+                        <th><i class="fas fa-database"></i> Programs</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for source in epg_sources %}
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-rss" style="color: var(--accent-color);"></i>
+                                <strong>{{ source.name }}</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <code
+                                style="background: rgba(139, 92, 246, 0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.85em; max-width: 300px; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                {{ source.url }}
+                            </code>
+                        </td>
+                        <td>{{ source.last_update or 'Never' }}</td>
+                        <td>
+                            {% if source.is_active %}
+                            <span class="badge" style="background: var(--success);">
+                                <i class="fas fa-check-circle"></i> Active
+                            </span>
+                            {% else %}
+                            <span class="badge" style="background: var(--danger);">
+                                <i class="fas fa-times-circle"></i> Inactive
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge" style="background: var(--accent-color);">
+                                {{ source.program_count or 0 }}
+                            </span>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 5px;">
+                                <button class="btn btn-sm btn-success" onclick="updateEPGSource('{{ source.id }}')"
+                                    title="Update">
+                                    <i class="fas fa-sync"></i>
+                                </button>
+                                <button class="btn btn-sm btn-primary" onclick="editEPGSource('{{ source.id }}')"
+                                    title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="removeEPGSource('{{ source.id }}')"
+                                    title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div style="text-align: center; padding: 40px; opacity: 0.7;">
+            <i class="fas fa-calendar-alt" style="font-size: 48px; margin-bottom: 15px;"></i>
+            <p>No EPG sources configured yet.</p>
+            <p style="font-size: 0.9em;">Add an EPG source to provide program guide for your channels.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Popular EPG Sources -->
+    <div class="card" style="margin-top: 20px;">
+        <h3 style="margin-top: 0;">
+            <i class="fas fa-star"></i> Popular EPG Sources
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+            <div class="epg-source-card"
+                style="padding: 15px; background: rgba(139, 92, 246, 0.05); border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.2);">
+                <h4 style="margin: 0 0 10px 0; color: var(--accent-color);">IPTV-EPG</h4>
+                <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 10px;">Free EPG for worldwide channels</p>
+                <code
+                    style="background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.8em; display: block; margin-bottom: 10px; word-break: break-all;">
+                    https://iptv-org.github.io/epg/guides/en.xml
+                </code>
+                <button class="btn btn-sm btn-primary"
+                    onclick="quickAddEPG('IPTV-EPG', 'https://iptv-org.github.io/epg/guides/en.xml')">
+                    <i class="fas fa-plus"></i> Quick Add
+                </button>
+            </div>
+
+            <div class="epg-source-card"
+                style="padding: 15px; background: rgba(59, 130, 246, 0.05); border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <h4 style="margin: 0 0 10px 0; color: #3b82f6;">EPG.best</h4>
+                <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 10px;">Premium EPG service</p>
+                <code
+                    style="background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.8em; display: block; margin-bottom: 10px; word-break: break-all;">
+                    https://epg.best/epg.xml
+                </code>
+                <button class="btn btn-sm btn-primary" onclick="quickAddEPG('EPG.best', 'https://epg.best/epg.xml')">
+                    <i class="fas fa-plus"></i> Quick Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add EPG Source Modal -->
+<div class="modal" id="addEPGModal">
+    <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-header">
+            <h3><i class="fas fa-plus"></i> Add EPG Source</h3>
+            <button class="modal-close" onclick="closeModal('addEPGModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="addEPGForm" onsubmit="addEPGSource(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-tag"></i> Source Name</label>
+                    <input type="text" name="name" placeholder="e.g., IPTV-EPG" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-link"></i> EPG XML URL</label>
+                    <input type="url" name="url" placeholder="https://example.com/epg.xml" required>
+                    <small style="opacity: 0.7;">Must be a valid XMLTV format EPG URL</small>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="auto_update" checked>
+                        Auto-update daily
+                    </label>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                    <button type="button" class="btn" onclick="closeModal('addEPGModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Source
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .copy-field {
+        display: flex;
+        gap: 10px;
+    }
+
+    .copy-field input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-color);
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.95em;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: 500;
+    }
+</style>
+
+<script>
+    function copyToClipboard(elementId) {
+        const input = document.getElementById(elementId);
+        input.select();
+        document.execCommand('copy');
+        showToast('EPG URL copied to clipboard!', 'success');
+    }
+
+    function showAddEPGModal() {
+        document.getElementById('addEPGModal').style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    function addEPGSource(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        fetch('/api/epg/add_source', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('EPG source added successfully!', 'success');
+                    closeModal('addEPGModal');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to add EPG source', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function quickAddEPG(name, url) {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('url', url);
+        formData.append('auto_update', 'true');
+
+        fetch('/api/epg/add_source', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(`${name} added successfully!`, 'success');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to add EPG source', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function updateEPGSource(sourceId) {
+        showToast('Updating EPG source...', 'info');
+
+        fetch(`/api/epg/update_source/${sourceId}`, {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('EPG source updated successfully!', 'success');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to update EPG source', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function removeEPGSource(sourceId) {
+        if (!confirm('Are you sure you want to remove this EPG source?')) return;
+
+        fetch(`/api/epg/remove_source/${sourceId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('EPG source removed successfully!', 'success');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to remove EPG source', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function refreshEPG() {
+        showToast('Refreshing all EPG sources...', 'info');
+
+        fetch('/api/epg/refresh_all', {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('All EPG sources refreshed successfully!', 'success');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to refresh EPG', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+</script>
+
+{% endblock %}

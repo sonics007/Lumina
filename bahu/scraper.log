@@ -1,0 +1,10 @@
+2026-01-16 20:20:35,916 [INFO] Starting scrape for filmek...
+2026-01-16 20:20:35,917 [INFO] Scanning Page 1: https://bahu.tv/filmek
+2026-01-16 20:20:36,536 [INFO] Scanning Page 2: https://bahu.tv/filmek?Movie_page=2
+2026-01-16 20:20:37,038 [INFO] No new items found on this page. Stopping scan for this category.
+2026-01-16 20:20:37,041 [INFO] Scrape complete. Added 0 new items.
+2026-01-16 20:20:37,045 [INFO] Starting scrape for sorozatok...
+2026-01-16 20:20:37,048 [INFO] Scanning Page 1: https://bahu.tv/sorozatok
+2026-01-16 20:20:37,534 [INFO] Scanning Page 2: https://bahu.tv/sorozatok?Serial_page=2
+2026-01-16 20:20:38,123 [INFO] No new items found on this page. Stopping scan for this category.
+2026-01-16 20:20:38,126 [INFO] Scrape complete. Added 0 new items.

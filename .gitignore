@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite3
+*.zip
+*.tar.gz
+ffmpeg_bin/
+install_requirements_temp.txt
+.vscode/
+.idea/
+instance/
+static/posters/

@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if show_filters %}
+<div style="margin-bottom: 25px; padding: 0 5px;">
+    <!-- Sources -->
+    <div style="display:flex; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
+        <a href="{{ url_for('main.all_movies_page') }}" class="btn"
+            style="padding:8px 16px; border-radius:50px; background: {{ 'var(--accent-color)' if not current_source else 'rgba(255,255,255,0.1)' }}; color:white; text-decoration:none;">All
+            Sources</a>
+        <a href="{{ url_for('main.all_movies_page', source='manual') }}" class="btn"
+            style="padding:8px 16px; border-radius:50px; background: {{ 'var(--accent-color)' if current_source == 'manual' else 'rgba(255,255,255,0.1)' }}; color:white; text-decoration:none;">Ovulak
+            (Manual)</a>
+        <a href="{{ url_for('main.all_movies_page', source='uiiu') }}" class="btn"
+            style="padding:8px 16px; border-radius:50px; background: {{ 'var(--accent-color)' if current_source == 'uiiu' else 'rgba(255,255,255,0.1)' }}; color:white; text-decoration:none;">UIIU</a>
+        <a href="{{ url_for('main.all_movies_page', source='adult') }}" class="btn"
+            style="padding:8px 16px; border-radius:50px; background: {{ 'var(--accent-color)' if current_source == 'adult' else 'rgba(255,255,255,0.1)' }}; color:white; text-decoration:none;">Adult
+            Films</a>
+    </div>
+
+    <!-- Alphabet -->
+    <div style="display:flex; flex-wrap:wrap; gap:5px; padding:10px; background:rgba(0,0,0,0.2); border-radius:10px;">
+        <a href="{{ url_for('main.all_movies_page', source=current_source) }}"
+            style="padding:5px 10px; border-radius:4px; color:white; text-decoration:none; {{ 'background:var(--accent-color); font-weight:bold;' if not current_letter else '' }}">All</a>
+        <a href="{{ url_for('main.all_movies_page', source=current_source, letter='#') }}"
+            style="padding:5px 10px; border-radius:4px; color:white; text-decoration:none; {{ 'background:var(--accent-color); font-weight:bold;' if current_letter == '#' else '' }}">#</a>
+        {% for char in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+        <a href="{{ url_for('main.all_movies_page', source=current_source, letter=char) }}"
+            style="padding:5px 10px; border-radius:4px; color:white; text-decoration:none; {{ 'background:var(--accent-color); font-weight:bold;' if current_letter == char else '' }}">{{
+            char }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if categories %}
+<div style="margin-bottom: 20px; padding: 0 5px;">
+    <!-- CSS for scrolling categories -->
+    <style>
+        .cat-scroller {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 50px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+
+        .cat-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cat-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+    <div class="cat-scroller">
+        <a href="?" class="cat-btn {{ 'active' if not current_tag else '' }}">
+            <i class="fas fa-th-large"></i> All
+        </a>
+        {% for cat in categories %}
+        <a href="?tag={{ cat }}" class="cat-btn {{ 'active' if current_tag == cat else '' }}">
+            {{ cat }}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+<div class="table-container">
+    <h2><i class="fas fa-list"></i> {{ title }}</h2>
+    <p style="color: grey; margin-bottom: 20px;">Use the scraping tools to add more movies.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Thumb</th>
+                <th>Title</th>
+                <th>Links / Streams</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+            <tr>
+                <td>
+                    {% if pagination %}
+                    {{ (pagination.page - 1) * pagination.per_page + loop.index }}
+                    {% else %}
+                    {{ loop.index }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if movie.image %}
+                    <img src="{{ movie.image }}" class="movie-thumb" alt="poster">
+                    {% else %}
+                    <div style="width:60px;height:90px;background:#333;border-radius:6px;"></div>
+                    {% endif %}
+                </td>
+                <td>
+                    <strong>{{ movie.title }}</strong>
+                    <div style="font-size: 11px; color: #aaa; margin-top: 2px;">
+                        {% if movie.tags %}
+                        <span style="background: rgba(255,255,255,0.1); padding: 1px 4px; border-radius: 3px;">
+                            {{ movie.tags.replace('Live TV,', '').replace('Live TV', '').strip(', ') or 'General' }}
+                        </span>
+                        {% endif %}
+                    </div>
+                </td>
+                <td>
+                    {% if movie.streams %}
+                    {% for stream in movie.streams %}
+                    <div style="font-size: 12px; margin-bottom: 4px;">
+                        <span style="color: var(--accent-color)">[{{ stream.provider }}]</span>
+                        <a href="/player?url={{ stream.url }}"
+                            style="color: white; text-decoration: underline;">Watch</a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <a href="/player?url={{ movie.url }}">Direct/Legacy</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <div style="max-height: 80px; overflow-y: auto; font-size: 13px;">
+                        {{ movie.description }}
+                    </div>
+                </td>
+                <td>
+                    <a href="/edit_movie/{{ movie.id }}" class="btn btn-primary"
+                        style="padding: 5px 10px; font-size: 12px;">Edit</a>
+                    <a href="/delete_movie/{{ movie.id }}" class="btn btn-danger"
+                        style="padding: 5px 10px; font-size: 12px; cursor: pointer;"
+                        onclick="return confirm('Are you sure you want to delete this movie?');">Del</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">No movies in database.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if pagination %}
+    <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px; align-items: center;">
+        {% if pagination.has_prev %}
+        <a href="{{ url_for(request.endpoint, page=pagination.prev_num, q=request.args.get('q'), tag=request.args.get('tag'), source=current_source, letter=current_letter) }}"
+            class="btn btn-secondary btn-sm">&laquo; Prev</a>
+        {% else %}
+        <span class="btn btn-secondary btn-sm disabled" style="opacity: 0.5; cursor: not-allowed;">&laquo; Prev</span>
+        {% endif %}
+
+        <span style="font-size: 0.9em; padding: 5px 10px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+            Page {{ pagination.page }} of {{ pagination.pages }}
+        </span>
+
+        {% if pagination.has_next %}
+        <a href="{{ url_for(request.endpoint, page=pagination.next_num, q=request.args.get('q'), tag=request.args.get('tag'), source=current_source, letter=current_letter) }}"
+            class="btn btn-secondary btn-sm">Next &raquo;</a>
+        {% else %}
+        <span class="btn btn-secondary btn-sm disabled" style="opacity: 0.5; cursor: not-allowed;">Next &raquo;</span>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

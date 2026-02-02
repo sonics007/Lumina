@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2><i class="fas fa-plus-circle"></i> Add New Movie</h2>
+    <p>Enter the URL from <code>film-adult.top</code> to analyze and add manually.</p>
+
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <input type="text" id="movieUrl" placeholder="https://film-adult.top/en/..."
+            style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;">
+        <button onclick="analyzeMovie()" class="btn btn-primary" id="analyzeBtn">Analyze <i
+                class="fas fa-search"></i></button>
+    </div>
+    <div id="loading" style="display:none; margin-top: 15px; color: #aaa;">
+        <i class="fas fa-spinner fa-spin"></i> Analyzing page... please wait...
+    </div>
+</div>
+
+<div id="resultArea" style="display: none; margin-top: 20px;">
+    <!-- Movie Preview -->
+    <div class="card" style="display: flex; gap: 20px; align-items: flex-start;">
+        <div style="width: 150px; flex-shrink: 0;">
+            <img id="previewImage" src="" alt="Poster"
+                style="width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        </div>
+        <div style="flex: 1;">
+            <h2 id="previewTitle" style="margin-top: 0; color: var(--accent-color);">Movie Title</h2>
+            <p id="previewDesc" style="font-size: 14px; color: #ccc; max-height: 100px; overflow-y: auto;">
+                Description...</p>
+
+            <div style="margin-top: 10px;">
+                <label style="font-size: 12px; color: #888;">Category / Source:</label>
+                <select id="sourceSelect"
+                    style="background: #333; color: white; border: 1px solid #444; padding: 5px; border-radius: 4px;">
+                    <option value="film-adult">Film-Adult (Default)</option>
+                    <option value="uiiumovie">UiiuMovie</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <input type="hidden" id="hiddenUrl">
+            <input type="hidden" id="hiddenImage">
+            <input type="hidden" id="hiddenDesc">
+            <input type="hidden" id="hiddenTitle">
+            <input type="hidden" id="hiddenSource">
+        </div>
+    </div>
+
+    <!-- Streams List -->
+    <h3 style="margin: 20px 0 10px 0;"><i class="fas fa-link"></i> Available Streams</h3>
+    <div id="streamsList" class="card-grid">
+        <!-- Streams will be injected here via JS -->
+    </div>
+</div>
+
+<script>
+    async function analyzeMovie() {
+        const url = document.getElementById('movieUrl').value;
+        if (!url) return alert("Please enter a URL");
+
+        const btn = document.getElementById('analyzeBtn');
+        const loading = document.getElementById('loading');
+        const resultArea = document.getElementById('resultArea');
+
+        btn.disabled = true;
+        loading.style.display = 'block';
+        resultArea.style.display = 'none';
+
+        try {
+            const formData = new FormData();
+            formData.append('url', url);
+
+            const response = await fetch('/analyze_movie', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                alert("Error: " + data.error);
+            } else {
+                // Fill preview
+                document.getElementById('previewTitle').innerText = data.title;
+                document.getElementById('previewDesc').innerText = data.description;
+                document.getElementById('previewImage').src = data.image;
+
+                // Fill hidden fields for saving
+                document.getElementById('hiddenUrl').value = data.url || data.original_url || url; // Fix url field
+                document.getElementById('hiddenImage').value = data.image;
+                document.getElementById('hiddenDesc').value = data.description;
+                document.getElementById('hiddenTitle').value = data.title;
+                document.getElementById('hiddenSource').value = data.source || '';
+
+                // Set Dropdown
+                if (data.source && (data.source === 'uiiumovie' || data.source === 'film-adult')) {
+                    document.getElementById('sourceSelect').value = data.source;
+                } else {
+                    // Try to guess from URL if scraping failed to identify?
+                    const inputUrl = document.getElementById('movieUrl').value;
+                    if (inputUrl.includes('uiiu')) {
+                        document.getElementById('sourceSelect').value = 'uiiumovie';
+                    } else {
+                        document.getElementById('sourceSelect').value = 'film-adult';
+                    }
+                }
+
+                // Render streams
+                const list = document.getElementById('streamsList');
+                list.innerHTML = '';
+
+                if (!data.streams || data.streams.length === 0) {
+                    list.innerHTML = '<div class="card" style="grid-column: 1/-1; text-align: center; color: #ff6b6b;">No streams found!</div>';
+                } else {
+                    data.streams.forEach(stream => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.style.display = 'flex';
+                        card.style.flexDirection = 'column';
+                        card.style.justifyContent = 'space-between';
+
+                        const isBroken = stream.broken === true;
+                        let statusColor = '#51cf66'; // Green
+                        if (isBroken) statusColor = '#ff6b6b'; // Red
+
+                        const btnStyle = isBroken
+                            ? 'background: #444; cursor: not-allowed; width: 100%; margin-top: 10px; color: #888;'
+                            : `background: ${statusColor}; width: 100%; margin-top: 10px;`;
+
+                        const btnAttr = isBroken ? 'disabled' : `onclick="addMovie('${stream.url}', '${stream.provider}')"`;
+                        const btnText = isBroken ? '<i class="fas fa-ban"></i> Broken Link' : '<i class="fas fa-plus"></i> Add';
+
+                        // Recommend Logic
+                        let recommendation = '';
+                        const recommendedProviders = ['hglink', 'auvexiug', 'doodstream', 'myvidplay', 'mixdrop', 'streamtape'];
+
+                        if (recommendedProviders.includes(stream.provider ? stream.provider.toLowerCase() : '')) {
+                            recommendation = '<span style="background:#51cf66; color:white; padding:2px 5px; border-radius:4px; font-size:10px; margin-left:5px;">Supported</span>';
+                        }
+
+                        // Domain extraction fix
+                        let domain = 'unknown';
+                        try {
+                            domain = new URL(stream.url).hostname;
+                        } catch (e) { }
+
+                        // Label Logic
+                        let labelInfo = '';
+                        if (stream.label) {
+                            labelInfo = `<div style="font-size:11px; color:#ccc; margin-top:2px;">Label: <b>${stream.label}</b></div>`;
+                        } else if (stream.type) {
+                            labelInfo = `<div style="font-size:11px; color:#666; margin-top:2px;">Type: ${stream.type}</div>`;
+                        } else {
+                            labelInfo = `<div style="font-size:11px; color:#666; margin-top:2px;">Auto Quality (HLS)</div>`;
+                        }
+
+                        card.innerHTML = `
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 5px; color: ${statusColor}">
+                                <i class="fas fa-server"></i> ${stream.provider || 'Unknown'} ${recommendation}
+                            </div>
+                            <div style="font-size: 11px; word-break: break-all; color: #666; margin-bottom: 5px;">
+                                ${domain}
+                            </div>
+                            ${labelInfo}
+                            ${isBroken ? '<div style="font-size: 10px; color: #ff6b6b;">Source URL is incomplete or invalid</div>' : ''}
+                        </div>
+                        <button class="btn" ${btnAttr} style="${btnStyle}">
+                            ${btnText}
+                        </button>
+                    `;
+                        list.appendChild(card);
+                    });
+                }
+
+                resultArea.style.display = 'block';
+            }
+        } catch (e) {
+            alert("Request failed: " + e);
+        } finally {
+            btn.disabled = false;
+            loading.style.display = 'none';
+        }
+    }
+
+    async function addMovie(streamUrl, provider) {
+        if (!confirm(`Add movie with provider ${provider}?`)) return;
+
+        const title = document.getElementById('hiddenTitle').value;
+        const url = document.getElementById('hiddenUrl').value;
+        const image = document.getElementById('hiddenImage').value;
+        const description = document.getElementById('hiddenDesc').value;
+        const source = document.getElementById('sourceSelect').value;
+
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('url', url);
+        formData.append('image', image);
+        formData.append('description', description);
+        formData.append('stream_url', streamUrl);
+        formData.append('provider', provider);
+        formData.append('source', source);
+
+        try {
+            const response = await fetch('/save_analyzed_movie', {
+                method: 'POST',
+                body: formData
+            });
+            const res = await response.text();
+            if (response.ok) {
+                alert("Movie Added Successfully!");
+                if (source && source !== 'film-adult') {
+                    window.location.href = '/source_movies?source=' + encodeURIComponent(source);
+                } else {
+                    window.location.href = '/source_movies';
+                }
+            } else {
+                alert("Error: " + res);
+            }
+        } catch (e) {
+            alert("Error saving: " + e);
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mt-4">{{ title }}</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-cog me-1"></i>
+                    Scraper Configuration (scraper_config.json)
+                </div>
+                <div class="card-body">
+                    <form action="{{ url_for('main.save_settings') }}" method="POST">
+                        <div class="mb-3">
+                            <textarea class="form-control" name="scraper_config" rows="15" style="font-family: monospace;">{{ scraper_config | tojson(indent=2) }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Scraper Config</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-cogs me-1"></i>
+                    Providers Configuration (providers_config.py)
+                </div>
+                <div class="card-body">
+                    <form action="{{ url_for('main.save_settings') }}" method="POST">
+                        <div class="mb-3">
+                            <textarea class="form-control" name="providers_config" rows="15" style="font-family: monospace;">{{ providers_config | tojson(indent=4) }}</textarea>
+                        </div>
+                        <p class="form-text text-muted">Edit the PROVIDERS dictionary content. The surrounding code will be regenerated.</p>
+                        <button type="submit" class="btn btn-primary">Save Providers Config</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-database me-1"></i>
+            Database Management
+        </div>
+        <div class="card-body">
+            <p>Total movies in database: <strong>{{ db_size }}</strong></p>
+            <a href="{{ url_for('main.clean_db_route') }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete all movies and streams from the database? This cannot be undone.')">Clean Database</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <a href="/xtream_sources/{{ source.id }}/manage"
+                    style="color: var(--text-color); text-decoration: none; opacity: 0.7; font-size: 0.9em;">
+                    <i class="fas fa-arrow-left"></i> Back to Categories
+                </a>
+                <h2 style="margin: 5px 0 0 0; color: var(--accent-color);">
+                    <i class="fas fa-folder-open"></i> {{ category or 'Uncategorized' }}
+                </h2>
+                <div style="font-size: 0.9em; margin-top: 5px; opacity: 0.8;">
+                    <span><i class="fas fa-film"></i> {{ movies|length }} Movies</span>
+                    <span style="margin: 0 10px;">|</span>
+                    <span>Source: {{ source.name }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movies List -->
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">Image</th>
+                        <th>Title</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for movie in movies %}
+                    <tr>
+                        <td>
+                            <img src="{{ movie.image }}"
+                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                onerror="this.src='data:image/svg+xml;base64,...'">
+                        </td>
+                        <td>
+                            <div style="font-weight: bold;">{{ movie.title }}</div>
+                            <small style="opacity: 0.7;">Added: {{ movie.added_date }}</small>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 5px;">
+                                <a href="/player?url={{ movie.url }}" class="btn btn-sm btn-success" target="_blank"
+                                    title="Play">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <!-- Future: Edit individual movie -->
+                                <!-- <button class="btn btn-sm btn-primary" onclick="editMovie('{{ movie.id }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button> -->
+                                <button class="btn btn-sm btn-danger" onclick="deleteMovie('{{ movie.id }}')"
+                                    title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3" style="text-align: center; padding: 30px;">
+                            No movies found in this category.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function deleteMovie(movieId) {
+        if (!confirm('Are you sure you want to delete this movie? It will be re-imported on next sync unless you disable the source.')) return;
+
+        const formData = new FormData();
+        formData.append('movie_id', movieId);
+
+        fetch('/xtream_sources/api/delete_content', {
+            method: 'POST',
+            body: formData
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Movie deleted', 'success');
+                    setTimeout(() => location.reload(), 500);
+                } else {
+                    showToast('Failed to delete', 'error');
+                }
+            });
+    }
+</script>
+{% endblock %}

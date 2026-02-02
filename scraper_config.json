@@ -1,0 +1,23 @@
+{
+  "urls": [
+    {
+      "url": "https://film-adult.top/en/movies/",
+      "name": "Film-Adult Movies (Base)",
+      "last_scraped": "2026-01-19 20:47:41"
+    },
+    {
+      "name": "film-adult/page2",
+      "url": "https://film-adult.top/en/movies/page/2/",
+      "last_scraped": "2026-01-19 20:47:41"
+    },
+    {
+      "name": "film-adult/top100",
+      "url": "https://film-adult.top/en/top100.html",
+      "last_scraped": "2026-01-19 20:47:41"
+    }
+  ],
+  "settings": {
+    "deep_scrape": true,
+    "max_pages": 1
+  }
+}

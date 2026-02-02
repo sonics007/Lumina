@@ -1,0 +1,528 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h2><i class="fas fa-server"></i> Bahu.tv Management</h2>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid" style="margin-bottom: 30px;">
+                <div class="stat-card">
+                    <i class="fas fa-film"></i>
+                    <div>
+                        <h3>{{ bahu_count }}</h3>
+                        <p>Movies in DB</p>
+                    </div>
+                </div>
+                <!-- Series Stats -->
+                <div class="stat-card">
+                    <i class="fas fa-tv"></i>
+                    <div>
+                        <h3>{{ bahu_series_count }}</h3>
+                        <p>Series in DB</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                    <div>
+                        <h3>{{ imported_count }} / {{ imported_series_count }}</h3>
+                        <p>Imp. Mov/Ser</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-tags"></i>
+                    <div>
+                        <h3>{{ categories_count }} / {{ series_categories_count }}</h3>
+                        <p>Cats. Mov/Ser</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>{{ last_scrape }}</h3>
+                        <p>Last Scrape</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-buttons" style="margin-bottom: 30px;">
+                <button class="btn btn-primary" onclick="importAllMovies()">
+                    <i class="fas fa-download"></i> Import All Movies
+                </button>
+                <button class="btn btn-primary" style="background-color: #8b5cf6;" onclick="importAllSeries()">
+                    <i class="fas fa-download"></i> Import All Series
+                </button>
+                <button class="btn btn-secondary" onclick="importByCategory()">
+                    <i class="fas fa-filter"></i> Import by Category
+                </button>
+                <button class="btn btn-info" onclick="viewBahuPlaylist()">
+                    <i class="fas fa-play"></i> Movie Playlist
+                </button>
+                <button class="btn btn-info" style="background-color: #8b5cf6;" onclick="viewBahuSeriesPlaylist()">
+                    <i class="fas fa-play"></i> Series Playlist
+                </button>
+                <button class="btn btn-warning" onclick="runScraper()">
+                    <i class="fas fa-sync"></i> Run Scraper
+                </button>
+            </div>
+
+            <!-- Movies Categories -->
+            <h3 style="margin-bottom: 20px;">Movie Categories</h3>
+            <div class="table-container" style="margin-bottom: 40px;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Count</th>
+                            <th>Imported</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cat in categories %}
+                        <tr>
+                            <td><strong>{{ cat.name }}</strong></td>
+                            <td>{{ cat.count }}</td>
+                            <td>
+                                <span
+                                    class="badge {% if cat.imported > 0 %}badge-success{% else %}badge-secondary{% endif %}">
+                                    {{ cat.imported }}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-primary"
+                                    onclick="importCategory('{{ cat.name }}', 'movie')">
+                                    <i class="fas fa-download"></i> Import
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Series Categories -->
+            <h3 style="margin-bottom: 20px;">Series Categories</h3>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Count</th>
+                            <th>Imported</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cat in series_categories %}
+                        <tr>
+                            <td><strong>{{ cat.name }}</strong></td>
+                            <td>{{ cat.count }}</td>
+                            <td>
+                                <span
+                                    class="badge {% if cat.imported > 0 %}badge-success{% else %}badge-secondary{% endif %}">
+                                    {{ cat.imported }}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-primary" style="background-color: #8b5cf6;"
+                                    onclick="importCategory('{{ cat.name }}', 'series')">
+                                    <i class="fas fa-download"></i> Import
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Progress Modal -->
+    <div id="importModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modalTitle"><i class="fas fa-spinner fa-spin"></i> Importing...</h3>
+
+            <div class="progress-bar">
+                <div id="progressBar" class="progress-fill" style="width: 0%;"></div>
+            </div>
+
+            <div
+                style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9em; color: #aaa;">
+                <span id="progressText">Preparing...</span>
+                <span id="progressCount">0/0</span>
+            </div>
+
+            <div
+                style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; font-size: 0.9em; margin-top: 10px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Imported: <strong id="liveImported" style="color: #4ade80">0</strong></span>
+                    <span>Skipped: <strong id="liveSkipped" style="color: #94a3b8">0</strong></span>
+                </div>
+            </div>
+
+            <div id="importResults" style="margin-top: 20px; display: none; text-align: center;">
+                <h4 style="color: #4ade80; margin-bottom: 10px;">Import Complete!</h4>
+                <p>Imported: <span id="importedCount">0</span></p>
+                <p>Skipped: <span id="skippedCount">0</span> (already exist)</p>
+                <button class="btn btn-primary" onclick="closeImportModal()">Close & Refresh</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scraper Progress Modal -->
+    <div id="scraperModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="scraperTitle"><i class="fas fa-spider fa-spin"></i> Scraping...</h3>
+
+            <div class="progress-bar">
+                <div id="scraperProgressBar" class="progress-fill" style="width: 0%;"></div>
+            </div>
+
+            <div
+                style="display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9em; color: #aaa;">
+                <span id="scraperStatusText">Initializing...</span>
+                <span id="scraperPageCount">Page 0/0</span>
+            </div>
+
+            <div
+                style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; font-size: 0.9em; margin-top: 10px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Found: <strong id="scraperFound" style="color: #60a5fa">0</strong></span>
+                    <span>Added: <strong id="scraperAdded" style="color: #4ade80">0</strong></span>
+                </div>
+            </div>
+
+            <div id="scraperResults" style="margin-top: 20px; display: none; text-align: center;">
+                <h4 style="color: #4ade80; margin-bottom: 10px;">Scraping Complete!</h4>
+                <button class="btn btn-primary" onclick="closeScraperModal()">Close & Refresh</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .stat-card {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .stat-card i {
+        font-size: 2rem;
+        color: var(--accent-color);
+    }
+
+    .stat-card h3 {
+        margin: 0;
+        font-size: 2rem;
+        color: var(--text-primary);
+    }
+
+    .stat-card p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+    }
+
+    .modal-content {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 500px;
+        width: 90%;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+        transition: width 0.3s ease;
+    }
+
+    .badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .badge-success {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+    }
+
+    .badge-secondary {
+        background: rgba(148, 163, 184, 0.2);
+        color: #94a3b8;
+    }
+</style>
+
+<script>
+    // --- IMPORT POLLING ---
+    let pollInterval;
+
+    function startPolling() {
+        if (pollInterval) clearInterval(pollInterval);
+        pollInterval = setInterval(pollStatus, 1000);
+    }
+
+    function stopPolling() {
+        if (pollInterval) clearInterval(pollInterval);
+    }
+
+    function pollStatus() {
+        if (document.getElementById('importModal').style.display === 'none') { stopPolling(); return; }
+
+        fetch('/sources/bahu-import-status')
+            .then(r => r.json())
+            .then(data => {
+                const total = data.total || 1;
+                const percent = (data.current / total) * 100;
+
+                const bar = document.getElementById('progressBar');
+                if (bar) bar.style.width = percent + '%';
+
+                const text = document.getElementById('progressText');
+                if (text) text.textContent = data.message;
+
+                const countEl = document.getElementById('progressCount');
+                if (countEl) countEl.textContent = `${data.current}/${data.total}`;
+
+                const impEl = document.getElementById('liveImported');
+                if (impEl) impEl.textContent = data.imported;
+
+                const skipEl = document.getElementById('liveSkipped');
+                if (skipEl) skipEl.textContent = data.skipped;
+
+                if (!data.running && data.message === 'Import complete!') {
+                    stopPolling();
+                    document.getElementById('importResults').style.display = 'block';
+                    document.getElementById('progressBar').style.width = '100%';
+                    document.getElementById('modalTitle').innerHTML = '<i class="fas fa-check-circle" style="color: #4ade80"></i> Finished';
+
+                    document.getElementById('importedCount').textContent = data.imported;
+                    document.getElementById('skippedCount').textContent = data.skipped;
+                }
+
+                if (!data.running && data.message.startsWith('Error')) {
+                    stopPolling();
+                    alert(data.message);
+                    closeImportModal();
+                }
+            })
+            .catch(e => console.error("Polling error", e));
+    }
+
+    function importAllMovies() {
+        if (!confirm('Import all these movies from Bahu.tv?')) return;
+        showImportModal();
+        fetch('/sources/bahu-import-all', { method: 'POST' })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) startPolling();
+                else alert('Error: ' + (data.error || data.message));
+            })
+            .catch(err => { alert('Import failed: ' + err); closeImportModal(); });
+    }
+
+    function importAllSeries() {
+        if (!confirm('Import all series from Bahu.tv?')) return;
+        showImportModal();
+        fetch('/sources/bahu-import-series-all', { method: 'POST' })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) startPolling();
+                else alert('Error: ' + (data.error || data.message));
+            })
+            .catch(err => { alert('Import failed: ' + err); closeImportModal(); });
+    }
+
+    function importCategory(category, type) {
+        if (!confirm(`Import all ${type}s from category: ${category}?`)) return;
+        showImportModal();
+        fetch('/sources/bahu-import-category', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category: category, type: type })
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) startPolling();
+                else alert('Error: ' + (data.error || data.message));
+            })
+            .catch(err => { alert('Import failed: ' + err); closeImportModal(); });
+    }
+
+    // --- SCRAPER POLLING ---
+    let scraperInterval;
+
+    function runScraper() {
+        if (!confirm('Run Bahu.tv scraper? This may take a while.')) return;
+
+        showScraperModal();
+
+        fetch('/sources/bahu-run-scraper', { method: 'POST' })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) startScraperPolling();
+                else {
+                    alert('Error: ' + data.message);
+                    closeScraperModal();
+                }
+            })
+            .catch(err => {
+                alert('Failed to start scraper: ' + err);
+                closeScraperModal();
+            });
+    }
+
+    function showScraperModal() {
+        document.getElementById('scraperModal').style.display = 'flex';
+        document.getElementById('scraperResults').style.display = 'none';
+
+        document.getElementById('scraperProgressBar').style.width = '0%';
+        document.getElementById('scraperStatusText').textContent = 'Starting...';
+        document.getElementById('scraperPageCount').textContent = 'Page 0';
+
+        document.getElementById('scraperFound').textContent = '0';
+        document.getElementById('scraperAdded').textContent = '0';
+
+        document.getElementById('scraperTitle').innerHTML = '<i class="fas fa-spider fa-spin"></i> Scraping...';
+    }
+
+    function closeScraperModal() {
+        stopScraperPolling();
+        document.getElementById('scraperModal').style.display = 'none';
+        location.reload();
+    }
+
+    function startScraperPolling() {
+        if (scraperInterval) clearInterval(scraperInterval);
+        scraperInterval = setInterval(pollScraperStatus, 1500);
+    }
+
+    function stopScraperPolling() {
+        if (scraperInterval) clearInterval(scraperInterval);
+    }
+
+    function pollScraperStatus() {
+        fetch('/sources/bahu-scraper-status')
+            .then(r => r.json())
+            .then(data => {
+                const total = data.max_pages || 100;
+                const current = data.current_page || 0;
+
+                let percent = 0;
+                if (data.status === 'Completed!') percent = 100;
+                else if (total > 0) percent = (current / total) * 100;
+                else percent = 5;
+
+                document.getElementById('scraperProgressBar').style.width = percent + '%';
+                document.getElementById('scraperStatusText').textContent = data.status || 'Running...';
+                document.getElementById('scraperPageCount').textContent = `Page ${current} / ${total}`;
+
+                document.getElementById('scraperFound').textContent = data.total_found;
+                document.getElementById('scraperAdded').textContent = data.total_added;
+
+                if (data.status === 'Completed!') {
+                    stopScraperPolling();
+                    document.getElementById('scraperResults').style.display = 'block';
+                    document.getElementById('scraperProgressBar').style.width = '100%';
+                    document.getElementById('scraperTitle').innerHTML = '<i class="fas fa-check-circle" style="color: #4ade80"></i> Finished';
+                }
+            })
+            .catch(e => console.error(e));
+    }
+
+    // --- OTHER ---
+    function importByCategory() {
+        alert("Please use the buttons in the table to import specific categories.");
+    }
+
+    function viewBahuPlaylist() {
+        window.open('/bahu-playlist.m3u8', '_blank');
+    }
+
+    function viewBahuSeriesPlaylist() {
+        window.open('/bahu-series-playlist.m3u8', '_blank');
+    }
+
+    function showImportModal() {
+        document.getElementById('importModal').style.display = 'flex';
+        const res = document.getElementById('importResults');
+        if (res) res.style.display = 'none';
+
+        const title = document.getElementById('modalTitle');
+        if (title) title.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Importing...';
+
+        const bar = document.getElementById('progressBar');
+        if (bar) bar.style.width = '0%';
+
+        const text = document.getElementById('progressText');
+        if (text) text.textContent = 'Preparing...';
+
+        const countEl = document.getElementById('progressCount');
+        if (countEl) countEl.textContent = '0/0';
+
+        const impEl = document.getElementById('liveImported');
+        if (impEl) impEl.textContent = '0';
+
+        const skipEl = document.getElementById('liveSkipped');
+        if (skipEl) skipEl.textContent = '0';
+    }
+
+    function closeImportModal() {
+        stopPolling();
+        document.getElementById('importModal').style.display = 'none';
+        location.reload();
+    }
+
+    function updateProgress(percent, text) { }
+    function showImportResults(imported, skipped) { }
+    function showToast(msg, type) { console.log(msg); }
+</script>
+{% endblock %}

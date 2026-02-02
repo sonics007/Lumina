@@ -1,0 +1,293 @@
+{
+    "Akció": {
+        "display_name": "Akció",
+        "order_movie": 1
+    },
+    "Akční & dobrodružné": {
+        "display_name": "Akční & dobrodružné",
+        "order_movie": 2
+    },
+    "Animáció": {
+        "display_name": "Animáció",
+        "order_movie": 3
+    },
+    "Animáky pro dospělé": {
+        "display_name": "Animáky pro dospělé",
+        "order_movie": 4
+    },
+    "Apple Original": {
+        "display_name": "Apple Original",
+        "order_movie": 5,
+        "order_series": 1
+    },
+    "Családi": {
+        "display_name": "Családi",
+        "order_movie": 6
+    },
+    "Disney+ Original": {
+        "display_name": "Disney+ Original",
+        "order_movie": 7
+    },
+    "Dokumentum": {
+        "display_name": "Dokumentum",
+        "order_movie": 8
+    },
+    "Dokumenty": {
+        "display_name": "Dokumenty",
+        "order_movie": 9,
+        "order_live": 3
+    },
+    "Drama": {
+        "display_name": "Drama",
+        "order_movie": 10
+    },
+    "Dramox": {
+        "display_name": "Dramox",
+        "order_movie": 11
+    },
+    "Dráma": {
+        "display_name": "Dráma",
+        "order_movie": 12
+    },
+    "Dětské & rodinné": {
+        "display_name": "Dětské & rodinné",
+        "order_movie": 13
+    },
+    "Evropské": {
+        "display_name": "Evropské",
+        "order_movie": 14
+    },
+    "Fantasy": {
+        "display_name": "Fantasy",
+        "order_movie": 15
+    },
+    "Fantázia": {
+        "display_name": "Fantázia",
+        "order_movie": 16
+    },
+    "Filmy pro děti": {
+        "display_name": "Filmy pro děti",
+        "order_movie": 17
+    },
+    "Golden Globe Sorozatok": {
+        "display_name": "Golden Globe Sorozatok",
+        "order_movie": 18
+    },
+    "HBO Original": {
+        "display_name": "HBO Original",
+        "order_movie": 19,
+        "order_series": 2
+    },
+    "Historický": {
+        "display_name": "Historický",
+        "order_movie": 20
+    },
+    "Horor & sci-fi": {
+        "display_name": "Horor & sci-fi",
+        "order_movie": 21
+    },
+    "Horror": {
+        "display_name": "Horror",
+        "order_movie": 22
+    },
+    "Hudební": {
+        "display_name": "Hudební",
+        "order_movie": 23,
+        "order_live": 6
+    },
+    "Háborús": {
+        "display_name": "Háborús",
+        "order_movie": 24
+    },
+    "IMDb Top Filmek": {
+        "display_name": "IMDb Top Filmek",
+        "order_movie": 25
+    },
+    "IMDb Top Sorozatok": {
+        "display_name": "IMDb Top Sorozatok",
+        "order_movie": 26
+    },
+    "Jelenleg Követett Filmek": {
+        "display_name": "Jelenleg Követett Filmek",
+        "order_movie": 27
+    },
+    "Jelenleg Követett Sorozatok": {
+        "display_name": "Jelenleg Követett Sorozatok",
+        "order_movie": 28
+    },
+    "Kaland": {
+        "display_name": "Kaland",
+        "order_movie": 29
+    },
+    "Komedie": {
+        "display_name": "Komedie",
+        "order_movie": 30
+    },
+    "Krimi": {
+        "display_name": "Krimi",
+        "order_movie": 31
+    },
+    "Krátké filmy": {
+        "display_name": "Krátké filmy",
+        "order_movie": 32
+    },
+    "Legnézettebb Filmek": {
+        "display_name": "Legnézettebb Filmek",
+        "order_movie": 33
+    },
+    "Legnézettebb Sorozatok": {
+        "display_name": "Legnézettebb Sorozatok",
+        "order_movie": 34
+    },
+    "Legértékeltebb Filmek": {
+        "display_name": "Legértékeltebb Filmek",
+        "order_movie": 35
+    },
+    "Legértékeltebb Sorozatok": {
+        "display_name": "Legértékeltebb Sorozatok",
+        "order_movie": 36
+    },
+    "Misztikus": {
+        "display_name": "Misztikus",
+        "order_movie": 37
+    },
+    "Mysteriózní": {
+        "display_name": "Mysteriózní",
+        "order_movie": 38
+    },
+    "Novinky 2025 - 2026": {
+        "display_name": "Novinky 2025 - 2026",
+        "order_movie": 39
+    },
+    "Novinky na LukTV": {
+        "display_name": "Novinky na LukTV",
+        "order_movie": 40,
+        "order_series": 3
+    },
+    "Oscar Nyertesek": {
+        "display_name": "Oscar Nyertesek",
+        "order_movie": 41
+    },
+    "Populární na LukTV": {
+        "display_name": "Populární na LukTV",
+        "order_movie": 42,
+        "order_series": 5
+    },
+    "Publicistický": {
+        "display_name": "Publicistický",
+        "order_movie": 43
+    },
+    "Romantické": {
+        "display_name": "Romantické",
+        "order_movie": 44
+    },
+    "Romantikus": {
+        "display_name": "Romantikus",
+        "order_movie": 45
+    },
+    "Sci-Fi": {
+        "display_name": "Sci-Fi",
+        "order_movie": 46
+    },
+    "Sport": {
+        "display_name": "Sport",
+        "order_movie": 47
+    },
+    "Sportovní": {
+        "display_name": "Sportovní",
+        "order_movie": 48,
+        "order_live": 12
+    },
+    "Thriller": {
+        "display_name": "Thriller",
+        "order_movie": 49
+    },
+    "Thriller & krimi": {
+        "display_name": "Thriller & krimi",
+        "order_movie": 50
+    },
+    "Trendy na LukTV": {
+        "display_name": "Trendy na LukTV",
+        "order_movie": 51
+    },
+    "Uncategorized": {
+        "display_name": "Uncategorized",
+        "order_movie": 52
+    },
+    "Válečný": {
+        "display_name": "Válečný",
+        "order_movie": 53
+    },
+    "Vígjáték": {
+        "display_name": "Vígjáték",
+        "order_movie": 54
+    },
+    "Western": {
+        "display_name": "Western",
+        "order_movie": 55
+    },
+    "České a Slovenské": {
+        "display_name": "České a Slovenské",
+        "order_movie": 56
+    },
+    "Oneplay Originál": {
+        "display_name": "Oneplay Originál",
+        "order_series": 4
+    },
+    "Prima+ Original": {
+        "display_name": "Prima+ Original",
+        "order_series": 6
+    },
+    "Seriály pro děti": {
+        "display_name": "Seriály pro děti",
+        "order_series": 7
+    },
+    "Slovenské": {
+        "display_name": "Slovenské",
+        "order_live": 1
+    },
+    "České": {
+        "display_name": "České",
+        "order_live": 2
+    },
+    "Dětské": {
+        "display_name": "Dětské",
+        "order_live": 4
+    },
+    "Filmové": {
+        "display_name": "Filmové",
+        "order_live": 5
+    },
+    "Lifestyle": {
+        "display_name": "Lifestyle",
+        "order_live": 7
+    },
+    "Německé": {
+        "display_name": "Německé",
+        "order_live": 8
+    },
+    "Regionální CZ": {
+        "display_name": "Regionální CZ",
+        "order_live": 9
+    },
+    "Regionální SK": {
+        "display_name": "Regionální SK",
+        "order_live": 10
+    },
+    "Relax": {
+        "display_name": "Relax",
+        "order_live": 11
+    },
+    "Zahraniční": {
+        "display_name": "Zahraniční",
+        "order_live": 13
+    },
+    "Zpravodajské": {
+        "display_name": "Zpravodajské",
+        "order_live": 14
+    },
+    "Erotické": {
+        "display_name": "Erotické",
+        "order_live": 15
+    }
+}

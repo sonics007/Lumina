@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #aaa;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        background: #222;
+        border: 1px solid #444;
+        color: white;
+        border-radius: 4px;
+    }
+
+    .stream-card {
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border-left: 3px solid var(--accent-color);
+    }
+</style>
+
+<div class="card" style="max-width: 800px; margin: 0 auto;">
+    <h2><i class="fas fa-edit"></i> Edit Movie</h2>
+
+    <form action="/update_movie/{{ index }}" method="post">
+        <div class="form-group">
+            <label>Source Page URL (for metadata refresh)</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" name="movie_url" id="movieUrlInput" value="{{ movie.url }}" style="flex: 1;">
+                <button type="button" onclick="fetchMetadata(this)" class="btn"
+                    style="background: #e67e22; white-space: nowrap;"><i class="fas fa-sync"></i> Fetch
+                    Metadata</button>
+            </div>
+            <small style="color: #666;">This URL is used to scrape title, image, and description.</small>
+        </div>
+
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" value="{{ movie.title }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Image URL</label>
+            <input type="text" name="image" value="{{ movie.image }}">
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" rows="5">{{ movie.description }}</textarea>
+        </div>
+
+        <h3 style="margin-top: 30px; border-bottom: 1px solid #444; padding-bottom: 10px;">Streams</h3>
+
+        {% if movie.streams %}
+        {% for stream in movie.streams %}
+        <div class="stream-card">
+            <div class="form-group">
+                <label>Provider Name (e.g. hglink, myvidplay)</label>
+                <input type="text" name="provider_{{ loop.index0 }}" value="{{ stream.provider }}">
+            </div>
+            <div class="form-group">
+                <label>Stream URL</label>
+                <input type="text" name="stream_url_{{ loop.index0 }}" value="{{ stream.url }}">
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <!-- Legacy fallback or empty -->
+        <div class="stream-card">
+            <p style="color: grey; font-size: 12px;">No structured streams found. Adding new one.</p>
+            <div class="form-group">
+                <label>Provider</label>
+                <input type="text" name="new_provider" value="manual">
+            </div>
+            <div class="form-group">
+                <label>Stream URL</label>
+                <input type="text" name="new_stream_url" value="{{ movie.url }}">
+            </div>
+        </div>
+        {% endif %}
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+            <a href="/playlist" class="btn" style="background: #444;">Cancel</a>
+        </div>
+    </form>
+</div>
+<script>
+    async function fetchMetadata(btn) {
+        const urlInput = document.getElementById('movieUrlInput');
+        const url = urlInput.value.trim();
+        if (!url) return alert("Please enter a URL first.");
+
+        const originalBtnContent = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Fetching...';
+
+        try {
+            const formData = new FormData();
+            formData.append('url', url);
+
+            const response = await fetch('/analyze_movie', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                alert("Error fetching metadata: " + data.error);
+                btn.innerHTML = originalBtnContent;
+                btn.disabled = false;
+            } else {
+                // Update fields
+                if (data.title) document.querySelector('input[name="title"]').value = data.title;
+                if (data.image) document.querySelector('input[name="image"]').value = data.image;
+                if (data.description) document.querySelector('textarea[name="description"]').value = data.description;
+
+                // Silent success
+                btn.innerHTML = '<i class="fas fa-check"></i> Done';
+                btn.style.background = '#27ae60';
+                setTimeout(() => {
+                    btn.innerHTML = originalBtnContent;
+                    btn.style.background = '#e67e22';
+                    btn.disabled = false;
+                }, 1000);
+            }
+
+        } catch (e) {
+            alert("Network error: " + e);
+            btn.innerHTML = originalBtnContent;
+            btn.disabled = false;
+        }
+    }
+</script>
+{% endblock %}

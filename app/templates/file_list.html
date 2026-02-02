@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header">
+    <h2>{{ title }}</h2>
+    {% if allow_clear %}
+    <a href="{{ clear_url }}" class="btn btn-danger" onclick="return confirm('Clear list?')"><i
+            class="fas fa-trash"></i> Clear</a>
+    {% endif %}
+</div>
+
+<div class="card">
+    {% if content %}
+    <pre
+        style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; color: #ccc; white-space: pre-wrap; font-family: monospace;">{{ content }}</pre>
+    {% else %}
+    <p style="color: grey;">No data found.</p>
+    {% endif %}
+</div>
+{% endblock %}

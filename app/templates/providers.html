@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header">
+    <h2>Providers Status</h2>
+</div>
+
+<div class="card-grid">
+    {% for p_name, p_data in stats.items() %}
+    <div class="card provider-card">
+        <div class="provider-header">
+            <div style="display: flex; align-items: center;">
+                <i class="fas fa-server" style="margin-right: 12px; color: #a4b0be; font-size: 1.2rem;"></i>
+                <h3 style="margin: 0; font-size: 1.1rem; color: white;">{{ p_data.domain }}</h3>
+            </div>
+
+            <div class="status-indicator">
+                <span class="dot {{ 'green' if p_data.status == 'Active' else '' }}"></span>
+                <span class="dot {{ 'red' if p_data.status != 'Active' else '' }}"
+                    style="{{ 'opacity: 0.3' if p_data.status == 'Active' else '' }}"></span>
+            </div>
+        </div>
+
+        <p style="color: #747d8c; font-size: 13px; margin-top: 5px;">Status: {{ p_data.status }}</p>
+
+        <div class="provider-footer">
+            <div class="ref-box" title="{{ p_data.ref }}">
+                <span style="color: #747d8c; margin-right: 5px;">Ref:</span>
+                {{ p_data.ref }}
+            </div>
+            <div class="movie-count">{{ p_data.count }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

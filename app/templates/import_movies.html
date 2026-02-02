@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h2><i class="fas fa-file-import"></i> Import Movies </h2>
+        <div style="display:flex; align-items:center;">
+            <span style="color:#888; margin-right:15px;">Remaining in JSON: <b>{{ remaining }}</b>+</span>
+            <button onclick="startAutoImport()" class="btn"
+                style="background:var(--accent-color); color:white; font-size:12px;">
+                <i class="fas fa-magic"></i> Auto Import (MyVidPlay Only)
+            </button>
+        </div>
+    </div>
+
+    <div class="card-grid">
+        {% for m in movies %}
+        <div class="card movie-card" id="card-{{loop.index}}">
+            <div
+                style="position:relative; padding-top:150%; background:#000; border-radius:8px; overflow:hidden; margin-bottom:10px;">
+                <img src="{{ m.image }}"
+                    style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0.8;"
+                    onerror="this.src='/static/placeholder.jpg'">
+            </div>
+
+            <h3 style="font-size:14px; margin:0 0 5px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"
+                title="{{m.title}}">
+                {{ m.title }}
+            </h3>
+
+            <div style="font-size:11px; color:#666; margin-bottom:10px;">{{ m.source }}</div>
+
+            <div class="actions" style="display:flex; gap:5px;">
+                <button
+                    onclick="analyzeMovie('{{ m.url }}', '{{ m.image|replace("'", "\\'") }}', '{{ m.title|replace("'", "\\'") }}', '{{ m.source }}', 'card-{{loop.index}}')"
+                    class="btn btn-primary" style="flex:1; font-size:12px;">
+                    <i class="fas fa-search"></i> Import
+                </button>
+                <button onclick="skipMovie('{{ m.url }}', 'card-{{loop.index}}')" class="btn"
+                    style="background:#444; font-size:12px;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if not movies %}
+    <div style="text-align:center; padding:50px; color:#666;">
+        <h3>No new movies found in scraped file.</h3>
+        <p>Either all are imported/ignored or the file is empty.</p>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Modal for Stream Selection -->
+<div id="importModal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+    <div class="card" style="width:90%; max-width:500px; max-height:80vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()"
+            style="position:absolute; top:10px; right:15px; background:none; border:none; color:white; font-size:20px; cursor:pointer;">&times;</button>
+
+        <h3 id="modalTitle">Analyzing...</h3>
+
+        <div id="modalLoading" style="text-align:center; padding:30px;">
+            <i class="fas fa-spinner fa-spin fa-3x" style="color:var(--accent-color);"></i>
+            <p style="margin-top:15px; color:#aaa;">Fetching streams...</p>
+        </div>
+
+        <div id="modalContent" style="display:none;">
+            <div style="display:flex; gap:15px; margin-bottom:15px;">
+                <img id="modalImage" src="" style="width:80px; height:120px; object-fit:cover; border-radius:4px;">
+                <div>
+                    <h4 id="modalMovieTitle" style="margin:0;"></h4>
+                    <p id="modalDesc"
+                        style="font-size:11px; color:#888; margin-top:5px; max-height:80px; overflow:hidden;"></p>
+                </div>
+            </div>
+
+            <h4>Select Stream to Add:</h4>
+            <div id="modalStreams" style="display:flex; flex-direction:column; gap:10px;">
+                <!-- Streams injected here -->
+            </div>
+        </div>
+
+        <!-- Hidden Data -->
+        <input type="hidden" id="h_url">
+        <input type="hidden" id="h_img">
+        <input type="hidden" id="h_title">
+        <input type="hidden" id="h_desc">
+        <input type="hidden" id="h_source">
+        <input type="hidden" id="h_current_card">
+
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('importModal');
+    let isAutoImporting = false;
+
+    function closeModal() {
+        if (isAutoImporting) return;
+        modal.style.display = 'none';
+        document.getElementById('modalContent').style.display = 'none';
+        document.getElementById('modalLoading').style.display = 'block';
+    }
+
+    // Override manual close button
+    function forceCloseModal() {
+        isAutoImporting = false;
+        modal.style.display = 'none';
+        document.getElementById('modalContent').style.display = 'none';
+        document.getElementById('modalLoading').style.display = 'block';
+    }
+    // Update close button in HTML above
+    document.querySelector('#importModal button[onclick="closeModal()"]').onclick = forceCloseModal;
+
+
+    async function startAutoImport() {
+        if (!confirm("Start auto-import for all visible movies? Only movies with 'myvidplay' provider will be added automatically. Others will be skipped (left in list).")) return;
+
+        isAutoImporting = true;
+        const buttons = document.querySelectorAll('button[onclick^="analyzeMovie"]');
+
+        let processedCount = 0;
+
+        for (let btn of buttons) {
+            if (!isAutoImporting) break;
+
+            // Check if card is still visible (might be removed)
+            if (btn.offsetParent === null) continue;
+
+            // Parse arguments
+            const match = btn.getAttribute('onclick').match(/analyzeMovie\('(.+?)', '(.+?)', '(.+?)', '(.+?)', '(.+?)'\)/);
+            if (match) {
+                const [_, url, img, title, source, cardId] = match;
+
+                // Scroll slightly
+                const card = document.getElementById(cardId);
+                if (card) card.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                const result = await analyzeMovie(url, img, title, source, cardId, true); // true = autoMode
+
+                if (result === 'added') {
+                    processedCount++;
+                }
+
+                // Wait a bit
+                await new Promise(r => setTimeout(r, 800)); // 0.8s delay
+            }
+        }
+        isAutoImporting = false;
+        alert("Auto Import Completed! Processed " + processedCount + " movies.");
+    }
+
+    async function analyzeMovie(url, image, title, source, cardId, autoMode = false) {
+        if (!autoMode) modal.style.display = 'flex';
+
+        if (autoMode) {
+            console.log("Analyzing " + title);
+        } else {
+            document.getElementById('modalTitle').innerText = 'Analyzing ' + title;
+        }
+
+        document.getElementById('h_url').value = url;
+        document.getElementById('h_img').value = image;
+        document.getElementById('h_title').value = title;
+        document.getElementById('h_source').value = source;
+        document.getElementById('h_current_card').value = cardId;
+
+        try {
+            const formData = new FormData();
+            formData.append('url', url);
+
+            const response = await fetch('/analyze_movie', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            if (data.error) {
+                if (!autoMode) alert("Error: " + data.error);
+                forceCloseModal();
+                return 'error';
+            }
+
+            // AUTO-ADD Logic
+            const myVidPlayStream = data.streams.find(s => s.provider === 'myvidplay');
+
+            if (myVidPlayStream) {
+                // Populate required fields
+                document.getElementById('h_title').value = data.title;
+                document.getElementById('h_desc').value = data.description;
+
+                await saveMovie(myVidPlayStream.url, 'myvidplay');
+
+                // Hide modal loading if it was forced visible
+                if (!autoMode) forceCloseModal();
+
+                return 'added';
+            } else {
+                // If auto mode and no myvidplay
+                if (autoMode) {
+                    console.log("Skipping " + title + " (No MyVidPlay)");
+                    return 'skipped';
+                }
+            }
+
+            // Manual Mode Render
+            document.getElementById('modalLoading').style.display = 'none';
+            document.getElementById('modalContent').style.display = 'block';
+
+            document.getElementById('modalTitle').innerText = 'Select Provider';
+            document.getElementById('modalMovieTitle').innerText = data.title;
+            document.getElementById('modalDesc').innerText = data.description;
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('h_desc').value = data.description;
+            document.getElementById('h_url').value = data.original_url;
+
+            const list = document.getElementById('modalStreams');
+            list.innerHTML = '';
+
+            if (data.streams.length === 0) {
+                list.innerHTML = '<div style="color:#ff6b6b">No streams found.</div>';
+            } else {
+                data.streams.forEach(stream => {
+                    const isBroken = stream.broken;
+                    let recommendation = '';
+                    const recommendedProviders = ['hglink', 'auvexiug', 'doodstream', 'myvidplay'];
+                    const warningProviders = ['streamtape', 'voe', 'mixdrop'];
+                    if (recommendedProviders.includes(stream.provider)) {
+                        recommendation = '<span style="background:#51cf66; color:white; padding:1px 4px; border-radius:3px; font-size:9px; margin-left:5px;">REC</span>';
+                    } else if (warningProviders.includes(stream.provider)) {
+                        recommendation = '<span style="background:#ff922b; color:white; padding:1px 4px; border-radius:3px; font-size:9px; margin-left:5px;">SLOW</span>';
+                    }
+                    let label = stream.label ? `<span style="color:#aaa; font-size:10px; margin-left:5px;">${stream.label}</span>` : '';
+
+                    const btn = document.createElement('button');
+                    btn.className = 'btn';
+                    btn.style = isBroken
+                        ? 'background:#333; color:#666; cursor:not-allowed; text-align:left; padding:10px;'
+                        : 'background:#222; border:1px solid #444; text-align:left; padding:10px; display:flex; justify-content:space-between; align-items:center;';
+
+                    if (!isBroken) {
+                        btn.onclick = () => saveMovie(stream.url, stream.provider);
+                    }
+
+                    btn.innerHTML = `
+                        <div>
+                            <b>${stream.provider}</b> ${recommendation} ${label}
+                            <div style="font-size:10px; color:#555;">${stream.domain}</div>
+                        </div>
+                        <i class="fas fa-plus-circle" style="color:var(--accent-color);"></i>
+                     `;
+
+                    list.appendChild(btn);
+                });
+            }
+
+        } catch (e) {
+            alert("Error: " + e);
+            if (!autoMode) forceCloseModal();
+            return 'error';
+        }
+    }
+
+    async function saveMovie(streamUrl, provider) {
+        const title = document.getElementById('h_title').value;
+        const url = document.getElementById('h_url').value;
+        const image = document.getElementById('h_img').value;
+        const description = document.getElementById('h_desc').value;
+        const source = document.getElementById('h_source').value;
+
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('url', url);
+        formData.append('image', image);
+        formData.append('description', description);
+        formData.append('stream_url', streamUrl);
+        formData.append('provider', provider);
+        formData.append('source', source);
+
+        try {
+            const response = await fetch('/save_analyzed_movie', { method: 'POST', body: formData });
+            if (response.ok) {
+                // Success
+                if (!isAutoImporting) forceCloseModal(); // Close if manual
+
+                // Remove card from list
+                const cardId = document.getElementById('h_current_card').value;
+                const card = document.getElementById(cardId);
+                if (card) {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.remove(), 500);
+                }
+
+            } else {
+                alert("Save failed: " + await response.text());
+            }
+        } catch (e) {
+            alert("Save error: " + e);
+        }
+    }
+
+    async function skipMovie(url, cardId) {
+        const formData = new FormData();
+        formData.append('url', url);
+        fetch('/ignore_movie', { method: 'POST', body: formData });
+        const card = document.getElementById(cardId);
+        card.style.opacity = '0.5';
+        card.style.transform = 'scale(0.9)';
+        setTimeout(() => card.remove(), 300);
+    }
+</script>
+{% endblock %}

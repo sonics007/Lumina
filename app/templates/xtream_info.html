@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card-grid">
+    <!-- Server Info Card -->
+    <div class="card" style="grid-column: span 2;">
+        <h3><i class="fas fa-server"></i> Xtream Server Info</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 20px;">Use this URL for your players.</p>
+
+        <div class="form-group">
+            <label>Server URL</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" value="{{ request.url_root.rstrip('/') }}" readonly id="srvUrl">
+                <button class="btn btn-primary" onclick="copyToClipboard('srvUrl')"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Card -->
+    <div class="card">
+        <h3><i class="fas fa-user-plus"></i> Add User</h3>
+        <form method="POST" action="{{ url_for('xtream.add_user') }}">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" required placeholder="User">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="text" name="password" required placeholder="Pass">
+            </div>
+            <div class="form-group">
+                <label>Max Connections</label>
+                <input type="number" name="max_connections" value="1" min="1">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Create User</button>
+        </form>
+    </div>
+
+    <!-- Users List Card -->
+    <div class="card" style="grid-column: span 3;">
+        <h3><i class="fas fa-users"></i> Xtream Users</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Max Conns</th>
+                    <th>Exp. Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.max_connections }}</td>
+                    <td>
+                        {% if user.exp_date == "1999999999" %}
+                        Unlimited
+                        {% else %}
+                        {{ user.exp_date }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if user.is_active %}
+                        <span style="color: #4caf50;">Active</span>
+                        {% else %}
+                        <span style="color: #f44336;">Disabled</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 5px;">
+                            <a href="{{ url_for('xtream.delete_user', user_id=user.id) }}" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Delete user?');"><i class="fas fa-trash"></i></a>
+
+                            <!-- Quick Link Gen -->
+                            <button class="btn btn-primary btn-sm"
+                                onclick="showLink('{{ user.username }}', '{{ user.password }}')" title="Get M3U"><i
+                                    class="fas fa-link"></i></button>
+                            <a href="{{ url_for('groups.manage', username=user.username) }}"
+                                class="btn btn-secondary btn-sm" title="Manage Groups">
+                                <i class="fas fa-layer-group"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal for M3U Link -->
+<div id="linkModal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:var(--bg-secondary); padding:30px; border-radius:12px; max-width:600px; width:90%;">
+        <h3>M3U Link</h3>
+        <div class="form-group">
+            <input type="text" id="genLink" readonly style="width:100%; margin: 10px 0;">
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+            <button class="btn btn-primary" onclick="copyToClipboard('genLink')">Copy</button>
+            <button class="btn btn-danger"
+                onclick="document.getElementById('linkModal').style.display='none'">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyToClipboard(id) {
+        var copyText = document.getElementById(id);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value).then(() => {
+            showToast("Copied to clipboard!", "success");
+        });
+    }
+
+    function showLink(u, p) {
+        var url = "{{ request.url_root.rstrip('/') }}/player_api.php?username=" + u + "&password=" + p + "&action=get_live_streams";
+        document.getElementById('genLink').value = url;
+        document.getElementById('linkModal').style.display = 'flex';
+    }
+</script>
+{% endblock %}

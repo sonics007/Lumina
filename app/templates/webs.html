@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header">
+    <h2>Scraping Sources</h2>
+    <button onclick="runScraper()" class="btn btn-primary"><i class="fas fa-sync"></i> Run Scraper Now</button>
+</div>
+
+<div class="card-grid">
+    {% for site in sites %}
+    <div class="card">
+        <h3>{{ site.name }}</h3>
+        <p style="margin: 10px 0; font-size: 14px;">{{ site.url }}</p>
+        <p style="color: grey; font-size: 12px;">Last Scraped: {{ site.last_scraped }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<hr><br>
+
+<div class="card" style="max-width: 600px;">
+    <h3><i class="fas fa-plus"></i> Add New Source</h3>
+    <br>
+    <form action="/add_site" method="POST">
+        <div class="form-group">
+            <label>Site Name</label>
+            <input type="text" name="name" placeholder="e.g. Action Movies Category" required>
+        </div>
+        <div class="form-group">
+            <label>URL (from film-adult.top)</label>
+            <input type="url" name="url" placeholder="https://film-adult.top/..." required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Source</button>
+    </form>
+</div>
+
+<script>
+    function runScraper() {
+        // Show immediate feedback
+        showToast('Spúšťam scraper...', 'info');
+
+        fetch('/run_scrape')
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    showToast(data.message, 'success');
+                } else {
+                    showToast(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Chyba komunikácie so serverom', 'error');
+                console.error('Error:', error);
+            });
+    }
+</script>
+{% endblock %}

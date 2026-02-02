@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2><i class="fas fa-play-circle"></i> {{ title }}</h2>
+        <a href="javascript:void(0)"
+            onclick="if(history.length > 1){history.back();}else{window.location.href='/playlist';}"
+            class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+
+    <!-- Container for ArtPlayer -->
+    <div id="artplayer-app"
+        style="width: 100%; height: 600px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    </div>
+</div>
+
+<!-- ArtPlayer and HLS.js (Local Fallback) -->
+<script src="{{ url_for('static', filename='js/artplayer.js') }}"></script>
+<script src="{{ url_for('static', filename='js/hls.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/mpegts.min.js') }}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        if (typeof Artplayer === 'undefined') {
+            document.getElementById('artplayer-app').innerHTML = '<div style="color:white;text-align:center;padding:50px;">Error: Video Player Library blocked or failed to load.<br>Please check your internet connection or ad-blocker.</div>';
+            throw new Error("Artplayer library not loaded");
+        }
+
+        // Get URL from template var
+        const originalUrl = "{{ url }}";
+        const streamUrl = "/watch?url=" + encodeURIComponent(originalUrl);
+
+        // Fallback flags
+        let codecErrorCount = 0;
+        let hasTriedTranscode = false;
+
+        var art = new Artplayer({
+            container: '#artplayer-app',
+            url: streamUrl,
+            type: 'm3u8',
+            customType: {
+                m3u8: function (video, url) {
+                    if (Hls.isSupported()) {
+                        const hls = new Hls({
+                            debug: false,
+                            enableWorker: true,
+                            lowLatencyMode: true,
+                            backBufferLength: 90
+                        });
+
+                        hls.loadSource(url);
+                        hls.attachMedia(video);
+                        art.hls = hls;
+
+                        hls.on(Hls.Events.ERROR, function (event, data) {
+                            if (data.fatal) {
+                                console.warn('HLS Fatal:', data);
+
+                                if (data.details === 'bufferAddCodecError') {
+                                    codecErrorCount++;
+                                    console.warn(`Codec Error #${codecErrorCount}`);
+
+                                    if (!hasTriedTranscode) {
+                                        hasTriedTranscode = true;
+                                        hls.destroy();
+                                        tryTranscode();
+                                    } else {
+                                        hls.destroy();
+                                        showExternalPlayerOverlay(originalUrl);
+                                    }
+                                } else if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+                                    art.notice.show = 'Network Error, recovering...';
+                                    hls.startLoad();
+                                } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+                                    art.notice.show = 'Media Error, recovering...';
+                                    hls.recoverMediaError();
+                                } else {
+                                    hls.destroy();
+                                    showExternalPlayerOverlay(originalUrl);
+                                }
+                            }
+                        });
+
+                        art.on('destroy', () => hls.destroy());
+
+                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                        video.src = url;
+                    } else {
+                        showExternalPlayerOverlay(originalUrl);
+                    }
+                },
+                mpegts: function (video, url) {
+                    if (mpegts && mpegts.getIsSupported()) {
+                        console.log("Initializing MPEGTS player for", url);
+                        const player = mpegts.createPlayer({
+                            type: 'mpegts',
+                            url: url,
+                            isLive: true,
+                            cors: true,
+                            enableStashBuffer: false
+                        });
+
+                        player.attachMediaElement(video);
+                        player.load();
+                        player.play();
+
+                        art.mpegts = player;
+
+                        player.on(mpegts.Events.ERROR, (type, details) => {
+                            console.error('MPEGTS Error', type, details);
+                            if (!hasTriedTranscode) {
+                                hasTriedTranscode = true;
+                                player.destroy();
+                                tryTranscode();
+                            } else {
+                                player.destroy();
+                                showExternalPlayerOverlay(originalUrl);
+                            }
+                        });
+
+                        art.on('destroy', () => player.destroy());
+                    } else {
+                        showExternalPlayerOverlay(originalUrl);
+                    }
+                }
+            },
+            title: 'Movie Stream',
+            volume: 0.5,
+            isLive: false,
+            muted: false,
+            autoplay: true,
+            pip: true,
+            autoSize: true,
+            screenshot: true,
+            setting: true,
+            loop: false,
+            flip: true,
+            playbackRate: true,
+            aspectRatio: true,
+            fullscreen: true,
+            fullscreenWeb: true,
+            miniProgressBar: true,
+            mutex: true,
+            backdrop: true,
+            playsInline: true,
+            theme: '#e94560',
+        });
+
+        function tryTranscode() {
+            console.log("Switching to server-side transcode");
+            art.notice.show = 'Transcoding stream for compatibility...';
+
+            const transcodeUrl = "/transcode?url=" + encodeURIComponent(originalUrl);
+            art.switchUrl(transcodeUrl, 'mpegts');
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => alert('Copied!')).catch((err) => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert('Copied!');
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+                prompt("Copy manually:", text);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showExternalPlayerOverlay(url) {
+            // Prevent duplicate overlays
+            if (document.getElementById('ext-overlay')) return;
+
+            const overlay = document.createElement('div');
+            overlay.id = 'ext-overlay';
+            overlay.style.cssText = `
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 100;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; font-family: sans-serif;
+        `;
+            overlay.innerHTML = `
+            <i class="fas fa-video-slash" style="font-size: 50px; color: #ef4444; margin-bottom: 20px;"></i>
+            <h3 style="margin: 0 0 10px 0;">Playback Failed</h3>
+            <p style="margin-bottom: 20px; color: #aaa; font-size: 14px; max-width: 80%;">
+                Browser cannot play this video format.<br>
+                Please use an external player like VLC.
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <a href="vlc://${url}" class="btn btn-primary" style="padding: 10px 20px; text-decoration: none; color: white; background: #e94560; border-radius: 5px;">
+                    <i class="fas fa-external-link-alt"></i> Open VLC
+                </a>
+                <button onclick="copyToClipboard('${url}')" class="btn btn-secondary" style="padding: 10px 20px; background: #444; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    <i class="fas fa-copy"></i> Copy Link
+                </button>
+            </div>
+            <p style="margin-top: 20px; font-size: 11px; color: #555; word-break: break-all; max-width: 90%; user-select: text;">
+                ${url}
+            </p>
+        `;
+            document.getElementById('artplayer-app').appendChild(overlay);
+        }
+    }); // Close DOMContentLoaded
+</script>
+{% endblock %}

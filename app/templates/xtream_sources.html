@@ -1,0 +1,517 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- Header Section -->
+    <div class="card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 style="margin: 0; color: var(--accent-color);">
+                    <i class="fas fa-server"></i> Xtream Codes Sources
+                </h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.7;">Import content from external Xtream Codes servers</p>
+            </div>
+            <button class="btn btn-primary" onclick="showAddSourceModal()">
+                <i class="fas fa-plus"></i> Add Xtream Source
+            </button>
+        </div>
+    </div>
+
+    <!-- Sources List -->
+    <div class="card">
+        <h3 style="margin-top: 0;">
+            <i class="fas fa-list"></i> Configured Sources
+            <span class="badge" style="background: var(--accent-color); margin-left: 10px;">{{ sources|length }}</span>
+        </h3>
+
+        {% if sources %}
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-tag"></i> Name</th>
+                        <th><i class="fas fa-server"></i> Server</th>
+                        <th><i class="fas fa-user"></i> Username</th>
+                        <th><i class="fas fa-chart-line"></i> Status</th>
+                        <th><i class="fas fa-film"></i> Content</th>
+                        <th><i class="fas fa-clock"></i> Last Sync</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for source in sources %}
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-database" style="color: var(--accent-color);"></i>
+                                <strong>{{ source.name }}</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <code
+                                style="background: rgba(139, 92, 246, 0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.85em;">
+                                {{ source.server_url }}
+                            </code>
+                        </td>
+                        <td>{{ source.username }}</td>
+                        <td>
+                            {% if source.is_active %}
+                            <span class="badge" style="background: var(--success);">
+                                <i class="fas fa-check-circle"></i> Active
+                            </span>
+                            {% else %}
+                            <span class="badge" style="background: var(--danger);">
+                                <i class="fas fa-times-circle"></i> Inactive
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div style="font-size: 0.85em;">
+                                <div><i class="fas fa-film"></i> Movies: <strong>{{ source.vod_count or 0 }}</strong>
+                                </div>
+                                <div><i class="fas fa-tv"></i> Live: <strong>{{ source.live_count or 0 }}</strong></div>
+                                <div><i class="fas fa-video"></i> Series: <strong>{{ source.series_count or 0
+                                        }}</strong></div>
+                            </div>
+                        </td>
+                        <td>{{ source.last_sync or 'Never' }}</td>
+                        <td>
+                            <div style="display: flex; gap: 5px; flex-direction: column;">
+                                <button class="btn btn-sm btn-success" onclick="testConnection('{{ source.id }}')"
+                                    title="Test Connection">
+                                    <i class="fas fa-plug"></i> Test
+                                </button>
+                                <div style="display: flex; gap: 2px; flex-wrap: wrap; margin-bottom: 2px;">
+                                    <button class="btn btn-sm btn-primary"
+                                        onclick="syncSource('{{ source.id }}', 'all')" title="Sync All Content"
+                                        style="flex: 1;">
+                                        <i class="fas fa-sync"></i> All
+                                    </button>
+                                </div>
+                                <div style="display: flex; gap: 2px; flex-wrap: wrap;">
+                                    <button class="btn btn-sm btn-secondary"
+                                        onclick="syncSource('{{ source.id }}', 'live')" title="Sync Live TV"
+                                        style="flex: 1; font-size: 0.75em; padding: 4px 2px;">
+                                        Live
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary"
+                                        onclick="syncSource('{{ source.id }}', 'vod')" title="Sync Movies"
+                                        style="flex: 1; font-size: 0.75em; padding: 4px 2px;">
+                                        VOD
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary"
+                                        onclick="syncSource('{{ source.id }}', 'series')" title="Sync Series"
+                                        style="flex: 1; font-size: 0.75em; padding: 4px 2px;">
+                                        Ser
+                                    </button>
+                                </div>
+
+                                <button class="btn btn-sm btn-info" onclick="viewContent('{{ source.id }}')"
+                                    title="View Content">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="removeSource('{{ source.id }}')"
+                                    title="Delete">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div style="text-align: center; padding: 40px; opacity: 0.7;">
+            <i class="fas fa-server" style="font-size: 48px; margin-bottom: 15px;"></i>
+            <p>No Xtream sources configured yet.</p>
+            <p style="font-size: 0.9em;">Add an Xtream Codes server to import movies, series, and live TV.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Import Statistics -->
+    {% if sources %}
+    <div class="card" style="margin-top: 20px;">
+        <h3 style="margin-top: 0;">
+            <i class="fas fa-chart-bar"></i> Import Statistics
+        </h3>
+        <div class="stats-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Total VOD</div>
+                <div style="font-size: 2em; font-weight: bold; color: var(--accent-color);">{{ total_vod }}</div>
+            </div>
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Live Channels</div>
+                <div style="font-size: 2em; font-weight: bold; color: var(--success);">{{ total_live }}</div>
+            </div>
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid #3b82f6;">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Series</div>
+                <div style="font-size: 2em; font-weight: bold; color: #3b82f6;">{{ total_series }}</div>
+            </div>
+            <div class="stat-card"
+                style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 5px;">Active Sources</div>
+                <div style="font-size: 2em; font-weight: bold; color: #f59e0b;">{{ sources|length }}</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Add Source Modal -->
+<div class="modal" id="addSourceModal">
+    <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-header">
+            <h3><i class="fas fa-plus"></i> Add Xtream Codes Source</h3>
+            <button class="modal-close" onclick="closeModal('addSourceModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="addSourceForm" onsubmit="addSource(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-tag"></i> Source Name</label>
+                    <input type="text" name="name" placeholder="e.g., My IPTV Provider" required>
+                    <small style="opacity: 0.7;">Friendly name to identify this source</small>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-server"></i> Server URL</label>
+                    <input type="url" name="server_url" placeholder="http://example.com:8080" required>
+                    <small style="opacity: 0.7;">Xtream Codes server URL (without /player_api.php)</small>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username</label>
+                    <input type="text" name="username" placeholder="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-key"></i> Password</label>
+                    <input type="password" name="password" placeholder="password" autocomplete="current-password"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" name="auto_sync" checked>
+                        <span>Auto-sync daily</span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>Import Options:</label>
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" name="import_vod" checked>
+                            <span><i class="fas fa-film"></i> Import Movies</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" name="import_series" checked>
+                            <span><i class="fas fa-video"></i> Import Series</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" name="import_live">
+                            <span><i class="fas fa-tv"></i> Import Live TV</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                    <button type="button" class="btn" onclick="closeModal('addSourceModal')">Cancel</button>
+                    <button type="button" class="btn btn-info" onclick="testConnectionBeforeAdd()">
+                        <i class="fas fa-plug"></i> Test Connection
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Source
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Sync Progress Modal -->
+<div class="modal" id="syncProgressModal">
+    <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-header">
+            <h3><i class="fas fa-sync fa-spin"></i> Syncing Content</h3>
+        </div>
+        <div class="modal-body">
+            <div id="syncProgress">
+                <p id="syncMainStatus" style="font-weight: bold; margin-bottom: 20px;">Connecting to server...</p>
+
+                <!-- Movies Progress -->
+                <div class="sync-item" style="margin-bottom: 15px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span><i class="fas fa-film"></i> Movies</span>
+                        <span id="vodStats" style="font-size: 0.9em; opacity: 0.8;">-</span>
+                    </div>
+                    <div class="progress-bar"
+                        style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                        <div id="vodProgressBar"
+                            style="width: 0%; height: 100%; background: var(--accent-color); transition: width 0.3s;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Series Progress -->
+                <div class="sync-item" style="margin-bottom: 15px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span><i class="fas fa-video"></i> Series</span>
+                        <span id="seriesStats" style="font-size: 0.9em; opacity: 0.8;">-</span>
+                    </div>
+                    <div class="progress-bar"
+                        style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                        <div id="seriesProgressBar"
+                            style="width: 0%; height: 100%; background: #3b82f6; transition: width 0.3s;"></div>
+                    </div>
+                </div>
+
+                <!-- Live Progress -->
+                <div class="sync-item" style="margin-bottom: 15px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span><i class="fas fa-tv"></i> Live TV</span>
+                        <span id="liveStats" style="font-size: 0.9em; opacity: 0.8;">-</span>
+                    </div>
+                    <div class="progress-bar"
+                        style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                        <div id="liveProgressBar"
+                            style="width: 0%; height: 100%; background: var(--success); transition: width 0.3s;"></div>
+                    </div>
+                </div>
+
+                <!-- Total Stats -->
+                <div
+                    style="margin-top: 20px; padding: 15px; background: rgba(139, 92, 246, 0.1); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span><strong>Total Imported:</strong></span>
+                        <span id="totalImported" style="color: var(--success); font-weight: bold;">0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span><strong>Total Skipped:</strong></span>
+                        <span id="totalSkipped" style="opacity: 0.7;">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: 500;
+    }
+</style>
+
+<script>
+    function showAddSourceModal() {
+        document.getElementById('addSourceModal').style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    function testConnectionBeforeAdd() {
+        const form = document.getElementById('addSourceForm');
+        const formData = new FormData(form);
+
+        showToast('Testing connection...', 'info');
+
+        fetch('/xtream_sources/api/test_connection', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(`Connection successful! Found ${data.vod_count} VOD, ${data.live_count} Live, ${data.series_count} Series`, 'success');
+                } else {
+                    showToast(data.error || 'Connection failed', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function addSource(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        fetch('/xtream_sources/api/add', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Source added successfully!', 'success');
+                    closeModal('addSourceModal');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to add source', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function testConnection(sourceId) {
+        showToast('Testing connection...', 'info');
+
+        fetch(`/xtream_sources/api/test/${sourceId}`, {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Connection successful!', 'success');
+                } else {
+                    showToast(data.error || 'Connection failed', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    async function syncSource(sourceId, type = 'all') {
+        // Reset progress modal
+        document.getElementById('syncProgressModal').style.display = 'flex';
+        let typeLabel = "All Content";
+        if (type === 'live') typeLabel = "Live TV";
+        if (type === 'vod') typeLabel = "Movies";
+        if (type === 'series') typeLabel = "Series";
+
+        const statusEl = document.getElementById('syncMainStatus');
+        statusEl.textContent = `Starting sync (${typeLabel})...`;
+
+        // Reset all progress bars
+        document.getElementById('vodProgressBar').style.width = '0%';
+        document.getElementById('seriesProgressBar').style.width = '0%';
+        document.getElementById('liveProgressBar').style.width = '0%';
+
+        // Reset stats
+        document.getElementById('vodStats').textContent = '-';
+        document.getElementById('seriesStats').textContent = '-';
+        document.getElementById('liveStats').textContent = '-';
+        document.getElementById('totalImported').textContent = '0';
+        document.getElementById('totalSkipped').textContent = '0';
+
+        const url = `/xtream_sources/api/sync/${sourceId}?type=${type}`;
+        console.log(`[SYNC] Initiating stream sync to ${url}`);
+
+        try {
+            const response = await fetch(url, { method: 'POST' });
+            if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split('\n\n');
+                buffer = lines.pop(); // Keep incomplete chunk
+
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const jsonStr = line.substring(6);
+                        try {
+                            const data = JSON.parse(jsonStr);
+                            handleSyncUpdate(data);
+                        } catch (e) {
+                            console.error('[SYNC] JSON Parse error:', e);
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('[SYNC] Error:', error);
+            statusEl.innerHTML = `<i class="fas fa-times-circle" style="color: var(--danger);"></i> Error: ${error.message}`;
+        }
+    }
+
+    function handleSyncUpdate(data) {
+        const statusEl = document.getElementById('syncMainStatus');
+
+        if (data.status === 'starting') {
+            statusEl.textContent = data.message;
+        } else if (data.status === 'progress') {
+            statusEl.textContent = data.message;
+            // Highlight active section based on message content
+            if (data.message.includes('VOD')) {
+                document.getElementById('vodProgressBar').style.width = '50%';
+                document.getElementById('vodProgressBar').parentElement.style.background = 'rgba(233, 69, 96, 0.2)';
+            } else if (data.message.includes('Series')) {
+                document.getElementById('seriesProgressBar').style.width = '50%';
+                document.getElementById('seriesProgressBar').parentElement.style.background = 'rgba(59, 130, 246, 0.2)';
+            } else if (data.message.includes('Live')) {
+                document.getElementById('liveProgressBar').style.width = '50%';
+                document.getElementById('liveProgressBar').parentElement.style.background = 'rgba(0, 184, 148, 0.2)';
+            }
+        } else if (data.status === 'completed') {
+            statusEl.innerHTML = '<i class="fas fa-check-circle" style="color: var(--success);"></i> Sync completed successfully!';
+
+            // Show final stats if available in result
+            if (data.result && data.result.details) {
+                const d = data.result.details;
+                if (d.vod) document.getElementById('vodProgressBar').style.width = '100%';
+                if (d.series) document.getElementById('seriesProgressBar').style.width = '100%';
+                if (d.live) document.getElementById('liveProgressBar').style.width = '100%';
+
+                // Update text stats
+                if (d.vod) document.getElementById('vodStats').textContent = `${d.vod.imported || 0} imported, ${d.vod.skipped || 0} skipped`;
+                if (d.live) document.getElementById('liveStats').textContent = `${d.live.imported || 0} imported, ${d.live.updated || 0} updated`;
+            }
+
+            setTimeout(() => location.reload(), 2000);
+        } else if (data.status === 'error') {
+            statusEl.innerHTML = `<i class="fas fa-exclamation-circle" style="color: var(--danger);"></i> Error: ${data.message}`;
+        }
+    }
+
+    function viewContent(sourceId) {
+        window.location.href = `/xtream_sources/${sourceId}/manage`;
+    }
+
+    function removeSource(sourceId) {
+        if (!confirm('Are you sure you want to remove this source? This will not delete imported content.')) return;
+
+        fetch(`/xtream_sources/api/remove/${sourceId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Source removed successfully!', 'success');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to remove source', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-Login
+requests
+beautifulsoup4
+unidecode
+gunicorn
+python-dateutil
+schedule

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="padding: 20px;">
+
+    <div class="row">
+        <!-- Live TV Groups -->
+        <div class="col-md-4">
+            <h2 class="section-title"><i class="fas fa-tv"></i> Live TV Groups</h2>
+            <div class="card-grid" style="display: flex; flex-direction: column; gap: 10px;">
+                {% for tag, count in categories['live'].most_common() %}
+                <a href="/live?tag={{ tag }}" class="group-item"
+                    style="display: flex; justify-content: space-between; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; color: white; text-decoration: none; align-items: center;">
+                    <span style="font-weight: 500;">{{ tag }}</span>
+                    <span class="badge"
+                        style="background: var(--accent-color); padding: 5px 10px; border-radius: 20px;">{{ count
+                        }}</span>
+                </a>
+                {% else %}
+                <p style="color: #888;">No Live TV groups found.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Movie Groups -->
+        <div class="col-md-4">
+            <h2 class="section-title"><i class="fas fa-film"></i> Movie Genres</h2>
+            <div class="card-grid" style="display: flex; flex-direction: column; gap: 10px;">
+                {% for tag, count in categories['movies'].most_common() %}
+                <a href="/movies?tag={{ tag }}" class="group-item"
+                    style="display: flex; justify-content: space-between; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; color: white; text-decoration: none; align-items: center;">
+                    <span style="font-weight: 500;">{{ tag }}</span>
+                    <span class="badge"
+                        style="background: var(--primary-color); padding: 5px 10px; border-radius: 20px;">{{ count
+                        }}</span>
+                </a>
+                {% else %}
+                <p style="color: #888;">No Movie genres found.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Series Groups -->
+        <div class="col-md-4">
+            <h2 class="section-title"><i class="fas fa-clone"></i> Series Categories</h2>
+            <div class="card-grid" style="display: flex; flex-direction: column; gap: 10px;">
+                {% for tag, count in categories['series'].most_common() %}
+                <a href="/series?tag={{ tag }}" class="group-item"
+                    style="display: flex; justify-content: space-between; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; color: white; text-decoration: none; align-items: center;">
+                    <span style="font-weight: 500;">{{ tag }}</span>
+                    <span class="badge" style="background: #9b59b6; padding: 5px 10px; border-radius: 20px;">{{ count
+                        }}</span>
+                </a>
+                {% else %}
+                <p style="color: #888;">No Series categories found.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .col-md-4 {
+        width: 32%;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 1%;
+    }
+
+    @media (max-width: 900px) {
+        .col-md-4 {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+
+    .group-item:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        transform: translateX(5px);
+        transition: all 0.2s;
+    }
+
+    .section-title {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        color: #eee;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+</style>
+{% endblock %}

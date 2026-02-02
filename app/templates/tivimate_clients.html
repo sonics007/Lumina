@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- Header Section -->
+    <div class="card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 style="margin: 0; color: var(--accent-color);">
+                    <i class="fas fa-mobile-alt"></i> TiviMate Clients
+                </h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.7;">Manage and monitor TiviMate IPTV clients</p>
+            </div>
+            <button class="btn btn-primary" onclick="showAddClientModal()">
+                <i class="fas fa-plus"></i> Add Client
+            </button>
+        </div>
+    </div>
+
+    <!-- Connection Info Card -->
+    <div class="card"
+        style="margin-bottom: 20px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));">
+        <h3 style="margin-top: 0; color: var(--accent-color);">
+            <i class="fas fa-info-circle"></i> Xtream Codes Connection
+        </h3>
+        <div class="info-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+            <div class="info-item">
+                <label><i class="fas fa-server"></i> Server URL:</label>
+                <div class="copy-field">
+                    <input type="text" value="http://{{ request.host }}" readonly id="server-url">
+                    <button onclick="copyToClipboard('server-url')" class="btn btn-sm">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="info-item">
+                <label><i class="fas fa-user"></i> Username:</label>
+                <div class="copy-field">
+                    <input type="text" value="admin" readonly id="username">
+                    <button onclick="copyToClipboard('username')" class="btn btn-sm">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="info-item">
+                <label><i class="fas fa-key"></i> Password:</label>
+                <div class="copy-field">
+                    <input type="text" value="admin" readonly id="password">
+                    <button onclick="copyToClipboard('password')" class="btn btn-sm">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="margin-top: 20px; padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+            <h4 style="margin: 0 0 10px 0;"><i class="fas fa-question-circle"></i> How to add in TiviMate:</h4>
+            <ol style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                <li>Open TiviMate app</li>
+                <li>Go to <strong>Settings</strong> → <strong>Playlists</strong> → <strong>Add Playlist</strong></li>
+                <li>Select <strong>"Xtream Codes API"</strong></li>
+                <li>Enter the credentials above</li>
+                <li>Click <strong>Next</strong> and wait for sync</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Clients List -->
+    <div class="card">
+        <h3 style="margin-top: 0;">
+            <i class="fas fa-list"></i> Registered Clients
+            <span class="badge" style="background: var(--accent-color); margin-left: 10px;">{{ clients|length }}</span>
+        </h3>
+
+        {% if clients %}
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-mobile-alt"></i> Device Name</th>
+                        <th><i class="fas fa-network-wired"></i> IP Address</th>
+                        <th><i class="fas fa-clock"></i> Last Seen</th>
+                        <th><i class="fas fa-chart-line"></i> Status</th>
+                        <th><i class="fas fa-film"></i> Watching</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in clients %}
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-tv" style="color: var(--accent-color);"></i>
+                                <div>
+                                    <strong>{{ client.device_name }}</strong>
+                                    <div style="font-size: 0.85em; opacity: 0.7;">{{ client.user_agent or 'Unknown' }}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <code style="background: rgba(139, 92, 246, 0.1); padding: 4px 8px; border-radius: 4px;">
+                                {{ client.ip_address }}
+                            </code>
+                        </td>
+                        <td>{{ client.last_seen }}</td>
+                        <td>
+                            {% if client.is_online %}
+                            <span class="badge" style="background: var(--success);">
+                                <i class="fas fa-circle"></i> Online
+                            </span>
+                            {% else %}
+                            <span class="badge" style="background: var(--danger);">
+                                <i class="fas fa-circle"></i> Offline
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if client.current_stream %}
+                            <div
+                                style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                {{ client.current_stream }}
+                            </div>
+                            {% else %}
+                            <span style="opacity: 0.5;">-</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="removeClient('{{ client.id }}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div style="text-align: center; padding: 40px; opacity: 0.7;">
+            <i class="fas fa-mobile-alt" style="font-size: 48px; margin-bottom: 15px;"></i>
+            <p>No TiviMate clients registered yet.</p>
+            <p style="font-size: 0.9em;">Clients will appear here automatically when they connect to your Xtream server.
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Add Client Modal -->
+<div class="modal" id="addClientModal">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+            <h3><i class="fas fa-plus"></i> Add TiviMate Client</h3>
+            <button class="modal-close" onclick="closeModal('addClientModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="addClientForm" onsubmit="addClient(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-mobile-alt"></i> Device Name</label>
+                    <input type="text" name="device_name" placeholder="e.g., Living Room TV" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-network-wired"></i> IP Address (Optional)</label>
+                    <input type="text" name="ip_address" placeholder="e.g., 192.168.1.100">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-info-circle"></i> Notes</label>
+                    <textarea name="notes" rows="3" placeholder="Additional information..."></textarea>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                    <button type="button" class="btn" onclick="closeModal('addClientModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Client
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .copy-field {
+        display: flex;
+        gap: 5px;
+    }
+
+    .copy-field input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-color);
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: 'Courier New', monospace;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .info-item label {
+        font-weight: 500;
+        opacity: 0.8;
+        font-size: 0.9em;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: 500;
+    }
+</style>
+
+<script>
+    function copyToClipboard(elementId) {
+        const input = document.getElementById(elementId);
+        input.select();
+        document.execCommand('copy');
+        showToast('Copied to clipboard!', 'success');
+    }
+
+    function showAddClientModal() {
+        document.getElementById('addClientModal').style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    function addClient(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        fetch('/api/tivimate/add_client', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Client added successfully!', 'success');
+                    closeModal('addClientModal');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to add client', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    function removeClient(clientId) {
+        if (!confirm('Are you sure you want to remove this client?')) return;
+
+        fetch(`/api/tivimate/remove_client/${clientId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Client removed successfully!', 'success');
+                    location.reload();
+                } else {
+                    showToast(data.error || 'Failed to remove client', 'error');
+                }
+            })
+            .catch(error => {
+                showToast('Error: ' + error, 'error');
+            });
+    }
+
+    // Auto-refresh client status every 30 seconds
+    setInterval(() => {
+        location.reload();
+    }, 30000);
+</script>
+
+{% endblock %}

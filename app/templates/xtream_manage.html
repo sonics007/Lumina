@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <a href="{{ url_for('xtream_sources.index') }}"
+                    style="color: var(--text-color); text-decoration: none; opacity: 0.7; font-size: 0.9em;">
+                    <i class="fas fa-arrow-left"></i> Back to Sources
+                </a>
+                <h2 style="margin: 5px 0 0 0; color: var(--accent-color);">
+                    <i class="fas fa-cog"></i> Manage Content: {{ source.name }}
+                </h2>
+                <div style="font-size: 0.9em; margin-top: 5px; opacity: 0.8;">
+                    <span><i class="fas fa-server"></i> {{ source.server_url }}</span>
+                    <span style="margin: 0 10px;">|</span>
+                    <span><i class="fas fa-layer-group"></i> {{ groups|length }} Categories</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" onclick="syncSource('{{ source.id }}')">
+                    <i class="fas fa-sync"></i> Sync Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Groups Grid -->
+    <div class="card-grid">
+        {% for group in groups %}
+        <div class="card" style="position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <h3 style="margin: 0 0 5px 0;">
+                        <a href="/xtream_sources/{{ source.id }}/category/{{ group.name | urlencode }}"
+                            style="color: var(--text-color); text-decoration: none;">
+                            <i class="fas fa-folder"></i> {{ group.name }}
+                        </a>
+                    </h3>
+                    <span class="badge" style="background: rgba(255,255,255,0.1);">{{ group.count }} items</span>
+                </div>
+                <div class="dropdown">
+                    <button class="btn-icon" onclick="toggleDropdown(this)">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="openRenameModal('{{ group.name }}')"><i class="fas fa-edit"></i> Rename
+                            Group</a>
+                        <!-- Add more actions if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="card" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+            <i class="fas fa-box-open" style="font-size: 3em; opacity: 0.3; margin-bottom: 20px;"></i>
+            <h3>No Categories Found</h3>
+            <p>Try syncing the source to import content groups.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Rename Modal -->
+<div id="renameModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Rename Group</h3>
+            <button class="modal-close" onclick="closeModal('renameModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="renameOldName">
+            <div class="form-group">
+                <label>New Name</label>
+                <input type="text" id="renameNewName" class="form-control" placeholder="Enter new group name">
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="btn" onclick="closeModal('renameModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitRename()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sync Progress Modal -->
+<div id="syncProgressModal" class="modal" style="display: none; align-items: center; justify-content: center;">
+    <div class="modal-content" style="max-width: 500px; width: 90%;">
+        <div class="modal-header">
+            <h3><i class="fas fa-sync fa-spin"></i> Syncing Content</h3>
+        </div>
+        <div class="modal-body">
+            <div id="syncProgress">
+                <p id="syncMainStatus" style="font-weight: bold; margin-bottom: 20px;">Connecting to server...</p>
+
+                <!-- Movies Progress -->
+                <div class="sync-item" style="margin-bottom: 15px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span><i class="fas fa-film"></i> Movies</span>
+                        <span id="vodStats" style="font-size: 0.9em; opacity: 0.8;">-</span>
+                    </div>
+                    <div class="progress-bar"
+                        style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                        <div id="vodProgressBar"
+                            style="width: 0%; height: 100%; background: var(--accent-color); transition: width 0.3s;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Series Progress -->
+                <div class="sync-item" style="margin-bottom: 15px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span><i class="fas fa-video"></i> Series</span>
+                        <span id="seriesStats" style="font-size: 0.9em; opacity: 0.8;">-</span>
+                    </div>
+                    <div class="progress-bar"
+                        style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                        <div id="seriesProgressBar"
+                            style="width: 0%; height: 100%; background: #3b82f6; transition: width 0.3s;"></div>
+                    </div>
+                </div>
+
+                <!-- Live Progress -->
+                <div class="sync-item" style="margin-bottom: 15px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <span><i class="fas fa-tv"></i> Live TV</span>
+                        <span id="liveStats" style="font-size: 0.9em; opacity: 0.8;">-</span>
+                    </div>
+                    <div class="progress-bar"
+                        style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                        <div id="liveProgressBar"
+                            style="width: 0%; height: 100%; background: #10b981; transition: width 0.3s;"></div>
+                    </div>
+                </div>
+
+                <!-- Totals -->
+                <div
+                    style="display: flex; gap: 20px; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div style="flex: 1; text-align: center;">
+                        <div style="font-size: 0.8em; opacity: 0.7;">TOTAL IMPORTED</div>
+                        <div id="totalImported" style="font-size: 1.5em; font-weight: bold; color: var(--success);">0
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <div style="font-size: 0.8em; opacity: 0.7;">SKIPPED</div>
+                        <div id="totalSkipped" style="font-size: 1.5em; font-weight: bold; color: #f59e0b;">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentSourceId = {{ source.id }};
+
+    function syncSource(sourceId) {
+        // Reset progress modal
+        document.getElementById('syncProgressModal').style.display = 'flex';
+        document.getElementById('syncMainStatus').textContent = 'Starting sync...';
+
+        // Reset UI
+        ['vod', 'series', 'live'].forEach(type => {
+            const bar = document.getElementById(`${type}ProgressBar`);
+            const stats = document.getElementById(`${type}Stats`);
+            if (bar) bar.style.width = '0%';
+            if (stats) stats.textContent = '-';
+        });
+
+        if (document.getElementById('totalImported')) document.getElementById('totalImported').textContent = '0';
+        if (document.getElementById('totalSkipped')) document.getElementById('totalSkipped').textContent = '0';
+
+        const url = `/xtream_sources/api/sync/${sourceId}`;
+        document.getElementById('syncMainStatus').innerHTML = `Connecting to server...<br><small style="opacity:0.7">Requesting ${url}</small>`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    const details = data.details || {};
+
+                    // Update stats helpers
+                    const updateStat = (type, info) => {
+                        if (info) {
+                            const stats = document.getElementById(`${type}Stats`);
+                            const bar = document.getElementById(`${type}ProgressBar`);
+                            if (stats && bar) {
+                                if (info.status === 'skipped') {
+                                    stats.textContent = 'Not enabled';
+                                } else {
+                                    stats.textContent = `${info.imported} imported, ${info.skipped} skipped`;
+                                    bar.style.width = '100%';
+                                }
+                            }
+                        }
+                    };
+
+                    updateStat('vod', details.vod);
+                    updateStat('series', details.series);
+                    updateStat('live', details.live);
+
+                    if (document.getElementById('totalImported')) document.getElementById('totalImported').textContent = data.imported_count || 0;
+                    if (document.getElementById('totalSkipped')) document.getElementById('totalSkipped').textContent = data.skipped_count || 0;
+
+                    document.getElementById('syncMainStatus').innerHTML =
+                        '<i class="fas fa-check-circle" style="color: var(--success);"></i> Sync completed successfully!';
+
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                } else {
+                    document.getElementById('syncMainStatus').innerHTML =
+                        `<i class="fas fa-exclamation-circle" style="color: var(--danger);"></i> Error: ${data.error}`;
+                    showToast(data.error || 'Sync failed', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Sync Error:', error);
+                document.getElementById('syncMainStatus').innerHTML =
+                    `<i class="fas fa-times-circle" style="color: var(--danger);"></i> Connection Error:<br>${error.message}`;
+                showToast('Error: ' + error.message, 'error');
+            });
+    }
+
+    function openRenameModal(oldName) {
+        document.getElementById('renameOldName').value = oldName;
+        document.getElementById('renameNewName').value = oldName;
+        document.getElementById('renameModal').style.display = 'flex';
+    }
+
+    function submitRename() {
+        const oldName = document.getElementById('renameOldName').value;
+        const newName = document.getElementById('renameNewName').value;
+
+        if (!newName || newName === oldName) return;
+
+        const btn = document.querySelector('#renameModal .btn-primary');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+        btn.disabled = true;
+
+        const formData = new FormData();
+        formData.append('source_id', currentSourceId);
+        formData.append('old_name', oldName);
+        formData.append('new_name', newName);
+
+        fetch('/xtream_sources/api/rename_group', {
+            method: 'POST',
+            body: formData
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(`Renamed group. Updated ${data.count} items.`, 'success');
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    showToast(data.error || 'Rename failed', 'error');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(e => {
+                showToast('Error: ' + e, 'error');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+    }
+</script>
+{% endblock %}

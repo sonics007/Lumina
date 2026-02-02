@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header">
+    <h2><i class="fas fa-sliders-h"></i> Správa Playlistov</h2>
+</div>
+
+<!-- Add/Edit Form -->
+<div class="card" style="margin-bottom: 30px;">
+    <h3><i class="fas fa-plus-circle"></i> Vytvoriť / Upraviť Playlist</h3>
+    <br>
+    <form method="POST" action="/save_playlist">
+        <input type="hidden" name="old_id" value="{{ edit_pl.id if edit_pl else '' }}">
+
+        <div class="form-group">
+            <label>Názov Playlistu</label>
+            <input type="text" name="name" value="{{ edit_pl.name if edit_pl else '' }}" required
+                placeholder="napr. VIP User Jano">
+        </div>
+
+        <div class="form-group">
+            <label>Playlist ID (pre URL) - musí byť unikátne</label>
+            <input type="text" name="id" value="{{ edit_pl.id if edit_pl else '' }}" required placeholder="jano_vip"
+                {{ 'readonly' if edit_pl else '' }}>
+        </div>
+
+        <div class="form-group">
+            <label>Max Počet Pripojení (0 = neobmedzene)</label>
+            <input type="number" name="max_connections" value="{{ edit_pl.max_connections if edit_pl else 0 }}" min="0">
+        </div>
+
+        <div class="form-group">
+            <label>Povolené Krajiny (kódy oddelené čiarkou, napr. SK,CZ). Nechajte prázdne pre všetky.</label>
+            <input type="text" name="allowed_countries" value="{{ edit_pl.allowed_countries if edit_pl else '' }}"
+                placeholder="SK, CZ">
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ 'Uložiť Zmeny' if edit_pl else 'Vytvoriť Playlist' }}</button>
+        {% if edit_pl %}
+        <a href="/manage_playlists" class="btn" style="background: grey; color: white;">Zrušiť</a>
+        {% endif %}
+    </form>
+</div>
+
+<!-- List -->
+<div class="table-container">
+    <h2>Existujúce Playlisty</h2>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Názov</th>
+                <th>URL Link</th>
+                <th>Max Conn</th>
+                <th>Krajiny</th>
+                <th>Akcie</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pl in playlists %}
+            <tr>
+                <td>{{ pl.name }}</td>
+                <td>
+                    <div style="font-size: 11px; color: var(--accent-color); word-break: break-all;">
+                        <a href="/playlist.m3u8?id={{ pl.id }}" target="_blank" style="color: inherit;">
+                            /playlist.m3u8?id={{ pl.id }}
+                        </a>
+                    </div>
+                </td>
+                <td>{{ pl.max_connections if pl.max_connections > 0 else 'Unlimited' }}</td>
+                <td>{{ pl.allowed_countries if pl.allowed_countries else 'All' }}</td>
+                <td>
+                    <a href="/manage_playlists?edit={{ pl.id }}" class="btn btn-primary"
+                        style="padding: 5px 10px; font-size: 12px;">Edit</a>
+                    {% if pl.id != 'default' %}
+                    <a href="/delete_playlist?id={{ pl.id }}" class="btn btn-danger"
+                        style="padding: 5px 10px; font-size: 12px;" onclick="return confirm('Naozaj zmazať?')">Del</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">Žiadne playlisty.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

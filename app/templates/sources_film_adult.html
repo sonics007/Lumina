@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-wrapper">
+    <!-- Status Cards Container -->
+    <div class="status-grid">
+
+        <!-- Scraper Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-spider"></i> Scraper</h3>
+            <div class="status-info">
+                <p><strong>Script:</strong> scrape_film_adult_full.py</p>
+                <p><strong>Config:</strong> 388 Pages (Full Site)</p>
+                <p><strong>Output:</strong> adult_film_data/data/...</p>
+                <p><strong>Last File Size:</strong> {{ scrape_size }}</p>
+                <p><strong>Last Scraping:</strong> {{ scrape_time }}</p>
+            </div>
+            <div class="card-grid">
+                <div class="card" onclick="openScraperModal()">
+                    <h3><i class="fas fa-play"></i> Run Scraper (Standard)</h3>
+                    <div class="value">Start</div>
+                    <p style="color:grey; font-size:12px;">Runs the integrated scraper with progress bar.</p>
+                </div>
+
+                <div class="card" onclick="runScript('scrape')">
+                    <h3><i class="fas fa-terminal"></i> Run Scraper (Legacy)</h3>
+                    <div class="value">Term</div>
+                    <p style="color:grey; font-size:12px;">Opens externally in new window.</p>
+                </div>
+            </div>
+
+            <!-- Scraper Modal -->
+            <div id="scraperModal" class="lightbox" style="display:none; align-items:center; justify-content:center;">
+                <div
+                    style="background: var(--bg-color); width: 600px; padding: 30px; border-radius: 12px; border: 1px solid var(--glass-border); position: relative;">
+                    <button onclick="closeScraperModal()"
+                        style="position:absolute; top:15px; right:15px; background:none; border:none; color:white; font-size:20px; cursor:pointer;">&times;</button>
+                    <h2>Scraper Progress</h2>
+                    <div style="margin: 20px 0;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <span id="scrStatus">Idle</span>
+                            <span id="scrPage">Page 0/0</span>
+                        </div>
+                        <div style="width:100%; height:10px; background:#333; border-radius:5px; overflow:hidden;">
+                            <div id="scrBar"
+                                style="width:0%; height:100%; background:var(--accent-color); transition: width 0.3s;">
+                            </div>
+                        </div>
+                        <p style="text-align:center; font-size:12px; color:grey; margin-top:5px;">Movies Found: <span
+                                id="scrFound" style="color:white; font-weight:bold;">0</span></p>
+                    </div>
+
+                    <div id="scrLog"
+                        style="height:150px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:10px; font-family:monospace; font-size:12px; border-radius:6px; margin-bottom:20px;">
+                        Ready to start...
+                    </div>
+
+                    <div style="display:flex; gap:10px; justify-content:flex-end;">
+                        <button onclick="startScrape()" class="btn btn-primary">Start</button>
+                        <button onclick="stopScrape()" class="btn btn-danger">Stop</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                let pollInterval;
+
+                function openScraperModal() {
+                    document.getElementById('scraperModal').style.display = 'flex';
+                    pollStatus();
+                    pollInterval = setInterval(pollStatus, 1000);
+                }
+
+                function closeScraperModal() {
+                    document.getElementById('scraperModal').style.display = 'none';
+                    clearInterval(pollInterval);
+                }
+
+                async function startScrape() {
+                    await fetch('/api/scraper/start', { method: 'POST' });
+                }
+
+                async function stopScrape() {
+                    await fetch('/api/scraper/stop', { method: 'POST' });
+                }
+
+                async function pollStatus() {
+                    const res = await fetch('/api/scraper/status');
+                    const data = await res.json();
+
+                    document.getElementById('scrStatus').innerText = data.status;
+                    document.getElementById('scrPage').innerText = `Page ${data.current_page} / ${data.max_pages}`;
+                    document.getElementById('scrFound').innerText = data.total_found;
+
+                    // Log
+                    const logDiv = document.getElementById('scrLog');
+                    logDiv.innerHTML = data.log.join('<br>');
+                    logDiv.scrollTop = logDiv.scrollHeight;
+
+                    // Bar
+                    if (data.max_pages > 0) {
+                        const pct = (data.current_page / data.max_pages) * 100;
+                        document.getElementById('scrBar').style.width = pct + '%';
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Import 1 Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-filter"></i> Import Step 1</h3>
+            <div class="status-info">
+                <p><strong>Target:</strong> MyVidPlay Only</p>
+                <p><strong>Input:</strong> data/film_adult_movies_en.json</p>
+                <p><strong>Leftovers:</strong> playvid_ended/nepridane.json</p>
+                <p><strong>Description:</strong> Imports movies with MyVidPlay links.</p>
+            </div>
+            <button class="action-btn" onclick="runScript('import1', this)">
+                <i class="fas fa-play"></i> Run Import (MyVidPlay)
+            </button>
+        </div>
+
+        <!-- Import 2 Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-layer-group"></i> Import Step 2</h3>
+            <div class="status-info">
+                <p><strong>Target:</strong> HGLink + Remainder</p>
+                <p><strong>Input:</strong> playvid_ended/nepridane.json</p>
+                <p><strong>Output:</strong> hglink_ended/nepridane.json</p>
+                <p><strong>Description:</strong> Imports remaining movies (HGLink).</p>
+            </div>
+            <button class="action-btn" onclick="runScript('import2', this)">
+                <i class="fas fa-play"></i> Run Import (HGLink)
+            </button>
+        </div>
+
+        <!-- Link Cleaner Card -->
+        <div class="status-card" style="border: 1px solid #ff4444;">
+            <h3 style="color:#ff6666"><i class="fas fa-broom"></i> Maintenance</h3>
+            <div class="status-info">
+                <p><strong>Action:</strong> Check DB and remove broken links.</p>
+                <p><strong>Target:</strong> Movies without stream ID.</p>
+            </div>
+            <button class="action-btn" onclick="runScript('clean', this)" style="background:#cc0000">
+                <i class="fas fa-trash"></i> Clean Broken Links
+            </button>
+        </div>
+    </div>
+
+    <!-- Console Output -->
+    <div class="console-box">
+        <div class="console-header">
+            <span><i class="fas fa-terminal"></i> Task Output Log</span>
+            <button class="clear-btn" onclick="clearConsole()">Clear</button>
+        </div>
+        <div class="console-content" id="console-output">
+            Waiting for action...
+        </div>
+    </div>
+</div>
+
+<style>
+    .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    .status-card {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .status-card h3 {
+        margin-top: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+    }
+
+    .status-info p {
+        margin: 8px 0;
+        font-size: 0.85rem;
+        color: #bbb;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .status-info strong {
+        color: #fff;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .action-btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+
+    .action-btn:disabled {
+        background: #444;
+        cursor: not-allowed;
+        transform: none;
+        opacity: 0.7;
+    }
+
+    .console-box {
+        margin: 0 20px;
+        background: #1e1e1e;
+        border-radius: 12px;
+        border: 1px solid #333;
+        overflow: hidden;
+    }
+
+    .console-header {
+        background: #252526;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+    }
+
+    .console-content {
+        height: 300px;
+        overflow-y: auto;
+        padding: 15px;
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 0.9em;
+        color: #d4d4d4;
+        white-space: pre-wrap;
+        line-height: 1.4;
+    }
+
+    .clear-btn {
+        background: transparent;
+        border: 1px solid #555;
+        color: #aaa;
+        padding: 4px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .clear-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+</style>
+
+<script>
+    function runScript(type, btn) {
+        const output = document.getElementById('console-output');
+        const timestamp = new Date().toLocaleTimeString();
+        output.innerHTML += `\n[${timestamp}] > Starting task: ${type}...\n`;
+        output.scrollTop = output.scrollHeight;
+
+        // Disable button briefly
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Starting...';
+
+        fetch(`/api/run_script/${type}`, { method: 'POST' })
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'started' || data.success) {
+                    const msg = data.message || 'Process started in background.';
+                    output.innerHTML += `[${timestamp}] > ${msg}\n`;
+                    showToast('Task started successfully', 'success');
+
+                    if (data.output) {
+                        output.innerHTML += `--- OUTPUT START ---\n${data.output}\n--- OUTPUT END ---\n`;
+                    } else {
+                        output.innerHTML += `[${timestamp}] > Check server logs for detailed progress.\n`;
+                    }
+                } else {
+                    output.innerHTML += `[${timestamp}] > ERROR: ${data.message}\n`;
+                    showToast('Error starting task', 'error');
+                }
+            })
+            .catch(e => {
+                output.innerHTML += `[${timestamp}] > API Error: ${e}\n`;
+                showToast('Connection error', 'error');
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                    output.scrollTop = output.scrollHeight;
+                }, 2000);
+            });
+    }
+
+    function clearConsole() {
+        document.getElementById('console-output').innerHTML = '// Console Ready';
+    }
+</script>
+{% endblock %}

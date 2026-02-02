@@ -667,23 +667,23 @@ def movie_stream_vod(username, password, stream_id, ext=None):
     else:
         target_url = best_stream.url
        
-    # --- Generic Resolver (HGLink, StreamTape, etc.) ---
-    try:
-        from ..services import extractor
-        # Only try resolving if not localhost/internal
-        if target_url and 'http' in target_url and not '127.0.0.1' in target_url:
-            # Check if url looks like a provider that needs extraction
-            NEEDS_RESOLVE = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
-            if any(x in target_url for x in NEEDS_RESOLVE):
-                resolved_url, headers = extractor.get_stream_url(target_url)
-                if resolved_url:
-                    logging.info(f"Resolved provider URL to: {resolved_url}")
-                    target_url = resolved_url
-                    # Note: If headers are critical (referer), 302 redirect might not work 
-                    # for all players. But direct raw streams usually work.
-    except Exception as e:
-        logging.error(f"Generic Resolve Error: {e}")
+    else:
+        target_url = best_stream.url
+       
+    # --- PROXY REDIRECT for Providers (HGLink, StreamTape, etc.) ---
+    # Redirect to internal /watch proxy which handles extraction, headers, and M3U8 rewriting
+    NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
+    
+    # Check if needs proxy (and avoid circular loop if already proxied)
+    if target_url and any(x in target_url for x in NEEDS_PROXY) and 'http' in target_url and '/watch' not in target_url:
+        from urllib.parse import quote
+        proxy_base = request.host_url.rstrip('/')
+        logging.info(f"Redirecting provider URL to internal proxy: {target_url}")
+        return redirect(f"{proxy_base}/watch?url={quote(target_url)}")
     # ---------------------------------------------------
+
+    try:
+        # User requested DIRECT REDIRECT ("do nothing with link")
 
     try:
         # User requested DIRECT REDIRECT ("do nothing with link")

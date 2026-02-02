@@ -139,31 +139,37 @@ def player_api():
         seen_ids = set()
         seen_ids.add("all")
         
-        for (t_str,) in tags_rows:
-            if not t_str: t_str = "Uncategorized"
-            
-            # Use whole string as category name (matches importer logic)
-            cat_name = t_str.strip()
-            if not cat_name: continue
-            
-            # Generate ID
-            cat_id = str(int(hashlib.md5(cat_name.encode('utf-8')).hexdigest(), 16) % 100000 + 10000)
-            
-            if cat_id not in seen_ids:
-                seen_ids.add(cat_id)
-                
-                if not config.get(cat_name, {}).get('enabled', True):
-                    continue
+        seen_names = set()
 
-                display_name = group_service.get_group_display_name(cat_name, config)
-                order = group_service.get_group_order(cat_name, config, context='movie')
+        for (t_str,) in tags_rows:
+            if not t_str: continue
+            
+            # Split tags by comma to avoid combined categories
+            parts = [p.strip() for p in t_str.split(',')]
+            
+            for cat_name in parts:
+                if not cat_name: continue
+                if cat_name in seen_names: continue
+                seen_names.add(cat_name)
+            
+                # Generate ID
+                cat_id = str(int(hashlib.md5(cat_name.encode('utf-8')).hexdigest(), 16) % 100000 + 10000)
                 
-                temp_cats.append({
-                    "category_id": cat_id,
-                    "category_name": display_name,
-                    "parent_id": 0,
-                    "__sort_order": order
-                })
+                if cat_id not in seen_ids:
+                    seen_ids.add(cat_id)
+                    
+                    if not config.get(cat_name, {}).get('enabled', True):
+                        continue
+
+                    display_name = group_service.get_group_display_name(cat_name, config)
+                    order = group_service.get_group_order(cat_name, config, context='movie')
+                    
+                    temp_cats.append({
+                        "category_id": cat_id,
+                        "category_name": display_name,
+                        "parent_id": 0,
+                        "__sort_order": order
+                    })
         
         temp_cats.sort(key=lambda x: (x['__sort_order'], x['category_name']))
         categories = [{k:v for k,v in c.items() if k != '__sort_order'} for c in temp_cats]
@@ -203,16 +209,28 @@ def player_api():
         streams_data = []
         
         for m_id, m_title, m_image, m_rating, m_source, m_created, m_tags, m_url in movies_data:
-            # Determine Category ID based on Tag
-            t_str = m_tags or "Uncategorized"
-            cat_name = t_str.strip() or "Uncategorized"
+            # Split tags
+            parts = [p.strip() for p in (m_tags or "").split(',')]
+            if not parts or not parts[0]: parts = ["Uncategorized"]
             
-            # Generate ID (Must match get_vod_categories logic)
-            c_id = str(int(hashlib.md5(cat_name.encode('utf-8')).hexdigest(), 16) % 100000 + 10000)
+            # Calculate IDs for all categories this movie belongs to
+            movie_cat_ids = []
+            for p in parts:
+                if not p: continue
+                cid = str(int(hashlib.md5(p.encode('utf-8')).hexdigest(), 16) % 100000 + 10000)
+                movie_cat_ids.append(cid)
             
+            if not movie_cat_ids:
+                 movie_cat_ids.append(str(int(hashlib.md5(b"Uncategorized").hexdigest(), 16) % 100000 + 10000))
+
             # Filter logic
+            final_cat_id = movie_cat_ids[0] # Default to first category
+            
             if cat_id and cat_id != "all":
-                if c_id != cat_id: continue
+                if cat_id not in movie_cat_ids: continue
+                final_cat_id = cat_id # If filtered by category, return that ID
+            
+            c_id = final_cat_id
             
             # Force 18+ rating logic if needed
             rating = m_rating

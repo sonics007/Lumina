@@ -61,13 +61,17 @@ read -p "Allocated RAM MB [$RAM]: " INPUT_RAM
 RAM=${INPUT_RAM:-$RAM}
 
 # Network Configuration
+read -p "VLAN Tag (Optional, press Enter for none): " INPUT_VLAN
+VLAN_OPT=""
+if [ -n "$INPUT_VLAN" ]; then VLAN_OPT=",tag=$INPUT_VLAN"; fi
+
 read -p "Use DHCP? [y/N]: " USE_DHCP
 if [[ "$USE_DHCP" =~ ^[yY]$ ]]; then
-    NET_CONFIG="name=eth0,bridge=vmbr0,ip=dhcp"
+    NET_CONFIG="name=eth0,bridge=vmbr0,ip=dhcp${VLAN_OPT}"
 else
     read -p "IP Address (CIDR, e.g. 192.168.1.100/24): " INPUT_IP
     read -p "Gateway (e.g. 192.168.1.1): " INPUT_GW
-    NET_CONFIG="name=eth0,bridge=vmbr0,ip=$INPUT_IP,gw=$INPUT_GW"
+    NET_CONFIG="name=eth0,bridge=vmbr0,ip=$INPUT_IP,gw=$INPUT_GW${VLAN_OPT}"
 fi
 
 PASSWORD="lumina" 

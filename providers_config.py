@@ -36,9 +36,13 @@ PROVIDERS = {
         'extra_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity'}
     },
 
-    # Haxloppd
+    # Haxloppd (HGLink Mirror)
     'haxloppd.com': {
-        'referer': 'https://haxloppd.com/',
+        'referer': 'https://film-adult.top/',
+        'extra_headers': {'Accept': '*/*'}
+    },
+    'shavtape.com': {
+        'referer': 'https://film-adult.top/',
         'extra_headers': {'Accept': '*/*'}
     },
 

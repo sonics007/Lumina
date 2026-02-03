@@ -16,14 +16,98 @@
                 <p><strong>Last Scraping:</strong> {{ scrape_time }}</p>
             </div>
             <div class="card-grid">
-                <!-- Standard Scraper removed due to freezing issues. Using Reliable Console Runner. -->
-                <div class="card" onclick="runScript('scrape', this)"
-                    style="width: 100%; max-width: 400px; cursor: pointer;">
-                    <h3><i class="fas fa-terminal"></i> Run Scraper (Console)</h3>
+                <!-- Standard Scraper (Progress Bar) -->
+                <div class="card" onclick="openScraperModal()" style="cursor: pointer;">
+                    <h3><i class="fas fa-play"></i> Run Scraper (Standard)</h3>
                     <div class="value">Start</div>
-                    <p style="color:grey; font-size:12px;">Opens scraper in a new window. Reliable and fast.</p>
+                    <p style="color:grey; font-size:12px;">Integrated scraper with progress bar.</p>
+                </div>
+
+                <!-- Legacy Console Scraper (Fallback) -->
+                <div class="card" onclick="runScript('scrape', this)" style="cursor: pointer;">
+                    <h3><i class="fas fa-terminal"></i> Run Scraper (Console)</h3>
+                    <div class="value">Term</div>
+                    <p style="color:grey; font-size:12px;">Opens in new window. Use if Standard freezes.</p>
                 </div>
             </div>
+
+            <!-- Scraper Modal -->
+            <div id="scraperModal" class="lightbox" style="display:none; align-items:center; justify-content:center;">
+                <div
+                    style="background: var(--bg-color); width: 600px; padding: 30px; border-radius: 12px; border: 1px solid var(--glass-border); position: relative;">
+                    <button onclick="closeScraperModal()"
+                        style="position:absolute; top:15px; right:15px; background:none; border:none; color:white; font-size:20px; cursor:pointer;">&times;</button>
+                    <h2>Scraper Progress</h2>
+                    <div style="margin: 20px 0;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <span id="scrStatus">Idle</span>
+                            <span id="scrPage">Page 0/0</span>
+                        </div>
+                        <div style="width:100%; height:10px; background:#333; border-radius:5px; overflow:hidden;">
+                            <div id="scrBar"
+                                style="width:0%; height:100%; background:var(--accent-color); transition: width 0.3s;">
+                            </div>
+                        </div>
+                        <p style="text-align:center; font-size:12px; color:grey; margin-top:5px;">Movies Found: <span
+                                id="scrFound" style="color:white; font-weight:bold;">0</span></p>
+                    </div>
+
+                    <div id="scrLog"
+                        style="height:150px; overflow-y:auto; background:rgba(0,0,0,0.3); padding:10px; font-family:monospace; font-size:12px; border-radius:6px; margin-bottom:20px;">
+                        Ready to start...
+                    </div>
+
+                    <div style="display:flex; gap:10px; justify-content:flex-end;">
+                        <button onclick="startScrape()" class="btn btn-primary">Start</button>
+                        <button onclick="stopScrape()" class="btn btn-danger">Stop</button>
+                        <button onclick="closeScraperModal()" class="btn btn-secondary"
+                            style="margin-left:5px; background:#555;">Close</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                let pollInterval;
+
+                function openScraperModal() {
+                    document.getElementById('scraperModal').style.display = 'flex';
+                    pollStatus();
+                    pollInterval = setInterval(pollStatus, 1000);
+                }
+
+                function closeScraperModal() {
+                    document.getElementById('scraperModal').style.display = 'none';
+                    if (pollInterval) clearInterval(pollInterval);
+                }
+
+                async function startScrape() {
+                    await fetch('/api/scraper/start', { method: 'POST' });
+                }
+
+                async function stopScrape() {
+                    await fetch('/api/scraper/stop', { method: 'POST' });
+                }
+
+                async function pollStatus() {
+                    try {
+                        const res = await fetch('/api/scraper/status');
+                        const data = await res.json();
+
+                        document.getElementById('scrStatus').innerText = data.status;
+                        document.getElementById('scrPage').innerText = `Page ${data.current_page} / ${data.max_pages}`;
+                        document.getElementById('scrFound').innerText = data.total_found;
+
+                        const logDiv = document.getElementById('scrLog');
+                        logDiv.innerHTML = data.log.join('<br>');
+                        logDiv.scrollTop = logDiv.scrollHeight;
+
+                        if (data.max_pages > 0) {
+                            const pct = (data.current_page / data.max_pages) * 100;
+                            document.getElementById('scrBar').style.width = pct + '%';
+                        }
+                    } catch (e) { console.error(e); }
+                }
+            </script>
         </div>
     </div>
 

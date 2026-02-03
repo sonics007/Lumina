@@ -310,8 +310,13 @@ def get_stream_url(input_url, session=None, _recursion_depth=0, referer=None):
 
         # 1. Look for PACKED JS code - Iterate ALL matches
         # Fix regex for raw strings and greediness
-        pattern = r"}\('((?:[^']|\\')*)',(\d+),(\d+),'((?:[^']|\\')*)'.split\('\|'\)"
-        matches_packed = re.findall(pattern, html)
+        patterns = [
+            r"}\('((?:[^']|\\')*)',(\d+),(\d+),'((?:[^']|\\')*)'.split\('\|'\)",
+            r"}\s*\(\s*'([^']*)'\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*'([^']*)'\s*\.split\('\|'\)"
+        ]
+        matches_packed = []
+        for pat in patterns:
+            matches_packed.extend(re.findall(pat, html))
         
         if matches_packed:
             logger.info(f"Found {len(matches_packed)} Packed JS blocks. Iterating...")

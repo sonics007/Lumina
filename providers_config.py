@@ -49,6 +49,14 @@ PROVIDERS = {
         'extra_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/143.0.0.0'}
     },
 
+    # Earnvid / Dingtezuni
+    'dingtezuni.com': {
+        'extra_headers': {'Referer': 'https://dingtezuni.com/', 'Origin': 'https://dingtezuni.com'}
+    },
+    'earnvids.com': {
+        'extra_headers': {'Referer': 'https://earnvids.com/', 'Origin': 'https://earnvids.com'}
+    },
+
     # HLSWish
     'hlswish.com': {
         'referer': 'https://hlswish.com/',

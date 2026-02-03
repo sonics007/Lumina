@@ -162,7 +162,7 @@ def watch():
             use_curl_cffi = False
             
         # Exception for MyVidPlay/DoodStream - use standard requests for better streaming stability
-        if 'myvidplay' in url or 'dood' in url:
+        if 'myvidplay' in source_url or 'dood' in source_url:
             use_curl_cffi = False
         
         if use_curl_cffi:

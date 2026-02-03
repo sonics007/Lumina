@@ -66,25 +66,54 @@ def _unpack_js(p, a, c, k_str):
     return unpacked
 
 def extract_doodstream(url, session=None):
-    if session is None: 
-        session = c_requests.Session(impersonate="chrome120")
+    """
+    Optimized DoodStream / MyVidPlay extractor.
+    Uses standard requests for speed (TLS fingerprinting not strictly required).
+    """
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36'}
+        # Use standard requests for speed if no session provided or if session is curl_cffi
+        # (MyVidPlay is faster with standard requests)
+        import requests as std_requests
+        
+        local_session = None
+        if session is None:
+             local_session = std_requests.Session()
+             local_session.headers.update({
+                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0 Safari/537.36',
+                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+             })
+        else:
+             # If passed session is curl_cffi, we might want to bypass it for MyVidPlay to speed up
+             # But let's respect the passed session if possible. 
+             # However, the user complains about slow startup. Let's try to force standard requests for this specific call
+             # unless the caller explicitly forbids it.
+             # For now, create a temp standard session just for this extraction logic.
+             local_session = std_requests.Session()
+             local_session.headers.update({
+                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0 Safari/537.36'
+             })
+
         # Initial request
-        r = session.get(url, headers=headers)
+        # Use verify=False to avoid certificate lags
+        r = local_session.get(url, timeout=5, verify=False)
         html = r.text
         
         # 1. Find /pass_md5/ URL
         pass_md5 = re.search(r"['\"](/pass_md5/[^'\"]+)['\"]", html)
         if not pass_md5:
+            logger.warning("MyVidPlay: /pass_md5/ not found in HTML.")
             return None, None
             
         pass_path = pass_md5.group(1)
         pass_url = "https://" + urlparse(url).netloc + pass_path
         
         # 2. Call pass_md5 with Referer!
-        headers['Referer'] = url
-        r2 = session.get(pass_url, headers=headers)
+        headers = { 
+            'Referer': url,
+            'User-Agent': local_session.headers['User-Agent']
+        }
+        
+        r2 = local_session.get(pass_url, headers=headers, timeout=5, verify=False)
         part1 = r2.text
         
         # 3. Generate random string
@@ -98,9 +127,18 @@ def extract_doodstream(url, session=None):
         
         final_url = f"{part1}{random_token}?token={token_val}&expiry={expiry}"
         
-        return final_url, headers
+        logger.info(f"MyVidPlay Optimized Extraction: {final_url}")
+        
+        # Return headers for playback (User-Agent is important)
+        playback_headers = {
+            'User-Agent': headers['User-Agent'],
+            'Referer': url
+        }
+        
+        return final_url, playback_headers
+
     except Exception as e:
-        logger.error(f"Doodstream error: {e}")
+        logger.error(f"Doodstream extract error: {e}")
         return None, None
 
 def extract_streamtape(url, session=None):

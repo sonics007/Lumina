@@ -148,6 +148,57 @@ def extract_streamtape(url, session=None):
         logger.error(f"StreamTape extract failed: {e}")
     return None, None
 
+def extract_earnvid(url, session=None):
+    logger.info(f"Extracting Earnvid: {url}")
+    if not session: session = c_requests.Session(impersonate="chrome120")
+    
+    try:
+        if 'http' not in url: return None, None
+        
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
+            'Referer': url
+        }
+        r = session.get(url, headers=headers, timeout=10, verify=False)
+        html = r.text
+        
+        # Regex pattern (matches standard Dean Edwards used by Earnvid)
+        pattern = r"}\('((?:[^']|\\')*)',(\d+),(\d+),'((?:[^']|\\')*)'.split\('\|'\)"
+        m = re.search(pattern, html)
+        
+        if m:
+            p, a, c, k = m.groups()
+            # _unpack_js is defined globally in this module
+            unpacked = _unpack_js(p, a, c, k)
+            
+            # JSON check: var links={"hls2":"..."}
+            m_json = re.search(r'"hls2"\s*:\s*["\']([^"\']+)["\']', unpacked)
+            if not m_json:
+                 # Try other keys
+                 m_json = re.search(r'"(?:file|hls\d)"\s*:\s*["\']([^"\']+)["\']', unpacked)
+            
+            if m_json:
+                link = m_json.group(1)
+                logger.info(f"Earnvid extracted: {link}")
+                
+                 # Headers for Playback
+                from urllib.parse import urlparse
+                base_domain = f"https://{urlparse(url).netloc}"
+                
+                p_headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
+                    'Referer': url,
+                    'Origin': base_domain
+                }
+                return link, p_headers
+                
+    except Exception as e:
+        logger.error(f"Earnvid extract error: {e}")
+        import traceback
+        traceback.print_exc()
+        
+    return None, None
+
 def extract_filemoon(url, session=None):
     if session is None:
         session = c_requests.Session(impersonate="chrome120")
@@ -258,10 +309,15 @@ def get_stream_url(input_url, session=None, _recursion_depth=0, referer=None):
          s_url, s_headers = extract_streamtape(input_url, session)
          if s_url: return s_url, s_headers
 
-    # Fallback for FileMoon/Callistanise/Earnvid custom
-    if any(x in input_url for x in ['callistanise', 'filemoon', 'earnvid', 'dingtezuni']):
-         s_url, s_headers = extract_filemoon(input_url, session)
+    # Fallback for Earnvid (Dingtezuni, Minochinos)
+    if any(x in input_url for x in ['dingtezuni', 'earnvids', 'minochinos', 'earnvid']):
+         s_url, s_headers = extract_earnvid(input_url, session)
          if s_url: return s_url, s_headers
+
+    # Fallback for FileMoon/Callistanise/Earnvid custom
+    if any(x in input_url for x in ['callistanise', 'filemoon', 'dingtezuni']): # Removed dingtezuni from generic list
+          s_url, s_headers = extract_filemoon(input_url, session)
+          if s_url: return s_url, s_headers
     
     try:
         # Doodstream / Myvidplay Handler

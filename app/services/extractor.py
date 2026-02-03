@@ -190,6 +190,15 @@ def extract_earnvid(url, session=None):
                     'Referer': url,
                     'Origin': base_domain
                 }
+                
+                # Pass cookies to headers
+                if session and session.cookies:
+                    cookies = session.cookies.get_dict()
+                    if cookies:
+                        cookie_str = "; ".join([f"{k}={v}" for k, v in cookies.items()])
+                        p_headers['Cookie'] = cookie_str
+                        logger.info(f"Added {len(cookies)} cookies to headers")
+
                 return link, p_headers
                 
     except Exception as e:

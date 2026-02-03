@@ -1,5 +1,6 @@
 from flask import Blueprint, request, Response, redirect, current_app
 from ..models import db, Playlist
+import requests as py_requests
 import requests
 from ..services.extractor import get_stream_url
 import time

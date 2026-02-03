@@ -861,15 +861,18 @@ import subprocess
 @main_bp.route('/api/run_script/<script_type>', methods=['POST'])
 def run_script_api_route(script_type):
     from flask import Response
+    import sys
     
     # Map types to scripts - Adjust paths for root execution
+    # Use sys.executable to ensure we use the same python interpreter
+    py_exe = sys.executable
     scripts = {
-        'scrape': ['python', os.path.join('adult_film_data', 'scrape_film_adult_full.py')],
-        'import1': ['python', os.path.join('adult_film_data', '1_import_myvidplay.py')],
-        'import2': ['python', os.path.join('adult_film_data', '2_import_hglink.py')],
-        'clean': ['python', os.path.join('debug_dev', 'clean_broken_links.py')],
-        'uiiu_scrape': ['python', os.path.join('uiiu_data', 'scrape_uiiu.py')],
-        'uiiu_import': ['python', os.path.join('uiiu_data', 'import_uiiu.py')]
+        'scrape': [py_exe, os.path.join('adult_film_data', 'scrape_film_adult_full.py')],
+        'import1': [py_exe, os.path.join('adult_film_data', '1_import_myvidplay.py')],
+        'import2': [py_exe, os.path.join('adult_film_data', '2_import_hglink.py')],
+        'clean': [py_exe, os.path.join('debug_dev', 'clean_broken_links.py')],
+        'uiiu_scrape': [py_exe, os.path.join('uiiu_data', 'scrape_uiiu.py')],
+        'uiiu_import': [py_exe, os.path.join('uiiu_data', 'import_uiiu.py')]
     }
     
     if script_type not in scripts:
@@ -891,7 +894,11 @@ def run_script_api_route(script_type):
     
     try:
         # Run DETACHED process
-        subprocess.Popen(cmd, cwd=os.getcwd(), creationflags=subprocess.CREATE_NEW_CONSOLE)
+        flags = 0
+        if sys.platform == 'win32':
+            flags = subprocess.CREATE_NEW_CONSOLE
+            
+        subprocess.Popen(cmd, cwd=os.getcwd(), creationflags=flags)
         return Response(json.dumps({'status': 'started', 'message': f'Script {script_type} started in new window.'}), mimetype='application/json')
     except Exception as e:
         return Response(json.dumps({'status': 'error', 'message': str(e)}), mimetype='application/json'), 500

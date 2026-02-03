@@ -170,6 +170,19 @@
             </button>
         </div>
 
+        <!-- Migrate Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-database"></i> Sync Database</h3>
+            <div class="status-info">
+                <p><strong>Action:</strong> Sync JSON to App DB.</p>
+                <p><strong>Input:</strong> movies_db.json</p>
+                <p><strong>Description:</strong> Run after Import is finished.</p>
+            </div>
+            <button class="action-btn" onclick="runScript('migrate', this)" style="background:#28a745;">
+                <i class="fas fa-sync"></i> Run Migration
+            </button>
+        </div>
+
         <!-- Link Cleaner Card -->
         <div class="status-card" style="border: 1px solid #ff4444;">
             <h3 style="color:#ff6666"><i class="fas fa-broom"></i> Maintenance</h3>

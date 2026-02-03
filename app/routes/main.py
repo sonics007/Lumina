@@ -870,6 +870,7 @@ def run_script_api_route(script_type):
         'scrape': [py_exe, os.path.join('adult_film_data', 'scrape_film_adult_full.py')],
         'import1': [py_exe, os.path.join('adult_film_data', '1_import_myvidplay.py')],
         'import2': [py_exe, os.path.join('adult_film_data', '2_import_hglink.py')],
+        'migrate': [py_exe, 'migrate_to_sqlite.py'],
         'clean': [py_exe, os.path.join('debug_dev', 'clean_broken_links.py')],
         'uiiu_scrape': [py_exe, os.path.join('uiiu_data', 'scrape_uiiu.py')],
         'uiiu_import': [py_exe, os.path.join('uiiu_data', 'import_uiiu.py')]

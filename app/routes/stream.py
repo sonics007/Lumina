@@ -150,11 +150,22 @@ def watch():
     # 3. Proxying
     # 3. Proxying
     # 3. Proxying
-    # 3. Proxying (Using standard requests to avoid curl_cffi segfaults in threads)
+    # 3. Proxying (Hybrid approach: curl_cffi for protected sites, requests for fragile ones)
     try:
-        session = py_requests.Session()
+        # Determine strictness required
+        # HGLink / Uliiu need curl_cffi (TLS Fingerprint)
+        # Earnvid (acek-cdn) causes Segfaults with curl_cffi -> Use standard requests
+        
+        use_curl_cffi = True
+        if 'acek-cdn' in real_stream or 'dingtezuni' in real_stream:
+            use_curl_cffi = False
+        
+        if use_curl_cffi:
+            session = get_scraper_session() # Returns curl_cffi session
+        else:
+            session = py_requests.Session()
 
-        # Transfer Cookies if present in headers (from extractor)
+        # Transfer Cookies if present in headers (mostly for requests, but good for curl too)
         if 'Cookie' in headers:
             try:
                 c_str = headers['Cookie']
@@ -163,8 +174,18 @@ def watch():
                     if '=' in item:
                         k, v = item.split('=', 1)
                         cookie_dict[k] = v
-                session.cookies.update(cookie_dict)
-                # Remove Cookie header from request headers to rely on session cookies
+                
+                # Update cookies based on session type
+                if use_curl_cffi:
+                     # curl_cffi cookies update might differ, but often supports dict
+                     # If it fails, we rely on headers mainly
+                     try: session.cookies.update(cookie_dict)
+                     except: pass
+                else:
+                     session.cookies.update(cookie_dict)
+                     
+                # Remove Cookie header from request headers to avoid duplication/conflicts
+                # specific to the library behavior
                 headers = {k:v for k,v in headers.items() if k.lower() != 'cookie'}
             except:
                 pass
@@ -173,16 +194,16 @@ def watch():
         max_retries = 2
         r = None
         
-        print(f"[PLAYBACK] Probing stream ({max_retries} retries): {real_stream}", flush=True)
+        print(f"[PLAYBACK] Probing stream ({max_retries} retries) [curl={use_curl_cffi}]: {real_stream}", flush=True)
         
         for attempt in range(max_retries):
             try:
-                # Use stream=True to handle large files and not download everything at once
-                # BUT DISABLE for playlists (.m3u8/.txt) to prevent hanging/buffering issues on small files
+                # Use stream=True to handle large files
                 do_stream = True
                 if real_stream and ('.m3u8' in real_stream or '.txt' in real_stream or '.urlset' in real_stream):
                     do_stream = False
                 
+                # verify=False is common for both
                 r = session.get(real_stream, headers=headers, timeout=30, stream=do_stream, verify=False)
                 print(f"[PLAYBACK] Probe attempt {attempt+1}: Status {r.status_code}", flush=True)
                 if r.status_code < 400:
@@ -253,6 +274,7 @@ def watch():
             if chunk: content_bytes += chunk
             
         content = content_bytes.decode('utf-8', errors='ignore')
+
         base_url = r.url
         referer = headers.get('Referer', source_url)
         
@@ -301,13 +323,20 @@ def segment():
     ref = unquote(request.args.get('ref', ''))
     
     # Verbose logging can be spammy for segments, but useful for debugging simple issues
-    logging.info(f"Segment Request: URL={target}")
+    # logging.info(f"Segment Request: URL={target}")
     
     headers = {'User-Agent': DEFAULT_UA, 'Referer': ref}
     
     try:
-        session = py_requests.Session()  # Use py_requests for stability
-        
+        use_curl_cffi = True
+        if 'acek-cdn' in target or 'dingtezuni' in target:
+            use_curl_cffi = False
+            
+        if use_curl_cffi:
+            session = get_scraper_session() # curl_cffi
+        else:
+            session = py_requests.Session() # standard requests
+
         # Cookie logic same as watch
         if 'Cookie' in headers:
             try:
@@ -317,7 +346,13 @@ def segment():
                     if '=' in item:
                         k, v = item.split('=', 1)
                         cookie_dict[k] = v
-                session.cookies.update(cookie_dict)
+                
+                if use_curl_cffi:
+                    try: session.cookies.update(cookie_dict)
+                    except: pass
+                else:
+                    session.cookies.update(cookie_dict)
+                    
                 headers = {k:v for k,v in headers.items() if k.lower() != 'cookie'}
             except:
                 pass

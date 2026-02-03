@@ -238,10 +238,11 @@ def get_stream_url(input_url, session=None, _recursion_depth=0, referer=None):
             logger.error(f"Failed to parse embed page: {e}")
 
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/143.0.0.0',
         'Referer': referer if referer else config.get('referer', input_url),
         'Accept': '*/*',
         'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'identity',
     }
     headers.update(config.get('extra_headers', {}))
     

@@ -38,15 +38,15 @@ PROVIDERS = {
 
     # Haxloppd (HGLink Mirror)
     'haxloppd.com': {
-        'extra_headers': {'Accept': '*/*'}
+        'extra_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/143.0.0.0'}
     },
     'shavtape.com': {
-        'extra_headers': {'Accept': '*/*'}
+        'extra_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/143.0.0.0'}
     },
 
     # HGLink
     'hglink.to': {
-        'extra_headers': {'Accept': '*/*'}
+        'extra_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/143.0.0.0'}
     },
 
     # HLSWish

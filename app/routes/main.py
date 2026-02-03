@@ -981,6 +981,116 @@ def tivimate_clients():
                          active_page='tivimate_clients',
                          clients=clients)
 
+# --- Scraper Manager Implementation ---
+import threading
+import subprocess
+import time
+
+# Global State for Scraper
+scraper_state = {
+    'process': None,
+    'status': 'Idle',
+    'log': [],
+    'progress': {'current': 0, 'max': 388, 'found': 0},
+    'thread': None
+}
+
+def scraper_monitor_task():
+    global scraper_state
+    proc = scraper_state['process']
+    
+    while proc and proc.poll() is None:
+        line = proc.stdout.readline()
+        if line:
+            line_str = line.decode('utf-8', errors='ignore').strip()
+            if not line_str: continue
+            
+            scraper_state['log'].append(line_str)
+            if len(scraper_state['log']) > 50: scraper_state['log'].pop(0)
+            
+            # Parsing logic
+            # Format: "[001] Scraping..."
+            if line_str.startswith('[') and '] Scraping' in line_str:
+                try:
+                    # Extract page number
+                    parts = line_str.split(']')
+                    if len(parts) > 0:
+                        p_txt = parts[0].replace('[', '')
+                        scraper_state['progress']['current'] = int(p_txt)
+                        scraper_state['status'] = f"Scraping Page {p_txt}"
+                except: pass
+            
+            # Format: " +5 movies."
+            if '+' in line_str and 'movies' in line_str:
+                try:
+                    # Find number e.g. +5
+                    import re
+                    m = re.search(r'\+(\d+)', line_str)
+                    if m:
+                        scraper_state['progress']['found'] += int(m.group(1))
+                except: pass
+                
+    scraper_state['status'] = "Finished" if proc.returncode == 0 else "Stopped/Error"
+    if proc.returncode != 0:
+        scraper_state['log'].append(f"Process ended with code {proc.returncode}")
+        
+    scraper_state['process'] = None
+
+@main_bp.route('/api/scraper/start', methods=['POST'])
+def scraper_api_start():
+    global scraper_state
+    
+    if scraper_state['process'] and scraper_state['process'].poll() is None:
+        return jsonify({'status': 'running', 'message': 'Scraper already running'})
+        
+    scraper_state['log'] = ["Starting scraper process..."]
+    scraper_state['progress'] = {'current': 0, 'max': 388, 'found': 0}
+    scraper_state['status'] = "Starting"
+    
+    script_path = os.path.join('adult_film_data', 'scrape_film_adult_full.py')
+    
+    try:
+        # Run python -u (unbuffered)
+        proc = subprocess.Popen(
+            ['python', '-u', script_path],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            cwd=os.getcwd()
+        )
+        scraper_state['process'] = proc
+        
+        # Start monitor thread
+        t = threading.Thread(target=scraper_monitor_task)
+        t.daemon = True
+        t.start()
+        scraper_state['thread'] = t
+        
+        return jsonify({'status': 'started'})
+    except Exception as e:
+        scraper_state['status'] = "Error"
+        scraper_state['log'].append(f"Failed to start: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@main_bp.route('/api/scraper/stop', methods=['POST'])
+def scraper_api_stop():
+    global scraper_state
+    if scraper_state['process']:
+        scraper_state['process'].terminate()
+        scraper_state['status'] = "Stopping..."
+        return jsonify({'status': 'stopping'})
+    return jsonify({'status': 'not_running'})
+
+@main_bp.route('/api/scraper/status')
+def scraper_api_status():
+    global scraper_state
+    return jsonify({
+        'status': scraper_state['status'],
+        'current_page': scraper_state['progress']['current'],
+        'max_pages': scraper_state['progress']['max'],
+        'total_found': scraper_state['progress']['found'],
+        'log': scraper_state['log']
+    })
+
 # --- EPG Manager Routes ---
 @main_bp.route('/epg')
 def epg_manager():

@@ -203,10 +203,15 @@ def extract_with_ytdlp(url):
         logger.error(f"yt-dlp failed: {e}")
     return None, None
 
-def get_stream_url(input_url, session=None):
+def get_stream_url(input_url, session=None, _recursion_depth=0):
     """
     Main extraction function supporting multi-layer obfuscation and nested iframes.
     """
+    # Recursion guard
+    if _recursion_depth > 3:
+        logger.error(f"Max recursion depth reached for extraction: {input_url}")
+        return None, None
+
     # HARD DEBUG PRINTS
     print(f"DEBUG_EXTRACTOR: Starting extraction for {input_url}")
     sys.stdout.flush()
@@ -228,7 +233,7 @@ def get_stream_url(input_url, session=None):
                 embed_url = match_iframe.group(1)
                 if embed_url.startswith('//'): embed_url = 'https:' + embed_url
                 logger.info(f"Found embed: {embed_url}")
-                return get_stream_url(embed_url)
+                return get_stream_url(embed_url, _recursion_depth=_recursion_depth+1)
         except Exception as e:
             logger.error(f"Failed to parse embed page: {e}")
 
@@ -273,7 +278,7 @@ def get_stream_url(input_url, session=None):
         # 5. HGLink handling - Loading Page Check
         # Check for loading page vs direct page
         if ('hglink.to' in input_url or 'hglink.com' in input_url) and 'main.js' in html:
-            logger.info("HGLink loading page detected. Trying known mirror domains...")
+            logger.info("HGLink loading page detected. Trying mirrors + Wait strategy...")
             
             # Known mirrors/destinations for HGLink
             mirrors = ['haxloppd.com', 'shavtape.com', 'myvidplay.com']
@@ -281,12 +286,14 @@ def get_stream_url(input_url, session=None):
             parsed = urlparse(input_url)
             for mirror in mirrors:
                 new_url = input_url.replace(parsed.netloc, mirror)
-                logger.info(f"Trying mirror: {new_url}")
-                s_url, s_headers = get_stream_url(new_url, session=session)
+                s_url, s_headers = get_stream_url(new_url, session=session, _recursion_depth=_recursion_depth+1)
                 if s_url:
                     return s_url, s_headers
             
-            logger.warning("All HGLink mirrors failed.")
+            # User Strategy: Wait and Retry (Simulate main.js redirect)
+            logger.info("Mirrors failed. Waiting 2.5s for redirect...")
+            time.sleep(2.5)
+            return get_stream_url(input_url, session=session, _recursion_depth=_recursion_depth+1)
 
         # 0. Check for unescape() obfuscation - Iterate ALL matches
         if 'unescape' in html:
@@ -375,7 +382,7 @@ def get_stream_url(input_url, session=None):
                 if iframe_url == input_url: continue
                 
                 # Recursive attempt
-                s_url, s_headers = get_stream_url(iframe_url, session=session) # Pass session!
+                s_url, s_headers = get_stream_url(iframe_url, session=session, _recursion_depth=_recursion_depth+1) # Pass session!
                 if s_url:
                      return s_url, s_headers
 

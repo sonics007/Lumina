@@ -12,12 +12,6 @@ stream_bp = Blueprint('stream', __name__)
 STREAM_CACHE = {} 
 CACHE_DURATION = 3600 * 12
 
-# FORCE IPv4 Global Fix (Fixes 'Read timed out' on Debian if IPv6 is broken/unreachable)
-import socket
-import requests.packages.urllib3.util.connection as urllib3_cn
-def allowed_gai_family():
-    return socket.AF_INET
-urllib3_cn.allowed_gai_family = allowed_gai_family
 
 
 def get_scraper_session():

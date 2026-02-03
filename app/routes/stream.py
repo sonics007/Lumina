@@ -150,9 +150,25 @@ def watch():
     # 3. Proxying
     # 3. Proxying
     # 3. Proxying
+    # 3. Proxying (Using standard requests to avoid curl_cffi segfaults in threads)
     try:
-        session = get_scraper_session()
-        
+        session = py_requests.Session()
+
+        # Transfer Cookies if present in headers (from extractor)
+        if 'Cookie' in headers:
+            try:
+                c_str = headers['Cookie']
+                cookie_dict = {}
+                for item in c_str.split('; '):
+                    if '=' in item:
+                        k, v = item.split('=', 1)
+                        cookie_dict[k] = v
+                session.cookies.update(cookie_dict)
+                # Remove Cookie header from request headers to rely on session cookies
+                headers = {k:v for k,v in headers.items() if k.lower() != 'cookie'}
+            except:
+                pass
+
         # Standard path (Probe first)
         max_retries = 2
         r = None
@@ -274,6 +290,8 @@ def watch():
         return resp
         
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         return f"Stream Error: {e}", 502
 
 @stream_bp.route('/segment')
@@ -288,7 +306,22 @@ def segment():
     headers = {'User-Agent': DEFAULT_UA, 'Referer': ref}
     
     try:
-        session = get_scraper_session()
+        session = py_requests.Session()  # Use py_requests for stability
+        
+        # Cookie logic same as watch
+        if 'Cookie' in headers:
+            try:
+                c_str = headers['Cookie']
+                cookie_dict = {}
+                for item in c_str.split('; '):
+                    if '=' in item:
+                        k, v = item.split('=', 1)
+                        cookie_dict[k] = v
+                session.cookies.update(cookie_dict)
+                headers = {k:v for k,v in headers.items() if k.lower() != 'cookie'}
+            except:
+                pass
+                
         r = session.get(target, headers=headers, stream=True, timeout=30, verify=False)
         
         ct = r.headers.get('Content-Type', '').lower()
@@ -330,11 +363,13 @@ def segment():
         def generate():
             # Increased chunk size for performance
             for chunk in r.iter_content(chunk_size=65536):
-                 yield chunk
+                yield chunk
                  
         resp = Response(generate(), mimetype=ct)
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
         
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         return f"Segment Error: {e}", 502

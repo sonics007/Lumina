@@ -160,6 +160,10 @@ def watch():
         use_curl_cffi = True
         if 'acek-cdn' in real_stream or 'dingtezuni' in real_stream:
             use_curl_cffi = False
+            
+        # Exception for MyVidPlay/DoodStream - use standard requests for better streaming stability
+        if 'myvidplay' in url or 'dood' in url:
+            use_curl_cffi = False
         
         if use_curl_cffi:
             session = get_scraper_session() # Returns curl_cffi session

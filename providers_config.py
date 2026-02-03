@@ -51,10 +51,10 @@ PROVIDERS = {
 
     # Earnvid / Dingtezuni
     'dingtezuni.com': {
-        'extra_headers': {'Referer': 'https://dingtezuni.com/', 'Origin': 'https://dingtezuni.com'}
+        'extra_headers': {'Origin': 'https://dingtezuni.com'}
     },
     'earnvids.com': {
-        'extra_headers': {'Referer': 'https://earnvids.com/', 'Origin': 'https://earnvids.com'}
+        'extra_headers': {'Origin': 'https://earnvids.com'}
     },
 
     # HLSWish

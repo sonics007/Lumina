@@ -325,7 +325,44 @@ def delete_playlist():
 @main_bp.route('/settings')
 def settings_page():
     count = Movie.query.count()
-    return render_template('settings.html', title="Settings", active_page='settings', db_size=count)
+    
+    # Load Scraper Config
+    scraper_config_path = 'scraper_config.json'
+    scraper_config = {}
+    if os.path.exists(scraper_config_path):
+        try:
+            with open(scraper_config_path, 'r', encoding='utf-8') as f:
+                scraper_config = json.load(f)
+        except Exception as e:
+            scraper_config = {'error': str(e)}
+            
+    # Providers config placeholder
+    providers_config = {'note': 'Editing providers_config.py via web UI is currently disabled for safety.'}
+
+    return render_template('settings.html', title="Settings", active_page='settings', db_size=count, scraper_config=scraper_config, providers_config=providers_config)
+
+@main_bp.route('/settings/save', methods=['POST'])
+def save_settings():
+    try:
+        if 'scraper_config' in request.form:
+            config_data = request.form.get('scraper_config')
+            # Validate JSON
+            json_obj = json.loads(config_data)
+            
+            with open('scraper_config.json', 'w', encoding='utf-8') as f:
+                json.dump(json_obj, f, indent=4)
+                
+            flash('Scraper configuration saved.', 'success')
+            
+        elif 'providers_config' in request.form:
+            flash('Saving providers config is not implemented in this version.', 'warning')
+            
+    except json.JSONDecodeError:
+        flash('Invalid JSON format. Settings not saved.', 'danger')
+    except Exception as e:
+        flash(f'Error saving settings: {str(e)}', 'danger')
+        
+    return redirect(url_for('main.settings_page'))
 
 @main_bp.route('/database')
 def database_overview():

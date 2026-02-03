@@ -466,14 +466,17 @@ def analyze_movie():
             if 'voe.sx' in link or 'voe.lx' in link: return 'voe'
             if 'mixdrop' in link: return 'mixdrop'
             if 'filemoon' in link: return 'filemoon'
-            if 'earnvid' in link: return 'earnvid'
+            if 'earnvid' in link or 'dingtezuni' in link or 'earnvids' in link or 'minochinos' in link: return 'earnvid'
             return "unknown"
+
+        junk = ['googletagmanager', 'google-analytics', 'facebook', 'twitter', 'youtube', 'doubleclick', 'adnxs', 'recaptcha']
 
         # Check Iframes
         iframes = soup.find_all('iframe')
         for iframe in iframes:
             src = iframe.get('src') or iframe.get('data-src')
             if not src: continue
+            if any(j in src.lower() for j in junk): continue # Ignore junk iframes
             
             provider = detect_provider(src)
             # Only add if known or looks like a stream? No, add all iframes for manual review but mark unknown

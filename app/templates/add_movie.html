@@ -154,18 +154,31 @@
                             labelInfo = `<div style="font-size:11px; color:#666; margin-top:2px;">Auto Quality (HLS)</div>`;
                         }
 
+                        // Provider Select Logic
+                        const providersList = ['unknown', 'hglink', 'streamtape', 'doodstream', 'myvidplay', 'mixdrop', 'filemoon', 'earnvid', 'voe'];
+                        let providerOptions = '';
+                        providersList.forEach(p => {
+                            const sel = (p === (stream.provider || 'unknown')) ? 'selected' : '';
+                            providerOptions += `<option value="${p}" ${sel}>${p}</option>`;
+                        });
+
+                        const selectId = `prov_sel_${Math.random().toString(36).substr(2, 9)}`;
+
                         card.innerHTML = `
                         <div>
-                            <div style="font-weight: bold; margin-bottom: 5px; color: ${statusColor}">
-                                <i class="fas fa-server"></i> ${stream.provider || 'Unknown'} ${recommendation}
-                            </div>
-                            <div style="font-size: 11px; word-break: break-all; color: #666; margin-bottom: 5px;">
-                                ${domain}
-                            </div>
-                            ${labelInfo}
-                            ${isBroken ? '<div style="font-size: 10px; color: #ff6b6b;">Source URL is incomplete or invalid</div>' : ''}
+                             <div style="margin-bottom: 5px; display: flex; align-items: center;">
+                                <select id="${selectId}" style="background:#333; color:white; border:1px solid #555; border-radius:3px; padding:2px; font-size:12px; margin-right:5px;">
+                                     ${providerOptions}
+                                </select>
+                                ${recommendation}
+                             </div>
+                             <div style="font-size: 11px; word-break: break-all; color: #666; margin-bottom: 5px;">
+                                 <i class="fas fa-link"></i> ${domain}
+                             </div>
+                             ${labelInfo}
+                             ${isBroken ? '<div style="font-size: 10px; color: #ff6b6b;">Source URL is incomplete or invalid</div>' : ''}
                         </div>
-                        <button class="btn" ${btnAttr} style="${btnStyle}">
+                        <button class="btn" ${isBroken ? 'disabled' : `onclick="addMovieWithSelect('${stream.url}', '${selectId}')"`} style="${btnStyle}">
                             ${btnText}
                         </button>
                     `;
@@ -181,6 +194,11 @@
             btn.disabled = false;
             loading.style.display = 'none';
         }
+    }
+
+    function addMovieWithSelect(url, selectId) {
+        const provider = document.getElementById(selectId).value;
+        addMovie(url, provider);
     }
 
     async function addMovie(streamUrl, provider) {

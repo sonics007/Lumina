@@ -67,101 +67,132 @@
             </div>
 
             <script>
-                let pollInterval;
+                let pollTimer;
+                let isPolling = false;
 
                 function openScraperModal() {
                     document.getElementById('scraperModal').style.display = 'flex';
+                    // Start polling loop
                     pollStatus();
-                    pollInterval = setInterval(pollStatus, 1000);
                 }
 
                 function closeScraperModal() {
                     document.getElementById('scraperModal').style.display = 'none';
-                    if (pollInterval) clearInterval(pollInterval);
+                    if (pollTimer) clearTimeout(pollTimer);
+                    isPolling = false;
                 }
 
                 async function startScrape() {
-                    await fetch('/api/scraper/start', { method: 'POST' });
+                    try {
+                        await fetch('/api/scraper/start', { method: 'POST' });
+                        // Reset polling delay if stopped
+                        pollStatus();
+                    } catch (e) { console.error("Start error:", e); }
                 }
 
                 async function stopScrape() {
-                    await fetch('/api/scraper/stop', { method: 'POST' });
+                    try {
+                        await fetch('/api/scraper/stop', { method: 'POST' });
+                    } catch (e) { console.error("Stop error:", e); }
                 }
 
                 async function pollStatus() {
+                    // Prevent concurrent polls (congestion control)
+                    if (isPolling) return;
+                    isPolling = true;
+
                     try {
                         const res = await fetch('/api/scraper/status');
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
                         const data = await res.json();
 
-                        document.getElementById('scrStatus').innerText = data.status;
-                        document.getElementById('scrPage').innerText = `Page ${data.current_page} / ${data.max_pages}`;
-                        document.getElementById('scrFound').innerText = data.total_found;
+                        const statusEl = document.getElementById('scrStatus');
+                        if (statusEl) statusEl.innerText = data.status || 'Unknown';
+
+                        const pageEl = document.getElementById('scrPage');
+                        if (pageEl) pageEl.innerText = `Page ${data.current_page} / ${data.max_pages}`;
+
+                        const foundEl = document.getElementById('scrFound');
+                        if (foundEl) foundEl.innerText = data.total_found;
 
                         const logDiv = document.getElementById('scrLog');
-                        logDiv.innerHTML = data.log.join('<br>');
-                        logDiv.scrollTop = logDiv.scrollHeight;
+                        if (logDiv && data.log && Array.isArray(data.log)) {
+                            // Use limit to avoid huge DOM updates
+                            logDiv.innerHTML = data.log.join('<br>');
+                            logDiv.scrollTop = logDiv.scrollHeight;
+                        }
 
                         if (data.max_pages > 0) {
                             const pct = (data.current_page / data.max_pages) * 100;
-                            document.getElementById('scrBar').style.width = pct + '%';
+                            const bar = document.getElementById('scrBar');
+                            if (bar) bar.style.width = pct + '%';
                         }
-                    } catch (e) { console.error(e); }
+                    } catch (e) {
+                        console.error("Polling error:", e);
+                    } finally {
+                        isPolling = false;
+                        // Schedule next poll only if modal is still open. 
+                        // Using setTimeout instead of setInterval prevents stacking.
+                        if (document.getElementById('scraperModal').style.display !== 'none') {
+                            pollTimer = setTimeout(pollStatus, 2000); // 2 seconds delay
+                        }
+                    }
                 }
             </script>
         </div>
-    </div>
 
-    <!-- Import 1 Card -->
-    <div class="status-card">
-        <h3><i class="fas fa-filter"></i> Import Step 1</h3>
-        <div class="status-info">
-            <p><strong>Target:</strong> MyVidPlay Only</p>
-            <p><strong>Input:</strong> data/film_adult_movies_en.json</p>
-            <p><strong>Leftovers:</strong> playvid_ended/nepridane.json</p>
-            <p><strong>Description:</strong> Imports movies with MyVidPlay links.</p>
+        <!-- Import 1 Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-filter"></i> Import Step 1</h3>
+            <div class="status-info">
+                <p><strong>Target:</strong> MyVidPlay Only</p>
+                <p><strong>Input:</strong> data/film_adult_movies_en.json</p>
+                <p><strong>Leftovers:</strong> playvid_ended/nepridane.json</p>
+                <p><strong>Description:</strong> Imports movies with MyVidPlay links.</p>
+            </div>
+            <button class="action-btn" onclick="runScript('import1', this)">
+                <i class="fas fa-play"></i> Run Import (MyVidPlay)
+            </button>
         </div>
-        <button class="action-btn" onclick="runScript('import1', this)">
-            <i class="fas fa-play"></i> Run Import (MyVidPlay)
-        </button>
-    </div>
 
-    <!-- Import 2 Card -->
-    <div class="status-card">
-        <h3><i class="fas fa-layer-group"></i> Import Step 2</h3>
-        <div class="status-info">
-            <p><strong>Target:</strong> HGLink + Remainder</p>
-            <p><strong>Input:</strong> playvid_ended/nepridane.json</p>
-            <p><strong>Output:</strong> hglink_ended/nepridane.json</p>
-            <p><strong>Description:</strong> Imports remaining movies (HGLink).</p>
+        <!-- Import 2 Card -->
+        <div class="status-card">
+            <h3><i class="fas fa-layer-group"></i> Import Step 2</h3>
+            <div class="status-info">
+                <p><strong>Target:</strong> HGLink + Remainder</p>
+                <p><strong>Input:</strong> playvid_ended/nepridane.json</p>
+                <p><strong>Output:</strong> hglink_ended/nepridane.json</p>
+                <p><strong>Description:</strong> Imports remaining movies (HGLink).</p>
+            </div>
+            <button class="action-btn" onclick="runScript('import2', this)">
+                <i class="fas fa-play"></i> Run Import (HGLink)
+            </button>
         </div>
-        <button class="action-btn" onclick="runScript('import2', this)">
-            <i class="fas fa-play"></i> Run Import (HGLink)
-        </button>
-    </div>
 
-    <!-- Link Cleaner Card -->
-    <div class="status-card" style="border: 1px solid #ff4444;">
-        <h3 style="color:#ff6666"><i class="fas fa-broom"></i> Maintenance</h3>
-        <div class="status-info">
-            <p><strong>Action:</strong> Check DB and remove broken links.</p>
-            <p><strong>Target:</strong> Movies without stream ID.</p>
+        <!-- Link Cleaner Card -->
+        <div class="status-card" style="border: 1px solid #ff4444;">
+            <h3 style="color:#ff6666"><i class="fas fa-broom"></i> Maintenance</h3>
+            <div class="status-info">
+                <p><strong>Action:</strong> Check DB and remove broken links.</p>
+                <p><strong>Target:</strong> Movies without stream ID.</p>
+            </div>
+            <button class="action-btn" onclick="runScript('clean', this)" style="background:#cc0000">
+                <i class="fas fa-trash"></i> Clean Broken Links
+            </button>
         </div>
-        <button class="action-btn" onclick="runScript('clean', this)" style="background:#cc0000">
-            <i class="fas fa-trash"></i> Clean Broken Links
-        </button>
     </div>
-</div>
 
-<!-- Console Output -->
-<div class="console-box">
-    <div class="console-header">
-        <span><i class="fas fa-terminal"></i> Task Output Log</span>
-        <button class="clear-btn" onclick="clearConsole()">Clear</button>
+    <!-- Console Output -->
+    <div class="console-box">
+        <div class="console-header">
+            <span><i class="fas fa-terminal"></i> Task Output Log</span>
+            <button class="clear-btn" onclick="clearConsole()">Clear</button>
+        </div>
+        <div class="console-content" id="console-output">
+            Waiting for action...
+        </div>
     </div>
-    <div class="console-content" id="console-output">
-        Waiting for action...
-    </div>
-</div>
 </div>
 
 <style>

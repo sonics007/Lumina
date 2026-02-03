@@ -240,6 +240,21 @@ def groups_page():
 @main_bp.route('/player')
 def player_page():
     url = request.args.get('url')
+    
+    # Auto-Proxy for provider URLs entered manually
+    if url:
+        NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
+        if any(x in url for x in NEEDS_PROXY) and 'http' in url and '/watch' not in url:
+             from urllib.parse import quote
+             host_base = request.host_url.rstrip('/')
+             
+             # Add default referer for HGLink if manually played
+             ref_param = ""
+             if 'hglink' in url:
+                 ref_param = f"&referer={quote('https://film-adult.top/')}"
+                 
+             url = f"{host_base}/watch?url={quote(url)}{ref_param}&pid=web"
+
     return render_template('player.html', title="Player", active_page='player', url=url)
 
 @main_bp.route('/player/<int:movie_id>')

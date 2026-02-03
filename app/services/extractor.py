@@ -341,7 +341,12 @@ def get_stream_url(input_url, session=None, _recursion_depth=0, referer=None):
                             # Centaurus CDN often rejects requests with incorrect Origin/Referer
                             parsed = urlparse(r.url)
                             headers['Origin'] = f"{parsed.scheme}://{parsed.netloc}"
-                            headers['Referer'] = str(r.url)
+                            
+                            # v7 style override for HGLink CDN access (force main domain as referer)
+                            if 'hglink' in str(r.url) or 'haxloppd' in str(r.url) or 'shavtape' in str(r.url):
+                                headers['Referer'] = 'https://hglink.to/'
+                            else:
+                                headers['Referer'] = str(r.url)
                             
                             # Pass cookies (Centaurus might need them)
                             try:

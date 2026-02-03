@@ -670,7 +670,7 @@ def movie_stream_vod(username, password, stream_id, ext=None):
     # --- PROXY REDIRECT for Providers (HGLink, StreamTape, etc.) ---
     # Redirect to internal /watch proxy which handles extraction, headers, and M3U8 rewriting.
     # We use /watch because these providers require specific headers or are HLS streams needing rewrite.
-    NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
+    NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay', 'dingtezuni', 'earnvids', 'minochinos']
     
     # Check if needs proxy (and avoid circular loop if already proxied)
     # Check if needs proxy (and avoid circular loop if already proxied)

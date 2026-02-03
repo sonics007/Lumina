@@ -203,7 +203,7 @@ def extract_with_ytdlp(url):
         logger.error(f"yt-dlp failed: {e}")
     return None, None
 
-def get_stream_url(input_url, session=None, _recursion_depth=0):
+def get_stream_url(input_url, session=None, _recursion_depth=0, referer=None):
     """
     Main extraction function supporting multi-layer obfuscation and nested iframes.
     """
@@ -233,13 +233,13 @@ def get_stream_url(input_url, session=None, _recursion_depth=0):
                 embed_url = match_iframe.group(1)
                 if embed_url.startswith('//'): embed_url = 'https:' + embed_url
                 logger.info(f"Found embed: {embed_url}")
-                return get_stream_url(embed_url, _recursion_depth=_recursion_depth+1)
+                return get_stream_url(embed_url, _recursion_depth=_recursion_depth+1, referer=referer)
         except Exception as e:
             logger.error(f"Failed to parse embed page: {e}")
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Referer': config.get('referer', input_url),
+        'Referer': referer if referer else config.get('referer', input_url),
         'Accept': '*/*',
         'Accept-Language': 'en-US,en;q=0.9',
     }
@@ -286,14 +286,14 @@ def get_stream_url(input_url, session=None, _recursion_depth=0):
             parsed = urlparse(input_url)
             for mirror in mirrors:
                 new_url = input_url.replace(parsed.netloc, mirror)
-                s_url, s_headers = get_stream_url(new_url, session=session, _recursion_depth=_recursion_depth+1)
+                s_url, s_headers = get_stream_url(new_url, session=session, _recursion_depth=_recursion_depth+1, referer=referer)
                 if s_url:
                     return s_url, s_headers
             
             # User Strategy: Wait and Retry (Simulate main.js redirect)
             logger.info("Mirrors failed. Waiting 2.5s for redirect...")
             time.sleep(2.5)
-            return get_stream_url(input_url, session=session, _recursion_depth=_recursion_depth+1)
+            return get_stream_url(input_url, session=session, _recursion_depth=_recursion_depth+1, referer=referer)
 
         # 0. Check for unescape() obfuscation - Iterate ALL matches
         if 'unescape' in html:
@@ -382,7 +382,7 @@ def get_stream_url(input_url, session=None, _recursion_depth=0):
                 if iframe_url == input_url: continue
                 
                 # Recursive attempt
-                s_url, s_headers = get_stream_url(iframe_url, session=session, _recursion_depth=_recursion_depth+1) # Pass session!
+                s_url, s_headers = get_stream_url(iframe_url, session=session, _recursion_depth=_recursion_depth+1, referer=referer) # Pass session!
                 if s_url:
                      return s_url, s_headers
 

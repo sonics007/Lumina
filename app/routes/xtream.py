@@ -673,11 +673,23 @@ def movie_stream_vod(username, password, stream_id, ext=None):
     NEEDS_PROXY = ['hglink', 'streamtape', 'dood', 'voe.sx', 'mixdrop', 'filemoon', 'earnvid', 'myvidplay']
     
     # Check if needs proxy (and avoid circular loop if already proxied)
+    # Check if needs proxy (and avoid circular loop if already proxied)
     if target_url and any(x in target_url for x in NEEDS_PROXY) and 'http' in target_url and '/watch' not in target_url:
         from urllib.parse import quote
         proxy_base = request.host_url.rstrip('/')
-        logging.info(f"Redirecting provider URL to internal proxy: {target_url}")
-        return redirect(f"{proxy_base}/watch?url={quote(target_url)}")
+        
+        # Determine Source Referer (Critical for HGLink/Uiiu)
+        src_referer = ''
+        try:
+             # Try to guess based on source tag or movie url
+             if movie:
+                 if movie.source == 'uiiumovie': src_referer = 'https://uiiumovie.com/'
+                 elif movie.source == 'film-adult' or (movie.url and 'film-adult' in movie.url): src_referer = 'https://film-adult.top/'
+                 elif movie.url: src_referer = movie.url
+        except: pass
+        
+        logging.info(f"Redirecting provider URL to internal proxy: {target_url} Ref: {src_referer}")
+        return redirect(f"{proxy_base}/watch?url={quote(target_url)}&referer={quote(src_referer)}")
     # ---------------------------------------------------
 
     try:

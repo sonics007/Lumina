@@ -41,8 +41,10 @@ def watch():
     import logging
     source_url = unquote(request.args.get('url'))
     pid = request.args.get('pid', 'default')
+    src_ref = request.args.get('referer', '')
+    if src_ref: src_ref = unquote(src_ref)
     
-    logging.info(f"Watch Proxy Request: URL={source_url} PID={pid}")
+    logging.info(f"Watch Proxy Request: URL={source_url} PID={pid} REF={src_ref}")
     
     # --- LOGGING START ---
     try:
@@ -135,7 +137,7 @@ def watch():
                import socket
                socket.setdefaulttimeout(30)
                
-               res = get_stream_url(source_url)
+               res = get_stream_url(source_url, referer=src_ref if src_ref else None)
                if res and res[0]:
                    real_stream, headers = res
                    STREAM_CACHE[source_url] = (real_stream, headers, time.time())

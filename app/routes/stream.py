@@ -14,10 +14,18 @@ CACHE_DURATION = 3600 * 12
 
 
 
+# FORCE IPv4 Global Fix
+import socket
+import requests.packages.urllib3.util.connection as urllib3_cn
+def allowed_gai_family():
+    return socket.AF_INET
+urllib3_cn.allowed_gai_family = allowed_gai_family
+
 def get_scraper_session():
     try:
         from curl_cffi import requests as c_requests
-        return c_requests.Session(impersonate="chrome110")
+        # Use chrome120 to match extractor success
+        return c_requests.Session(impersonate="chrome120")
     except Exception as e:
         import requests
         s = requests.Session()
@@ -179,6 +187,11 @@ def watch():
         # Logic to determine if it is a binary video stream
         is_video_content = 'video/' in ct or 'application/octet-stream' in ct
         is_hls_content = 'mpegurl' in ct or 'x-mpegurl' in ct
+        
+        # FIX: Ensure .txt and .m3u8 are treated as HLS even if Content-Type is text/plain
+        if '.m3u8' in real_stream or '.txt' in real_stream or '.urlset' in real_stream:
+             is_hls_content = True
+             is_video_content = False
         
         if force_video and not is_hls_content:
              is_video_content = True

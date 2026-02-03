@@ -1039,6 +1039,7 @@ def scraper_monitor_task():
 @main_bp.route('/api/scraper/start', methods=['POST'])
 def scraper_api_start():
     global scraper_state
+    import sys
     
     if scraper_state['process'] and scraper_state['process'].poll() is None:
         return jsonify({'status': 'running', 'message': 'Scraper already running'})
@@ -1050,9 +1051,9 @@ def scraper_api_start():
     script_path = os.path.join('adult_film_data', 'scrape_film_adult_full.py')
     
     try:
-        # Run python -u (unbuffered)
+        # Run python -u (unbuffered) using current interpreter
         proc = subprocess.Popen(
-            ['python', '-u', script_path],
+            [sys.executable, '-u', script_path],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             cwd=os.getcwd()

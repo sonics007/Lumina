@@ -24,7 +24,46 @@ def check_auth(username, password):
     return False
 
 # --- UI Routes (Management) ---
-# ... (skip) ...
+
+@xtream_bp.route('/xtream')
+def xtream_page():
+    users = XtreamUser.query.all()
+    # Also pass server URL info for display
+    return render_template('xtream_info.html', title="Xtream API", active_page='xtream', users=users)
+
+@xtream_bp.route('/xtream/add_user', methods=['POST'])
+def add_user():
+    username = request.form.get('username')
+    password = request.form.get('password')
+    try:
+        max_conns = int(request.form.get('max_connections', 1))
+    except:
+        max_conns = 1
+    
+    if XtreamUser.query.filter_by(username=username).first():
+        # User exists - flash message would be nice but for now just log
+        logging.warning(f"Xtream Add User Failed: {username} already exists")
+        return redirect(url_for('xtream.xtream_page'))
+        
+    try:
+        new_user = XtreamUser(username=username, password=password, max_connections=max_conns)
+        db.session.add(new_user)
+        db.session.commit()
+        logging.info(f"Xtream User Added: {username}")
+    except Exception as e:
+        logging.error(f"Error adding user: {e}")
+        db.session.rollback()
+        
+    return redirect(url_for('xtream.xtream_page'))
+
+@xtream_bp.route('/xtream/delete_user/<int:user_id>')
+def delete_user(user_id):
+    user = XtreamUser.query.get(user_id)
+    # Don't delete last admin maybe? Or just allow it.
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+    return redirect(url_for('xtream.xtream_page'))
 
 # --- Xtream API Routes ---
 
@@ -49,12 +88,18 @@ def player_api():
 
     # 1. Login / Server Info
     if not action:
-        # Resolve 'exp_date' safe way
-        exp = "1999999999"
-        
+        # Resolve user object safely for both DB users and hardcoded admins
         user_db = XtreamUser.query.filter_by(username=username).first()
-        if user_db and user_db.exp_date:
-            exp = user_db.exp_date
+        
+        class MockUser:
+            max_connections = "Unlimited"
+            exp_date = "1999999999"
+        
+        # If user not in DB (e.g. root/admin hardcoded), use MockUser
+        user_obj = user_db if user_db else MockUser()
+        
+        exp = user_obj.exp_date if user_obj.exp_date else "1999999999"
+        max_c = str(user_obj.max_connections)
         
         return jsonify({
             "user_info": {
@@ -67,7 +112,7 @@ def player_api():
                 "is_trial": "0",
                 "active_cons": "0",
                 "created_at": "1514764800",
-                "max_connections": str(user.max_connections),
+                "max_connections": max_c,
                 "allowed_output_formats": ["m3u8", "ts", "mp4"]
             },
             "server_info": {
